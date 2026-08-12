@@ -541,3 +541,55 @@ footer {
     transition: none !important;
   }
 }
+
+
+
+
+
+/* GALERIA — GRADE 2 x 3 */
+
+.mural-gallery,
+.macrame-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.mural-gallery .portfolio-item,
+.macrame-gallery .portfolio-item,
+.mural-gallery .portfolio-item.large,
+.macrame-gallery .portfolio-item.large,
+.mural-gallery .portfolio-item.wide,
+.macrame-gallery .portfolio-item.wide {
+  grid-column: span 1;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  overflow: hidden;
+}
+
+.mural-gallery .portfolio-item img,
+.macrame-gallery .portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mantém 2 imagens lado a lado no celular */
+
+@media (max-width: 600px) {
+  .mural-gallery,
+  .macrame-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .mural-gallery .portfolio-item,
+  .macrame-gallery .portfolio-item,
+  .mural-gallery .portfolio-item.large,
+  .macrame-gallery .portfolio-item.large,
+  .mural-gallery .portfolio-item.wide,
+  .macrame-gallery .portfolio-item.wide {
+    grid-column: span 1;
+    aspect-ratio: 1 / 1;
+  }
+}
