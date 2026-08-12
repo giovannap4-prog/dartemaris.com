@@ -593,3 +593,10 @@ footer {
     aspect-ratio: 1 / 1;
   }
 }
+
+
+/* AJUSTE — imagem Sobre a artista */
+
+.about-image {
+  max-width: 92%;
+}
