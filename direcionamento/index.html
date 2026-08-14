@@ -9,14 +9,14 @@
 <style>
 
 :root {
-  --verde: #20372f;
-  --verde-suave: #53665e;
-  --terracota: #a7654f;
+  --verde: #18342b;
+  --verde-suave: #40564d;
+  --terracota: #96543f;
   --creme: #f4f0e7;
   --papel: #fbfaf6;
-  --texto: #303a36;
-  --cinza: #7b827e;
-  --linha: rgba(32,55,47,.16);
+  --texto: #263630;
+  --cinza: #68736e;
+  --linha: rgba(32,55,47,.18);
 
   --serif: Georgia, "Times New Roman", serif;
   --sans: Arial, Helvetica, sans-serif;
@@ -36,7 +36,7 @@ body {
   color: var(--texto);
   font-family: var(--sans);
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 button,
@@ -55,7 +55,9 @@ button {
   flex-direction: column;
 }
 
-/* CABEÇALHO */
+/* =========================
+   CABEÇALHO
+========================= */
 
 .header {
   padding: 25px 7vw;
@@ -72,13 +74,15 @@ button {
 }
 
 .header-label {
-  font-size: 9px;
-  letter-spacing: .18em;
+  font-size: 11px;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--cinza);
+  color: var(--verde-suave);
 }
 
-/* PROGRESSO */
+/* =========================
+   PROGRESSO
+========================= */
 
 .progress-container {
   width: min(900px, 86vw);
@@ -95,13 +99,15 @@ button {
   position: absolute;
   left: 0;
   top: 0;
-  height: 1px;
+  height: 2px;
   width: 0;
   background: var(--terracota);
   transition: width .5s ease;
 }
 
-/* CONTEÚDO */
+/* =========================
+   CONTEÚDO
+========================= */
 
 main {
   width: min(900px, 86vw);
@@ -134,14 +140,17 @@ main {
 
 }
 
-/* TIPOGRAFIA */
+/* =========================
+   TIPOGRAFIA
+========================= */
 
 .eyebrow {
-  font-size: 9px;
-  letter-spacing: .2em;
+  font-size: 11px;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--terracota);
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 h1,
@@ -149,22 +158,23 @@ h2 {
   font-family: var(--serif);
   font-weight: 400;
   color: var(--verde);
-  line-height: 1.1;
+  line-height: 1.12;
 }
 
 h1 {
-  font-size: clamp(45px, 8vw, 78px);
+  font-size: clamp(40px, 6vw, 62px);
   margin: 0 0 25px;
 }
 
 h2 {
-  font-size: clamp(34px, 5vw, 52px);
-  margin: 0 0 22px;
+  font-size: clamp(32px, 4vw, 44px);
+  margin: 0 0 24px;
 }
 
 .intro {
   max-width: 650px;
-  font-size: 17px;
+  font-size: 16px;
+  line-height: 1.75;
   color: var(--verde-suave);
 }
 
@@ -174,10 +184,13 @@ h2 {
   padding-top: 18px;
   border-top: 1px solid var(--linha);
   font-size: 13px;
+  line-height: 1.7;
   color: var(--cinza);
 }
 
-/* PERGUNTAS */
+/* =========================
+   PERGUNTAS
+========================= */
 
 .question {
   margin-top: 45px;
@@ -185,27 +198,37 @@ h2 {
 
 .question-title {
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: 22px;
+  line-height: 1.35;
   color: var(--verde);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .hint {
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--cinza);
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
+
+/* =========================
+   CAMPOS
+========================= */
 
 textarea,
 input[type="text"] {
 
   width: 100%;
+
   background: transparent;
 
   border: 0;
+
   border-bottom: 1px solid var(--linha);
 
-  padding: 13px 0;
+  border-radius: 0;
+
+  padding: 14px 0;
 
   outline: none;
 
@@ -215,11 +238,19 @@ input[type="text"] {
 
   font-size: 16px;
 
+  line-height: 1.6;
+
 }
 
 textarea {
-  min-height: 110px;
+  min-height: 115px;
   resize: vertical;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #8b918d;
+  opacity: 1;
 }
 
 textarea:focus,
@@ -227,12 +258,14 @@ input[type="text"]:focus {
   border-color: var(--terracota);
 }
 
-/* OPÇÕES */
+/* =========================
+   OPÇÕES
+========================= */
 
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 11px;
 }
 
 .option {
@@ -250,9 +283,11 @@ input[type="text"]:focus {
 
   border: 1px solid var(--linha);
 
-  padding: 15px;
+  padding: 16px;
 
-  font-size: 13px;
+  font-size: 14px;
+
+  line-height: 1.4;
 
   color: var(--verde-suave);
 
@@ -274,10 +309,12 @@ input[type="text"]:focus {
 
 }
 
-/* SLIDERS */
+/* =========================
+   SLIDERS
+========================= */
 
 .slider {
-  margin: 32px 0 40px;
+  margin: 34px 0 42px;
 }
 
 .slider-names {
@@ -290,7 +327,7 @@ input[type="text"]:focus {
 
   font-family: var(--serif);
 
-  font-size: 19px;
+  font-size: 18px;
 
   color: var(--verde);
 
@@ -317,6 +354,7 @@ input[type="text"]:focus {
   appearance: none;
 
   width: 18px;
+
   height: 18px;
 
   border-radius: 50%;
@@ -332,6 +370,7 @@ input[type="text"]:focus {
 .range::-moz-range-thumb {
 
   width: 14px;
+
   height: 14px;
 
   border-radius: 50%;
@@ -346,11 +385,11 @@ input[type="text"]:focus {
 
   text-align: center;
 
-  margin-top: 9px;
+  margin-top: 10px;
 
-  font-size: 9px;
+  font-size: 11px;
 
-  letter-spacing: .15em;
+  letter-spacing: .10em;
 
   text-transform: uppercase;
 
@@ -358,7 +397,9 @@ input[type="text"]:focus {
 
 }
 
-/* BOTÕES */
+/* =========================
+   BOTÕES
+========================= */
 
 .actions {
 
@@ -374,19 +415,23 @@ input[type="text"]:focus {
 
   align-items: center;
 
+  gap: 20px;
+
 }
 
 .button {
 
   border: 0;
 
-  padding: 14px 22px;
+  padding: 15px 23px;
 
-  font-size: 10px;
+  font-size: 11px;
 
-  letter-spacing: .14em;
+  letter-spacing: .12em;
 
   text-transform: uppercase;
+
+  font-weight: 500;
 
 }
 
@@ -412,7 +457,9 @@ input[type="text"]:focus {
 
 }
 
-/* FINAL */
+/* =========================
+   FINAL
+========================= */
 
 .final-box {
 
@@ -430,6 +477,10 @@ input[type="text"]:focus {
 
   max-width: 600px;
 
+  font-size: 15px;
+
+  line-height: 1.75;
+
 }
 
 .whatsapp {
@@ -438,9 +489,9 @@ input[type="text"]:focus {
 
   width: 100%;
 
-  max-width: 420px;
+  max-width: 460px;
 
-  padding: 17px 24px;
+  padding: 18px 24px;
 
   background: var(--terracota);
 
@@ -448,11 +499,13 @@ input[type="text"]:focus {
 
   border: 0;
 
-  font-size: 10px;
+  font-size: 11px;
 
-  letter-spacing: .14em;
+  letter-spacing: .12em;
 
   text-transform: uppercase;
+
+  font-weight: 500;
 
 }
 
@@ -464,13 +517,19 @@ input[type="text"]:focus {
 
   margin-top: 18px;
 
-  font-size: 11px;
+  font-size: 12px;
+
+  line-height: 1.6;
 
   color: var(--cinza);
 
+  max-width: 460px;
+
 }
 
-/* RODAPÉ */
+/* =========================
+   RODAPÉ
+========================= */
 
 .footer {
 
@@ -482,15 +541,17 @@ input[type="text"]:focus {
 
   color: var(--cinza);
 
-  font-size: 9px;
+  font-size: 10px;
 
-  letter-spacing: .18em;
+  letter-spacing: .12em;
 
   text-transform: uppercase;
 
 }
 
-/* CELULAR */
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 650px) {
 
@@ -500,6 +561,26 @@ input[type="text"]:focus {
 
   .header-label {
     display: none;
+  }
+
+  main {
+    width: 86vw;
+  }
+
+  .page {
+    padding-top: 7vh;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  h2 {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+
+  .question-title {
+    font-size: 21px;
   }
 
   .options {
@@ -514,6 +595,23 @@ input[type="text"]:focus {
     margin-top: 42px;
   }
 
+  .button {
+    padding: 14px 18px;
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--terracota);
+  outline-offset: 4px;
 }
 
 </style>
@@ -555,7 +653,9 @@ input[type="text"]:focus {
 <main>
 
 
-<!-- ABERTURA -->
+<!-- =========================
+     ABERTURA
+========================= -->
 
 <section class="page active">
 
@@ -604,7 +704,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 01 -->
+<!-- =========================
+     ETAPA 01
+========================= -->
 
 <section class="page">
 
@@ -666,7 +768,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 02 -->
+<!-- =========================
+     ETAPA 02
+========================= -->
 
 <section class="page">
 
@@ -828,7 +932,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 03 -->
+<!-- =========================
+     ETAPA 03
+========================= -->
 
 <section class="page">
 
@@ -890,7 +996,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 04 -->
+<!-- =========================
+     ETAPA 04
+========================= -->
 
 <section class="page">
 
@@ -1088,7 +1196,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 05 -->
+<!-- =========================
+     ETAPA 05
+========================= -->
 
 <section class="page">
 
@@ -1203,7 +1313,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 06 -->
+<!-- =========================
+     ETAPA 06
+========================= -->
 
 <section class="page">
 
@@ -1251,7 +1363,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- 07 -->
+<!-- =========================
+     ETAPA 07
+========================= -->
 
 <section class="page">
 
@@ -1350,7 +1464,9 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- FINAL -->
+<!-- =========================
+     FINAL
+========================= -->
 
 <section class="page">
 
@@ -1755,6 +1871,10 @@ function carregar() {
 }
 
 
+/* =========================
+   EVENTOS DE SALVAMENTO
+========================= */
+
 document
   .querySelectorAll(
     "textarea, input"
@@ -1996,7 +2116,7 @@ ${dados.momento || "Não informado."}
 
 Envio essas informações como ponto de partida para nossa conversa.
 
-  `.trim();
+`.trim();
 
 
   const url =
