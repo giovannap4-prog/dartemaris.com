@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#18352b">
 
 <title>D’Arte Maris — Direcionamento Artístico</title>
 
 <style>
+
 :root {
-  --verde: #1d352d;
-  --verde-claro: #365248;
-  --creme: #f5f1e8;
+  --verde: #20372f;
+  --verde-suave: #53665e;
+  --terracota: #a7654f;
+  --creme: #f4f0e7;
   --papel: #fbfaf6;
-  --texto: #28342f;
-  --suave: #707872;
-  --linha: rgba(40, 52, 47, 0.16);
+  --texto: #303a36;
+  --cinza: #7b827e;
+  --linha: rgba(32,55,47,.16);
+
   --serif: Georgia, "Times New Roman", serif;
   --sans: Arial, Helvetica, sans-serif;
 }
@@ -33,8 +35,8 @@ body {
   background: var(--creme);
   color: var(--texto);
   font-family: var(--sans);
-  font-weight: 300;
   line-height: 1.65;
+  font-weight: 300;
 }
 
 button,
@@ -56,7 +58,7 @@ button {
 /* CABEÇALHO */
 
 .header {
-  padding: 24px 6vw;
+  padding: 25px 7vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,17 +72,17 @@ button {
 }
 
 .header-label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 9px;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--suave);
+  color: var(--cinza);
 }
 
 /* PROGRESSO */
 
 .progress-container {
-  width: min(900px, 88vw);
-  margin: 25px auto 0;
+  width: min(900px, 86vw);
+  margin: 26px auto 0;
 }
 
 .progress-line {
@@ -91,37 +93,18 @@ button {
 
 .progress-fill {
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   height: 1px;
-  width: 0%;
-  background: var(--verde);
-  transition: width 0.5s ease;
-}
-
-.progress-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  overflow: hidden;
-}
-
-.progress-label {
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #aaa;
-  white-space: nowrap;
-}
-
-.progress-label.active {
-  color: var(--verde);
+  width: 0;
+  background: var(--terracota);
+  transition: width .5s ease;
 }
 
 /* CONTEÚDO */
 
 main {
-  width: min(900px, 88vw);
+  width: min(900px, 86vw);
   margin: auto;
   flex: 1;
 }
@@ -130,7 +113,7 @@ main {
   display: none;
   min-height: calc(100vh - 170px);
   padding: 8vh 0 7vh;
-  animation: aparecer 0.45s ease;
+  animation: aparecer .45s ease;
 }
 
 .page.active {
@@ -138,6 +121,7 @@ main {
 }
 
 @keyframes aparecer {
+
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -147,13 +131,16 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
 
+/* TIPOGRAFIA */
+
 .eyebrow {
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: 9px;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--suave);
+  color: var(--terracota);
   margin-bottom: 20px;
 }
 
@@ -162,7 +149,7 @@ h2 {
   font-family: var(--serif);
   font-weight: 400;
   color: var(--verde);
-  line-height: 1.12;
+  line-height: 1.1;
 }
 
 h1 {
@@ -178,16 +165,16 @@ h2 {
 .intro {
   max-width: 650px;
   font-size: 17px;
-  color: #59635e;
+  color: var(--verde-suave);
 }
 
 .note {
   max-width: 620px;
-  margin-top: 42px;
+  margin-top: 40px;
   padding-top: 18px;
   border-top: 1px solid var(--linha);
   font-size: 13px;
-  color: var(--suave);
+  color: var(--cinza);
 }
 
 /* PERGUNTAS */
@@ -205,21 +192,29 @@ h2 {
 
 .hint {
   font-size: 12px;
-  color: var(--suave);
+  color: var(--cinza);
   margin-bottom: 15px;
 }
 
 textarea,
 input[type="text"] {
+
   width: 100%;
   background: transparent;
+
   border: 0;
   border-bottom: 1px solid var(--linha);
-  border-radius: 0;
+
   padding: 13px 0;
+
   outline: none;
-  color: var(--texto);
+
+  color: var(--terracota);
+
+  caret-color: var(--terracota);
+
   font-size: 16px;
+
 }
 
 textarea {
@@ -229,7 +224,7 @@ textarea {
 
 textarea:focus,
 input[type="text"]:focus {
-  border-color: var(--verde);
+  border-color: var(--terracota);
 }
 
 /* OPÇÕES */
@@ -250,22 +245,33 @@ input[type="text"]:focus {
 }
 
 .option label {
+
   display: block;
+
   border: 1px solid var(--linha);
+
   padding: 15px;
+
   font-size: 13px;
-  color: #59635e;
-  transition: 0.25s ease;
+
+  color: var(--verde-suave);
+
+  transition: .25s ease;
+
 }
 
 .option label:hover {
-  border-color: var(--verde);
+  border-color: var(--terracota);
 }
 
 .option input:checked + label {
+
   background: var(--verde);
+
   border-color: var(--verde);
+
   color: var(--papel);
+
 }
 
 /* SLIDERS */
@@ -275,164 +281,225 @@ input[type="text"]:focus {
 }
 
 .slider-names {
+
   display: flex;
+
   justify-content: space-between;
+
   gap: 20px;
+
   font-family: var(--serif);
+
   font-size: 19px;
+
   color: var(--verde);
+
 }
 
 .range {
+
   width: 100%;
+
   margin-top: 18px;
+
   appearance: none;
+
   height: 2px;
+
   background: var(--linha);
+
   outline: none;
+
 }
 
 .range::-webkit-slider-thumb {
+
   appearance: none;
+
   width: 18px;
   height: 18px;
+
   border-radius: 50%;
-  background: var(--verde);
+
+  background: var(--terracota);
+
   border: 3px solid var(--creme);
-  box-shadow: 0 0 0 1px var(--verde);
+
+  box-shadow: 0 0 0 1px var(--terracota);
+
 }
 
 .range::-moz-range-thumb {
+
   width: 14px;
   height: 14px;
+
   border-radius: 50%;
-  background: var(--verde);
+
+  background: var(--terracota);
+
   border: 3px solid var(--creme);
+
 }
 
 .range-value {
+
   text-align: center;
+
   margin-top: 9px;
+
   font-size: 9px;
-  letter-spacing: 0.15em;
+
+  letter-spacing: .15em;
+
   text-transform: uppercase;
-  color: var(--suave);
+
+  color: var(--terracota);
+
 }
 
 /* BOTÕES */
 
 .actions {
+
   margin-top: 55px;
+
   padding-top: 22px;
+
   border-top: 1px solid var(--linha);
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
 }
 
 .button {
+
   border: 0;
+
   padding: 14px 22px;
+
   font-size: 10px;
-  letter-spacing: 0.14em;
+
+  letter-spacing: .14em;
+
   text-transform: uppercase;
+
 }
 
 .primary {
+
   background: var(--verde);
+
   color: var(--papel);
+
 }
 
 .primary:hover {
-  background: var(--verde-claro);
+  background: var(--verde-suave);
 }
 
 .secondary {
+
   background: transparent;
+
   color: var(--verde);
+
   padding-left: 0;
+
 }
 
-/* RESUMO */
+/* FINAL */
 
-.summary {
+.final-box {
+
   margin-top: 42px;
+
   background: var(--papel);
-  padding: clamp(28px, 5vw, 60px);
+
+  padding: clamp(30px, 5vw, 60px);
+
 }
 
-.summary-block {
-  padding-bottom: 28px;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--linha);
+.final-box p {
+
+  color: var(--verde-suave);
+
+  max-width: 600px;
+
 }
 
-.summary-block:last-child {
-  border-bottom: 0;
-  margin-bottom: 0;
-}
+.whatsapp {
 
-.summary-title {
-  font-size: 9px;
-  letter-spacing: 0.18em;
+  margin-top: 30px;
+
+  width: 100%;
+
+  max-width: 420px;
+
+  padding: 17px 24px;
+
+  background: var(--terracota);
+
+  color: white;
+
+  border: 0;
+
+  font-size: 10px;
+
+  letter-spacing: .14em;
+
   text-transform: uppercase;
-  color: var(--suave);
-  margin-bottom: 12px;
+
 }
 
-.summary-question {
-  font-size: 12px;
-  color: var(--suave);
-  margin-top: 15px;
+.whatsapp:hover {
+  opacity: .9;
 }
 
-.summary-answer {
-  font-size: 15px;
-  white-space: pre-wrap;
-}
+.small-text {
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
+  margin-top: 18px;
 
-.tag {
-  padding: 7px 10px;
-  background: var(--creme);
   font-size: 11px;
+
+  color: var(--cinza);
+
 }
 
 /* RODAPÉ */
 
 .footer {
-  padding: 30px 6vw;
+
+  padding: 30px 7vw;
+
   border-top: 1px solid var(--linha);
+
   text-align: center;
-  color: var(--suave);
+
+  color: var(--cinza);
+
   font-size: 9px;
-  letter-spacing: 0.18em;
+
+  letter-spacing: .18em;
+
   text-transform: uppercase;
+
 }
 
-/* MOBILE */
+/* CELULAR */
 
 @media (max-width: 650px) {
 
   .header {
-    padding: 20px 6vw;
+    padding: 20px 7vw;
   }
 
   .header-label {
     display: none;
-  }
-
-  .progress-label:nth-child(even) {
-    display: none;
-  }
-
-  .page {
-    padding-top: 7vh;
   }
 
   .options {
@@ -446,77 +513,55 @@ input[type="text"]:focus {
   .actions {
     margin-top: 42px;
   }
+
 }
 
-/* IMPRESSÃO */
-
-@media print {
-
-  body {
-    background: white;
-  }
-
-  .header,
-  .progress-container,
-  .actions,
-  .footer {
-    display: none !important;
-  }
-
-  main {
-    width: 100%;
-  }
-
-  .page {
-    display: none !important;
-  }
-
-  #summary-page {
-    display: block !important;
-    min-height: auto;
-    padding: 0;
-  }
-
-  .summary {
-    padding: 0;
-  }
-}
 </style>
 </head>
+
 
 <body>
 
 <div class="site">
 
+
 <header class="header">
-  <div class="logo">D’Arte Maris</div>
-  <div class="header-label">Direcionamento Artístico</div>
+
+  <div class="logo">
+    D’Arte Maris
+  </div>
+
+  <div class="header-label">
+    Direcionamento Artístico
+  </div>
+
 </header>
 
+
 <div class="progress-container">
+
   <div class="progress-line">
-    <div class="progress-fill" id="progress"></div>
+
+    <div
+      class="progress-fill"
+      id="progress"
+    ></div>
+
   </div>
 
-  <div class="progress-labels">
-    <span class="progress-label">Início</span>
-    <span class="progress-label">Olhar</span>
-    <span class="progress-label">Lugar</span>
-    <span class="progress-label">Propósito</span>
-    <span class="progress-label">Linguagem</span>
-    <span class="progress-label">Possibilidade</span>
-    <span class="progress-label">Resultado</span>
-    <span class="progress-label">Momento</span>
-  </div>
 </div>
+
 
 <main>
 
-<!-- INÍCIO -->
+
+<!-- ABERTURA -->
 
 <section class="page active">
 
-  <div class="eyebrow">Antes da nossa conversa</div>
+  <div class="eyebrow">
+    Antes da nossa conversa
+  </div>
 
   <h1>
     Direcionamento<br>
@@ -524,34 +569,53 @@ input[type="text"]:focus {
   </h1>
 
   <p class="intro">
-    Gostaria de conhecer um pouco melhor a sua necessidade,
-    entender o que despertou seu interesse pelo meu trabalho
-    e explorar as possibilidades para uma futura intervenção artística.
+
+    Antes da nossa conversa, gostaria de conhecer
+    um pouco melhor a sua necessidade, entender o
+    que despertou seu interesse pelo meu trabalho
+    e explorar as possibilidades para uma futura
+    intervenção artística.
+
   </p>
 
   <p class="note">
+
     Este breve direcionamento não é um orçamento.
-    Ele é o primeiro passo para que nossa conversa seja mais precisa
-    e para que eu possa compreender o lugar antes de pensar em uma proposta.
+    É um ponto de partida para compreender o lugar,
+    suas intenções e a possibilidade de uma criação
+    personalizada.
+
   </p>
 
+
   <div class="actions">
+
     <span>Início</span>
-    <button class="button primary" onclick="next()">Começar</button>
+
+    <button
+      class="button primary"
+      onclick="next()"
+    >
+      Começar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- OLHAR -->
+<!-- 01 -->
 
 <section class="page">
 
-  <div class="eyebrow">01 — O olhar</div>
+  <div class="eyebrow">
+    01 — O olhar
+  </div>
 
   <h2>
     Primeiro, quero conhecer o seu olhar.
   </h2>
+
 
   <div class="question">
 
@@ -566,6 +630,7 @@ input[type="text"]:focus {
 
   </div>
 
+
   <div class="question">
 
     <div class="question-title">
@@ -579,13 +644,20 @@ input[type="text"]:focus {
 
   </div>
 
+
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="next()">
+    <button
+      class="button primary"
+      onclick="next()"
+    >
       Continuar
     </button>
 
@@ -594,15 +666,18 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- LUGAR -->
+<!-- 02 -->
 
 <section class="page">
 
-  <div class="eyebrow">02 — O lugar</div>
+  <div class="eyebrow">
+    02 — O lugar
+  </div>
 
   <h2>
     Agora, vamos falar sobre o lugar.
   </h2>
+
 
   <div class="question">
 
@@ -629,46 +704,102 @@ input[type="text"]:focus {
       Você pode selecionar mais de uma.
     </div>
 
+
     <div class="options">
 
       <div class="option">
-        <input type="checkbox" id="recepcao" value="Recepção">
-        <label for="recepcao">Recepção</label>
+        <input
+          type="checkbox"
+          id="recepcao"
+          value="Recepção"
+        >
+        <label for="recepcao">
+          Recepção
+        </label>
       </div>
 
-      <div class="option">
-        <input type="checkbox" id="externa" value="Área externa">
-        <label for="externa">Área externa</label>
-      </div>
 
       <div class="option">
-        <input type="checkbox" id="jardim" value="Jardim">
-        <label for="jardim">Jardim</label>
+        <input
+          type="checkbox"
+          id="externa"
+          value="Área externa"
+        >
+        <label for="externa">
+          Área externa
+        </label>
       </div>
 
-      <div class="option">
-        <input type="checkbox" id="cafe" value="Café / Restaurante">
-        <label for="cafe">Café / Restaurante</label>
-      </div>
 
       <div class="option">
-        <input type="checkbox" id="quartos" value="Quartos ou suítes">
-        <label for="quartos">Quartos ou suítes</label>
+        <input
+          type="checkbox"
+          id="jardim"
+          value="Jardim"
+        >
+        <label for="jardim">
+          Jardim
+        </label>
       </div>
 
-      <div class="option">
-        <input type="checkbox" id="convivencia" value="Área de convivência">
-        <label for="convivencia">Área de convivência</label>
-      </div>
 
       <div class="option">
-        <input type="checkbox" id="outro" value="Outro">
-        <label for="outro">Outro</label>
+        <input
+          type="checkbox"
+          id="cafe"
+          value="Café / Restaurante"
+        >
+        <label for="cafe">
+          Café / Restaurante
+        </label>
       </div>
 
+
       <div class="option">
-        <input type="checkbox" id="naoDefini" value="Ainda não defini">
-        <label for="naoDefini">Ainda não defini</label>
+        <input
+          type="checkbox"
+          id="quartos"
+          value="Quartos ou suítes"
+        >
+        <label for="quartos">
+          Quartos ou suítes
+        </label>
+      </div>
+
+
+      <div class="option">
+        <input
+          type="checkbox"
+          id="convivencia"
+          value="Área de convivência"
+        >
+        <label for="convivencia">
+          Área de convivência
+        </label>
+      </div>
+
+
+      <div class="option">
+        <input
+          type="checkbox"
+          id="outro"
+          value="Outro"
+        >
+        <label for="outro">
+          Outro
+        </label>
+      </div>
+
+
+      <div class="option">
+        <input
+          type="checkbox"
+          id="naoDefini"
+          value="Ainda não defini"
+        >
+        <label for="naoDefini">
+          Ainda não defini
+        </label>
       </div>
 
     </div>
@@ -678,11 +809,17 @@ input[type="text"]:focus {
 
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="next()">
+    <button
+      class="button primary"
+      onclick="next()"
+    >
       Continuar
     </button>
 
@@ -691,15 +828,18 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- PROPÓSITO -->
+<!-- 03 -->
 
 <section class="page">
 
-  <div class="eyebrow">03 — O propósito</div>
+  <div class="eyebrow">
+    03 — O propósito
+  </div>
 
   <h2>
     O que a arte precisa encontrar aqui?
   </h2>
+
 
   <div class="question">
 
@@ -718,7 +858,7 @@ input[type="text"]:focus {
   <div class="question">
 
     <div class="question-title">
-      Existe alguma história, elemento, memória ou característica do lugar que você gostaria que inspirasse a criação da obra?
+      Existe alguma história, elemento, memória ou característica desse lugar que você gostaria que inspirasse a criação da obra?
     </div>
 
     <textarea
@@ -731,11 +871,17 @@ input[type="text"]:focus {
 
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="next()">
+    <button
+      class="button primary"
+      onclick="next()"
+    >
       Continuar
     </button>
 
@@ -744,19 +890,24 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- LINGUAGEM -->
+<!-- 04 -->
 
 <section class="page">
 
-  <div class="eyebrow">04 — A linguagem</div>
+  <div class="eyebrow">
+    04 — A linguagem
+  </div>
 
   <h2>
     Encontrando a linguagem.
   </h2>
 
   <p class="intro">
+
     Não existem respostas certas.
-    Posicione cada eixo onde você sente que a obra poderia se aproximar.
+    Posicione cada eixo onde você sente que
+    a obra poderia se aproximar.
+
   </p>
 
 
@@ -776,7 +927,10 @@ input[type="text"]:focus {
       value="50"
     >
 
-    <div class="range-value" id="organicoValue">
+    <div
+      class="range-value"
+      id="organicoValue"
+    >
       Equilíbrio
     </div>
 
@@ -799,7 +953,10 @@ input[type="text"]:focus {
       value="50"
     >
 
-    <div class="range-value" id="minimalistaValue">
+    <div
+      class="range-value"
+      id="minimalistaValue"
+    >
       Equilíbrio
     </div>
 
@@ -822,7 +979,10 @@ input[type="text"]:focus {
       value="50"
     >
 
-    <div class="range-value" id="suaveValue">
+    <div
+      class="range-value"
+      id="suaveValue"
+    >
       Equilíbrio
     </div>
 
@@ -845,7 +1005,10 @@ input[type="text"]:focus {
       value="50"
     >
 
-    <div class="range-value" id="naturalValue">
+    <div
+      class="range-value"
+      id="naturalValue"
+    >
       Equilíbrio
     </div>
 
@@ -868,7 +1031,10 @@ input[type="text"]:focus {
       value="50"
     >
 
-    <div class="range-value" id="contemplativoValue">
+    <div
+      class="range-value"
+      id="contemplativoValue"
+    >
       Equilíbrio
     </div>
 
@@ -891,7 +1057,10 @@ input[type="text"]:focus {
       value="50"
     >
 
-    <div class="range-value" id="discretoValue">
+    <div
+      class="range-value"
+      id="discretoValue"
+    >
       Equilíbrio
     </div>
 
@@ -900,11 +1069,17 @@ input[type="text"]:focus {
 
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="next()">
+    <button
+      class="button primary"
+      onclick="next()"
+    >
       Continuar
     </button>
 
@@ -913,15 +1088,18 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- POSSIBILIDADE -->
+<!-- 05 -->
 
 <section class="page">
 
-  <div class="eyebrow">05 — A possibilidade</div>
+  <div class="eyebrow">
+    05 — A possibilidade
+  </div>
 
   <h2>
     O que você imaginou até aqui?
   </h2>
+
 
   <div class="question">
 
@@ -933,54 +1111,70 @@ input[type="text"]:focus {
       Escolha uma opção.
     </div>
 
+
     <div class="options">
 
       <div class="option">
+
         <input
           type="radio"
           name="possibilidade"
-          id="mural"
           value="Pintura mural autoral"
+          id="mural"
         >
+
         <label for="mural">
           Pintura mural autoral
         </label>
+
       </div>
 
+
       <div class="option">
+
         <input
           type="radio"
           name="possibilidade"
-          id="macrame"
           value="Macramê sob medida"
+          id="macrame"
         >
+
         <label for="macrame">
           Macramê sob medida
         </label>
+
       </div>
 
+
       <div class="option">
+
         <input
           type="radio"
           name="possibilidade"
-          id="integracao"
           value="Integração entre mural e macramê"
+          id="integracao"
         >
+
         <label for="integracao">
           Integração entre mural e macramê
         </label>
+
       </div>
 
+
       <div class="option">
+
         <input
           type="radio"
           name="possibilidade"
-          id="aberto"
           value="Ainda estou aberto às possibilidades"
+          id="aberto"
         >
+
         <label for="aberto">
           Ainda estou aberto às possibilidades
         </label>
+
       </div>
 
     </div>
@@ -990,11 +1184,17 @@ input[type="text"]:focus {
 
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="next()">
+    <button
+      class="button primary"
+      onclick="next()"
+    >
       Continuar
     </button>
 
@@ -1003,15 +1203,18 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- RESULTADO -->
+<!-- 06 -->
 
 <section class="page">
 
-  <div class="eyebrow">06 — O resultado</div>
+  <div class="eyebrow">
+    06 — O resultado
+  </div>
 
   <h2>
     O que você gostaria que permanecesse?
   </h2>
+
 
   <div class="question">
 
@@ -1029,11 +1232,17 @@ input[type="text"]:focus {
 
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="next()">
+    <button
+      class="button primary"
+      onclick="next()"
+    >
       Continuar
     </button>
 
@@ -1042,15 +1251,18 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- MOMENTO -->
+<!-- 07 -->
 
 <section class="page">
 
-  <div class="eyebrow">07 — O momento</div>
+  <div class="eyebrow">
+    07 — O momento
+  </div>
 
   <h2>
     Quando essa ideia poderia acontecer?
   </h2>
+
 
   <div class="question">
 
@@ -1062,42 +1274,54 @@ input[type="text"]:focus {
       Escolha a alternativa que melhor representa o momento atual.
     </div>
 
+
     <div class="options">
 
       <div class="option">
+
         <input
           type="radio"
           name="momento"
-          id="agora"
           value="Gostaria de realizar agora."
+          id="agora"
         >
+
         <label for="agora">
           Gostaria de realizar agora.
         </label>
+
       </div>
 
+
       <div class="option">
+
         <input
           type="radio"
           name="momento"
-          id="meses"
           value="Pretendo desenvolver nos próximos meses."
+          id="meses"
         >
+
         <label for="meses">
           Pretendo desenvolver nos próximos meses.
         </label>
+
       </div>
 
+
       <div class="option">
+
         <input
           type="radio"
           name="momento"
-          id="futuro"
           value="Estou conhecendo possibilidades para o futuro."
+          id="futuro"
         >
+
         <label for="futuro">
           Estou conhecendo possibilidades para o futuro.
         </label>
+
       </div>
 
     </div>
@@ -1107,11 +1331,17 @@ input[type="text"]:focus {
 
   <div class="actions">
 
-    <button class="button secondary" onclick="prev()">
+    <button
+      class="button secondary"
+      onclick="prev()"
+    >
       Voltar
     </button>
 
-    <button class="button primary" onclick="gerarResumo()">
+    <button
+      class="button primary"
+      onclick="finalizar()"
+    >
       Concluir
     </button>
 
@@ -1120,304 +1350,109 @@ input[type="text"]:focus {
 </section>
 
 
-<!-- RESUMO -->
+<!-- FINAL -->
 
-<section class="page" id="summary-page">
+<section class="page">
 
-  <div class="eyebrow">Encerramento</div>
+  <div class="eyebrow">
+    Direcionamento concluído
+  </div>
 
   <h2>
     Obrigada por compartilhar.
   </h2>
 
-  <p class="intro">
-    Essas respostas serão utilizadas como ponto de partida para nossa conversa.
-    Elas me ajudam a compreender melhor o lugar, suas intenções e as possibilidades
-    de uma direção artística coerente com o projeto.
-  </p>
 
-  <div class="summary" id="resumo"></div>
+  <div class="final-box">
+
+    <p>
+
+      Suas respostas me ajudam a compreender melhor
+      o lugar, suas intenções e o que despertou seu
+      interesse pelo meu trabalho.
+
+    </p>
+
+
+    <p>
+
+      Agora é só enviar seu direcionamento.
+      Ele será aberto no WhatsApp para que você
+      possa conferir as informações antes de enviar.
+
+    </p>
+
+
+    <button
+      class="whatsapp"
+      onclick="enviarWhatsApp()"
+    >
+      Enviar meu direcionamento pelo WhatsApp
+    </button>
+
+
+    <div class="small-text">
+
+      O WhatsApp abrirá uma mensagem já preparada
+      com as suas respostas. Basta tocar em enviar.
+
+    </div>
+
+  </div>
+
 
   <div class="actions">
 
     <button
       class="button secondary"
-      onclick="irPara(1)"
+      onclick="prev()"
     >
       Voltar e editar
-    </button>
-
-    <button
-      class="button primary"
-      onclick="window.print()"
-    >
-      Imprimir / Salvar em PDF
     </button>
 
   </div>
 
 </section>
 
+
 </main>
 
 
 <footer class="footer">
+
   D’Arte Maris — Processo de Descoberta Artística
+
 </footer>
+
 
 </div>
 
 
 <script>
 
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
 let paginaAtual = 0;
 
-const paginas = document.querySelectorAll(".page");
-
-const progress = document.getElementById("progress");
-
-const labels = document.querySelectorAll(".progress-label");
-
-
-function salvar() {
-
-  const dados = {
-
-    interesse: document.getElementById("interesse")?.value || "",
-
-    linguagemInteresse:
-      document.getElementById("linguagemInteresse")?.value || "",
-
-    ambiente:
-      document.getElementById("ambiente")?.value || "",
-
-    necessidade:
-      document.getElementById("necessidade")?.value || "",
-
-    inspiracao:
-      document.getElementById("inspiracao")?.value || "",
-
-    resultado:
-      document.getElementById("resultado")?.value || "",
-
-    possibilidade:
-      document.querySelector(
-        'input[name="possibilidade"]:checked'
-      )?.value || "",
-
-    momento:
-      document.querySelector(
-        'input[name="momento"]:checked'
-      )?.value || "",
-
-    areas:
-      [...document.querySelectorAll(
-        '.options input[type="checkbox"]:checked'
-      )].map(item => item.value),
-
-    sliders: {
-
-      organico:
-        document.getElementById("organico")?.value || 50,
-
-      minimalista:
-        document.getElementById("minimalista")?.value || 50,
-
-      suave:
-        document.getElementById("suave")?.value || 50,
-
-      natural:
-        document.getElementById("natural")?.value || 50,
-
-      contemplativo:
-        document.getElementById("contemplativo")?.value || 50,
-
-      discreto:
-        document.getElementById("discreto")?.value || 50
-
-    }
-
-  };
-
-  localStorage.setItem(
-    "darteMarisDirecionamento",
-    JSON.stringify(dados)
-  );
-
-}
-
-
-function carregar() {
-
-  const salvo =
-    localStorage.getItem("darteMarisDirecionamento");
-
-  if (!salvo) return;
-
-  const dados = JSON.parse(salvo);
-
-  const campos = [
-    "interesse",
-    "linguagemInteresse",
-    "ambiente",
-    "necessidade",
-    "inspiracao",
-    "resultado"
-  ];
-
-  campos.forEach(id => {
-
-    const campo = document.getElementById(id);
-
-    if (campo && dados[id]) {
-      campo.value = dados[id];
-    }
-
-  });
-
-
-  if (dados.areas) {
-
-    document
-      .querySelectorAll('.options input[type="checkbox"]')
-      .forEach(item => {
-
-        item.checked =
-          dados.areas.includes(item.value);
-
-      });
-
-  }
-
-
-  if (dados.possibilidade) {
-
-    const item =
-      document.querySelector(
-        `input[name="possibilidade"][value="${dados.possibilidade}"]`
-      );
-
-    if (item) item.checked = true;
-
-  }
-
-
-  if (dados.momento) {
-
-    const item =
-      document.querySelector(
-        `input[name="momento"][value="${dados.momento}"]`
-      );
-
-    if (item) item.checked = true;
-
-  }
-
-
-  if (dados.sliders) {
-
-    Object.keys(dados.sliders).forEach(id => {
-
-      const slider =
-        document.getElementById(id);
-
-      if (slider) {
-
-        slider.value =
-          dados.sliders[id];
-
-        atualizarSlider(slider);
-
-      }
-
-    });
-
-  }
-
-}
-
-
-function atualizarSlider(slider) {
-
-  const valor = Number(slider.value);
-
-  const id = slider.id;
-
-  const campo =
-    document.getElementById(id + "Value");
-
-  if (!campo) return;
-
-  if (valor < 35) {
-
-    campo.textContent =
-      "Predominância do primeiro lado";
-
-  } else if (valor > 65) {
-
-    campo.textContent =
-      "Predominância do segundo lado";
-
-  } else {
-
-    campo.textContent =
-      "Equilíbrio";
-
-  }
-
-}
-
-
-document
-  .querySelectorAll("textarea, input")
-  .forEach(campo => {
-
-    campo.addEventListener("input", salvar);
-
-    campo.addEventListener("change", salvar);
-
-  });
-
-
-document
-  .querySelectorAll(".range")
-  .forEach(slider => {
-
-    slider.addEventListener(
-      "input",
-      function() {
-
-        atualizarSlider(this);
-
-        salvar();
-
-      }
-    );
-
-    atualizarSlider(slider);
-
-  });
+const paginas =
+  document.querySelectorAll(".page");
+
+const progress =
+  document.getElementById("progress");
 
 
 function atualizarProgresso() {
 
-  const total = paginas.length - 1;
+  const total =
+    paginas.length - 1;
 
   const porcentagem =
     (paginaAtual / total) * 100;
 
   progress.style.width =
     porcentagem + "%";
-
-
-  labels.forEach((label, index) => {
-
-    label.classList.toggle(
-      "active",
-      index <= paginaAtual
-    );
-
-  });
 
 }
 
@@ -1472,180 +1507,280 @@ function prev() {
 }
 
 
-function irPara(numero) {
+/* =========================
+   SLIDERS
+========================= */
 
-  mostrarPagina(numero);
+function atualizarSlider(slider) {
 
-}
+  const valor =
+    Number(slider.value);
 
-
-function escapeHTML(texto) {
-
-  return String(texto)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-function bloco(titulo, pergunta, resposta) {
-
-  if (!resposta) {
-    resposta = "Não informado.";
-  }
-
-  return `
-
-    <div class="summary-block">
-
-      <div class="summary-title">
-        ${titulo}
-      </div>
-
-      <div class="summary-question">
-        ${pergunta}
-      </div>
-
-      <div class="summary-answer">
-        ${escapeHTML(resposta)}
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-function gerarResumo() {
-
-  salvar();
-
-  const dados =
-    JSON.parse(
-      localStorage.getItem(
-        "darteMarisDirecionamento"
-      )
+  const campo =
+    document.getElementById(
+      slider.id + "Value"
     );
 
+  if (!campo) return;
 
-  let html = "";
+
+  if (valor < 35) {
+
+    campo.textContent =
+      "Mais próximo do primeiro lado";
+
+  }
+
+  else if (valor > 65) {
+
+    campo.textContent =
+      "Mais próximo do segundo lado";
+
+  }
+
+  else {
+
+    campo.textContent =
+      "Equilíbrio";
+
+  }
+
+}
 
 
-  html += bloco(
-    "O olhar",
-    "O que fez você se interessar pelo meu trabalho?",
-    dados.interesse
+document
+  .querySelectorAll(".range")
+  .forEach(slider => {
+
+    slider.addEventListener(
+      "input",
+      function() {
+
+        atualizarSlider(this);
+
+        salvar();
+
+      }
+    );
+
+    atualizarSlider(slider);
+
+  });
+
+
+/* =========================
+   SALVAMENTO AUTOMÁTICO
+========================= */
+
+function salvar() {
+
+  const dados = {
+
+    interesse:
+      document.getElementById("interesse")?.value || "",
+
+    linguagemInteresse:
+      document.getElementById("linguagemInteresse")?.value || "",
+
+    ambiente:
+      document.getElementById("ambiente")?.value || "",
+
+    areas:
+      [...document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+      )].map(item => item.value),
+
+    necessidade:
+      document.getElementById("necessidade")?.value || "",
+
+    inspiracao:
+      document.getElementById("inspiracao")?.value || "",
+
+    possibilidade:
+      document.querySelector(
+        'input[name="possibilidade"]:checked'
+      )?.value || "",
+
+    resultado:
+      document.getElementById("resultado")?.value || "",
+
+    momento:
+      document.querySelector(
+        'input[name="momento"]:checked'
+      )?.value || "",
+
+    sliders: {
+
+      organico:
+        document.getElementById("organico")?.value || 50,
+
+      minimalista:
+        document.getElementById("minimalista")?.value || 50,
+
+      suave:
+        document.getElementById("suave")?.value || 50,
+
+      natural:
+        document.getElementById("natural")?.value || 50,
+
+      contemplativo:
+        document.getElementById("contemplativo")?.value || 50,
+
+      discreto:
+        document.getElementById("discreto")?.value || 50
+
+    }
+
+  };
+
+
+  localStorage.setItem(
+    "darteMarisDirecionamento",
+    JSON.stringify(dados)
   );
 
-
-  html += bloco(
-    "O olhar",
-    "O que mais chamou atenção na minha linguagem artística?",
-    dados.linguagemInteresse
-  );
+}
 
 
-  html += bloco(
-    "O lugar",
-    "Ambiente imaginado",
-    dados.ambiente
-  );
+/* =========================
+   RECUPERAR RESPOSTAS
+========================= */
+
+function carregar() {
+
+  const salvo =
+    localStorage.getItem(
+      "darteMarisDirecionamento"
+    );
+
+  if (!salvo) return;
+
+  const dados =
+    JSON.parse(salvo);
 
 
-  html += bloco(
-    "O lugar",
-    "Áreas abertas à intervenção",
-    dados.areas?.length
-      ? dados.areas.join(", ")
-      : "Não informado."
-  );
+  const campos = [
+    "interesse",
+    "linguagemInteresse",
+    "ambiente",
+    "necessidade",
+    "inspiracao",
+    "resultado"
+  ];
 
 
-  html += bloco(
-    "O propósito",
-    "Necessidade ou oportunidade",
-    dados.necessidade
-  );
+  campos.forEach(id => {
+
+    const campo =
+      document.getElementById(id);
+
+    if (campo && dados[id]) {
+
+      campo.value =
+        dados[id];
+
+    }
+
+  });
 
 
-  html += bloco(
-    "O propósito",
-    "História, elemento ou memória inspiradora",
-    dados.inspiracao
-  );
+  if (dados.areas) {
+
+    document
+      .querySelectorAll(
+        'input[type="checkbox"]'
+      )
+      .forEach(item => {
+
+        item.checked =
+          dados.areas.includes(
+            item.value
+          );
+
+      });
+
+  }
 
 
-  const linguagem = `
+  if (dados.possibilidade) {
 
-    <div class="summary-block">
+    const radio =
+      document.querySelector(
+        `input[name="possibilidade"][value="${dados.possibilidade}"]`
+      );
 
-      <div class="summary-title">
-        Linguagem
-      </div>
+    if (radio) {
+      radio.checked = true;
+    }
 
-      <div class="tags">
-
-        <span class="tag">
-          ${interpretar("Organico", dados.sliders.organico, "Orgânico", "Geométrico")}
-        </span>
-
-        <span class="tag">
-          ${interpretar("Minimalista", dados.sliders.minimalista, "Minimalista", "Expressivo")}
-        </span>
-
-        <span class="tag">
-          ${interpretar("Suave", dados.sliders.suave, "Suave", "Contrastante")}
-        </span>
-
-        <span class="tag">
-          ${interpretar("Natural", dados.sliders.natural, "Natural", "Sofisticado")}
-        </span>
-
-        <span class="tag">
-          ${interpretar("Contemplativo", dados.sliders.contemplativo, "Contemplativo", "Vibrante")}
-        </span>
-
-        <span class="tag">
-          ${interpretar("Discreto", dados.sliders.discreto, "Discreto", "Marcante")}
-        </span>
-
-      </div>
-
-    </div>
-
-  `;
-
-  html += linguagem;
+  }
 
 
-  html += bloco(
-    "Possibilidade",
-    "Primeira possibilidade imaginada",
-    dados.possibilidade
-  );
+  if (dados.momento) {
+
+    const radio =
+      document.querySelector(
+        `input[name="momento"][value="${dados.momento}"]`
+      );
+
+    if (radio) {
+      radio.checked = true;
+    }
+
+  }
 
 
-  html += bloco(
-    "Resultado esperado",
-    "O que a intervenção deve acrescentar",
-    dados.resultado
-  );
+  if (dados.sliders) {
+
+    Object.keys(
+      dados.sliders
+    ).forEach(id => {
+
+      const slider =
+        document.getElementById(id);
+
+      if (slider) {
+
+        slider.value =
+          dados.sliders[id];
+
+        atualizarSlider(slider);
+
+      }
+
+    });
+
+  }
+
+}
 
 
-  html += bloco(
-    "Momento do projeto",
-    "Momento atual",
-    dados.momento
-  );
+document
+  .querySelectorAll(
+    "textarea, input"
+  )
+  .forEach(campo => {
+
+    campo.addEventListener(
+      "input",
+      salvar
+    );
+
+    campo.addEventListener(
+      "change",
+      salvar
+    );
+
+  });
 
 
-  document.getElementById("resumo").innerHTML =
-    html;
+/* =========================
+   FINALIZAÇÃO
+========================= */
 
+function finalizar() {
+
+  salvar();
 
   mostrarPagina(
     paginas.length - 1
@@ -1654,17 +1789,33 @@ function gerarResumo() {
 }
 
 
-function interpretar(nome, valor, primeiro, segundo) {
+/* =========================
+   INTERPRETAR SLIDERS
+========================= */
 
-  valor = Number(valor);
+function interpretar(
+  valor,
+  primeiro,
+  segundo
+) {
+
+  valor =
+    Number(valor);
+
 
   if (valor < 35) {
+
     return primeiro;
+
   }
 
+
   if (valor > 65) {
+
     return segundo;
+
   }
+
 
   return "Equilíbrio entre " +
     primeiro.toLowerCase() +
@@ -1673,6 +1824,199 @@ function interpretar(nome, valor, primeiro, segundo) {
 
 }
 
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function enviarWhatsApp() {
+
+  salvar();
+
+
+  const salvo =
+    localStorage.getItem(
+      "darteMarisDirecionamento"
+    );
+
+
+  if (!salvo) {
+
+    alert(
+      "Não foi possível encontrar suas respostas."
+    );
+
+    return;
+
+  }
+
+
+  const dados =
+    JSON.parse(salvo);
+
+
+  const numero =
+    "5535997003906";
+
+
+  const mensagem = `
+
+Olá, Giovanna!
+
+Acabei de preencher o Direcionamento Artístico da D’Arte Maris.
+
+━━━━━━━━━━━━━━━━━━
+
+O OLHAR
+
+O que fez você se interessar pelo meu trabalho?
+
+${dados.interesse || "Não informado."}
+
+
+Ao conhecer meu trabalho, o que mais chamou sua atenção na minha linguagem artística?
+
+${dados.linguagemInteresse || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+O LUGAR
+
+Ambiente que imaginei para a intervenção:
+
+${dados.ambiente || "Não informado."}
+
+
+Áreas abertas para intervenção:
+
+${
+  dados.areas?.length
+    ? dados.areas.join(", ")
+    : "Não informado."
+}
+
+
+━━━━━━━━━━━━━━━━━━
+
+O PROPÓSITO
+
+Existe alguma necessidade que gostaria que a arte ajudasse a resolver, valorizar ou potencializar?
+
+${dados.necessidade || "Não informado."}
+
+
+Existe alguma história, elemento, memória ou característica do lugar que gostaria que inspirasse a obra?
+
+${dados.inspiracao || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+A LINGUAGEM
+
+Orgânico / Geométrico:
+
+${interpretar(
+  dados.sliders.organico,
+  "Orgânico",
+  "Geométrico"
+)}
+
+
+Minimalista / Expressivo:
+
+${interpretar(
+  dados.sliders.minimalista,
+  "Minimalista",
+  "Expressivo"
+)}
+
+
+Suave / Contrastante:
+
+${interpretar(
+  dados.sliders.suave,
+  "Suave",
+  "Contrastante"
+)}
+
+
+Natural / Sofisticado:
+
+${interpretar(
+  dados.sliders.natural,
+  "Natural",
+  "Sofisticado"
+)}
+
+
+Contemplativo / Vibrante:
+
+${interpretar(
+  dados.sliders.contemplativo,
+  "Contemplativo",
+  "Vibrante"
+)}
+
+
+Discreto / Marcante:
+
+${interpretar(
+  dados.sliders.discreto,
+  "Discreto",
+  "Marcante"
+)}
+
+
+━━━━━━━━━━━━━━━━━━
+
+A POSSIBILIDADE
+
+${dados.possibilidade || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+O RESULTADO
+
+Se essa intervenção fosse exatamente como imagino, gostaria que ela acrescentasse:
+
+${dados.resultado || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+O MOMENTO
+
+${dados.momento || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+Envio essas informações como ponto de partida para nossa conversa.
+
+  `.trim();
+
+
+  const url =
+    "https://wa.me/" +
+    numero +
+    "?text=" +
+    encodeURIComponent(
+      mensagem
+    );
+
+
+  window.location.href =
+    url;
+
+}
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
 
 carregar();
 
