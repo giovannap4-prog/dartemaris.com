@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -8,15 +8,22 @@
 
 <style>
 
+/* =====================================================
+   BASE
+===================================================== */
+
 :root {
   --verde: #18342b;
-  --verde-suave: #40564d;
+  --verde-medio: #40564d;
   --terracota: #96543f;
-  --creme: #f4f0e7;
+
+  --creme: #f3efe6;
   --papel: #fbfaf6;
+
   --texto: #263630;
-  --cinza: #68736e;
-  --linha: rgba(32,55,47,.18);
+  --cinza: #69746f;
+
+  --linha: rgba(24, 52, 43, .15);
 
   --serif: Georgia, "Times New Roman", serif;
   --sans: Arial, Helvetica, sans-serif;
@@ -35,8 +42,7 @@ body {
   background: var(--creme);
   color: var(--texto);
   font-family: var(--sans);
-  line-height: 1.65;
-  font-weight: 400;
+  line-height: 1.6;
 }
 
 button,
@@ -49,21 +55,20 @@ button {
   cursor: pointer;
 }
 
-.site {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
 
-/* =========================
+/* =====================================================
    CABEÇALHO
-========================= */
+===================================================== */
 
 .header {
-  padding: 25px 7vw;
+  height: 78px;
+
+  padding: 0 7vw;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
   border-bottom: 1px solid var(--linha);
 }
 
@@ -74,59 +79,74 @@ button {
 }
 
 .header-label {
-  font-size: 11px;
-  letter-spacing: .12em;
+  font-size: 10px;
+
+  letter-spacing: .14em;
+
   text-transform: uppercase;
-  color: var(--verde-suave);
+
+  color: var(--verde-medio);
 }
 
-/* =========================
-   PROGRESSO
-========================= */
 
-.progress-container {
-  width: min(900px, 86vw);
-  margin: 26px auto 0;
+/* =====================================================
+   PROGRESSO
+===================================================== */
+
+.progress-area {
+  width: min(850px, 84vw);
+
+  margin: 28px auto 0;
 }
 
 .progress-line {
   height: 1px;
+
   background: var(--linha);
+
   position: relative;
 }
 
 .progress-fill {
   position: absolute;
+
   left: 0;
   top: 0;
-  height: 2px;
+
   width: 0;
+  height: 2px;
+
   background: var(--terracota);
-  transition: width .5s ease;
+
+  transition: width .45s ease;
 }
 
-/* =========================
-   CONTEÚDO
-========================= */
+
+/* =====================================================
+   ÁREA PRINCIPAL
+===================================================== */
 
 main {
-  width: min(900px, 86vw);
-  margin: auto;
-  flex: 1;
+  width: min(850px, 84vw);
+
+  margin: 0 auto;
+
+  min-height: calc(100vh - 150px);
 }
 
 .page {
   display: none;
-  min-height: calc(100vh - 170px);
+
   padding: 8vh 0 7vh;
-  animation: aparecer .45s ease;
+
+  animation: pageIn .45s ease;
 }
 
 .page.active {
   display: block;
 }
 
-@keyframes aparecer {
+@keyframes pageIn {
 
   from {
     opacity: 0;
@@ -140,85 +160,172 @@ main {
 
 }
 
-/* =========================
-   TIPOGRAFIA
-========================= */
 
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: .12em;
+/* =====================================================
+   TÍTULOS DAS ETAPAS
+===================================================== */
+
+.step-label {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  font-size: 10px;
+
+  letter-spacing: .15em;
+
   text-transform: uppercase;
+
   color: var(--terracota);
-  margin-bottom: 20px;
-  font-weight: 500;
 }
 
-h1,
-h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  color: var(--verde);
-  line-height: 1.12;
-}
-
-h1 {
-  font-size: clamp(40px, 6vw, 62px);
-  margin: 0 0 25px;
-}
-
-h2 {
-  font-size: clamp(32px, 4vw, 44px);
-  margin: 0 0 24px;
-}
-
-.intro {
+.page-title {
   max-width: 650px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--verde-suave);
+
+  margin: 0 0 18px;
+
+  font-family: var(--serif);
+
+  font-size: clamp(32px, 5vw, 46px);
+
+  line-height: 1.15;
+
+  font-weight: 400;
+
+  color: var(--verde);
 }
 
-.note {
-  max-width: 620px;
+.page-description {
+  max-width: 610px;
+
+  margin: 0 0 42px;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  color: var(--verde-medio);
+}
+
+
+/* =====================================================
+   ABERTURA
+===================================================== */
+
+.hero-title {
+  max-width: 700px;
+
+  margin: 0 0 25px;
+
+  font-family: var(--serif);
+
+  font-size: clamp(42px, 7vw, 64px);
+
+  line-height: 1.08;
+
+  font-weight: 400;
+
+  color: var(--verde);
+}
+
+.hero-text {
+  max-width: 650px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: var(--verde-medio);
+}
+
+.hero-note {
+
+  max-width: 610px;
+
   margin-top: 40px;
-  padding-top: 18px;
+
+  padding: 22px 0 0;
+
   border-top: 1px solid var(--linha);
+
   font-size: 13px;
+
   line-height: 1.7;
+
   color: var(--cinza);
 }
 
-/* =========================
-   PERGUNTAS
-========================= */
 
-.question {
-  margin-top: 45px;
+/* =====================================================
+   CARTÕES DE PERGUNTAS
+===================================================== */
+
+.question-card {
+
+  margin: 24px 0;
+
+  padding: 30px 32px 32px;
+
+  background: var(--papel);
+
+  border: 1px solid rgba(24, 52, 43, .07);
+
+  box-shadow: 0 8px 28px rgba(24, 52, 43, .035);
+
+}
+
+.question-number {
+
+  margin-bottom: 12px;
+
+  font-size: 10px;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
+  color: var(--terracota);
 }
 
 .question-title {
+
+  max-width: 680px;
+
+  margin-bottom: 18px;
+
   font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.35;
+
+  font-size: 21px;
+
+  line-height: 1.4;
+
+  font-weight: 400;
+
   color: var(--verde);
-  margin-bottom: 10px;
 }
 
-.hint {
+.question-hint {
+
+  margin: -7px 0 17px;
+
   font-size: 13px;
+
   line-height: 1.6;
+
   color: var(--cinza);
-  margin-bottom: 16px;
 }
 
-/* =========================
-   CAMPOS
-========================= */
+
+/* =====================================================
+   CAMPOS DE RESPOSTA
+===================================================== */
 
 textarea,
 input[type="text"] {
 
   width: 100%;
+
+  padding: 12px 0 10px;
 
   background: transparent;
 
@@ -226,77 +333,93 @@ input[type="text"] {
 
   border-bottom: 1px solid var(--linha);
 
-  border-radius: 0;
-
-  padding: 14px 0;
-
   outline: none;
 
   color: var(--terracota);
 
   caret-color: var(--terracota);
 
-  font-size: 16px;
+  font-size: 15px;
 
-  line-height: 1.6;
+  line-height: 1.65;
 
 }
 
 textarea {
-  min-height: 115px;
+
+  min-height: 100px;
+
   resize: vertical;
+
 }
 
 textarea::placeholder,
 input::placeholder {
-  color: #8b918d;
+
+  color: #8a918d;
+
   opacity: 1;
+
 }
 
 textarea:focus,
 input[type="text"]:focus {
+
   border-color: var(--terracota);
+
 }
 
-/* =========================
+
+/* =====================================================
    OPÇÕES
-========================= */
+===================================================== */
 
 .options {
+
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
-  gap: 11px;
+
+  gap: 10px;
+
 }
 
 .option {
+
   position: relative;
+
 }
 
 .option input {
+
   position: absolute;
+
   opacity: 0;
+
 }
 
 .option label {
 
   display: block;
 
+  padding: 15px 16px;
+
   border: 1px solid var(--linha);
 
-  padding: 16px;
+  color: var(--verde-medio);
 
-  font-size: 14px;
+  font-size: 13px;
 
-  line-height: 1.4;
+  line-height: 1.45;
 
-  color: var(--verde-suave);
-
-  transition: .25s ease;
+  transition: all .2s ease;
 
 }
 
 .option label:hover {
+
   border-color: var(--terracota);
+
 }
 
 .option input:checked + label {
@@ -309,12 +432,21 @@ input[type="text"]:focus {
 
 }
 
-/* =========================
-   SLIDERS
-========================= */
 
-.slider {
-  margin: 34px 0 42px;
+/* =====================================================
+   SLIDERS
+===================================================== */
+
+.slider-card {
+
+  margin: 18px 0;
+
+  padding: 25px 28px;
+
+  background: var(--papel);
+
+  border: 1px solid rgba(24, 52, 43, .07);
+
 }
 
 .slider-names {
@@ -327,7 +459,7 @@ input[type="text"]:focus {
 
   font-family: var(--serif);
 
-  font-size: 18px;
+  font-size: 17px;
 
   color: var(--verde);
 
@@ -337,7 +469,7 @@ input[type="text"]:focus {
 
   width: 100%;
 
-  margin-top: 18px;
+  margin: 20px 0 5px;
 
   appearance: none;
 
@@ -353,15 +485,15 @@ input[type="text"]:focus {
 
   appearance: none;
 
-  width: 18px;
+  width: 17px;
 
-  height: 18px;
+  height: 17px;
 
   border-radius: 50%;
 
   background: var(--terracota);
 
-  border: 3px solid var(--creme);
+  border: 3px solid var(--papel);
 
   box-shadow: 0 0 0 1px var(--terracota);
 
@@ -369,15 +501,15 @@ input[type="text"]:focus {
 
 .range::-moz-range-thumb {
 
-  width: 14px;
+  width: 12px;
 
-  height: 14px;
+  height: 12px;
 
   border-radius: 50%;
 
   background: var(--terracota);
 
-  border: 3px solid var(--creme);
+  border: 3px solid var(--papel);
 
 }
 
@@ -385,11 +517,11 @@ input[type="text"]:focus {
 
   text-align: center;
 
-  margin-top: 10px;
+  margin-top: 8px;
 
-  font-size: 11px;
+  font-size: 10px;
 
-  letter-spacing: .10em;
+  letter-spacing: .1em;
 
   text-transform: uppercase;
 
@@ -397,15 +529,16 @@ input[type="text"]:focus {
 
 }
 
-/* =========================
+
+/* =====================================================
    BOTÕES
-========================= */
+===================================================== */
 
 .actions {
 
-  margin-top: 55px;
+  margin-top: 42px;
 
-  padding-top: 22px;
+  padding-top: 20px;
 
   border-top: 1px solid var(--linha);
 
@@ -423,9 +556,9 @@ input[type="text"]:focus {
 
   border: 0;
 
-  padding: 15px 23px;
+  padding: 14px 22px;
 
-  font-size: 11px;
+  font-size: 10px;
 
   letter-spacing: .12em;
 
@@ -444,102 +577,65 @@ input[type="text"]:focus {
 }
 
 .primary:hover {
-  background: var(--verde-suave);
+
+  background: var(--verde-medio);
+
 }
 
 .secondary {
+
+  padding-left: 0;
 
   background: transparent;
 
   color: var(--verde);
 
-  padding-left: 0;
-
 }
 
-/* =========================
-   FINAL
-========================= */
+
+/* =====================================================
+   TELA FINAL
+===================================================== */
 
 .final-box {
 
-  margin-top: 42px;
+  margin-top: 35px;
+
+  padding: clamp(30px, 5vw, 55px);
 
   background: var(--papel);
 
-  padding: clamp(30px, 5vw, 60px);
+  border: 1px solid rgba(24, 52, 43, .07);
 
 }
 
 .final-box p {
 
-  color: var(--verde-suave);
-
-  max-width: 600px;
+  max-width: 610px;
 
   font-size: 15px;
 
   line-height: 1.75;
 
+  color: var(--verde-medio);
+
 }
 
 .whatsapp {
 
-  margin-top: 30px;
-
   width: 100%;
 
-  max-width: 460px;
+  max-width: 470px;
 
-  padding: 18px 24px;
+  margin-top: 22px;
+
+  padding: 17px 22px;
+
+  border: 0;
 
   background: var(--terracota);
 
   color: white;
-
-  border: 0;
-
-  font-size: 11px;
-
-  letter-spacing: .12em;
-
-  text-transform: uppercase;
-
-  font-weight: 500;
-
-}
-
-.whatsapp:hover {
-  opacity: .9;
-}
-
-.small-text {
-
-  margin-top: 18px;
-
-  font-size: 12px;
-
-  line-height: 1.6;
-
-  color: var(--cinza);
-
-  max-width: 460px;
-
-}
-
-/* =========================
-   RODAPÉ
-========================= */
-
-.footer {
-
-  padding: 30px 7vw;
-
-  border-top: 1px solid var(--linha);
-
-  text-align: center;
-
-  color: var(--cinza);
 
   font-size: 10px;
 
@@ -549,69 +645,155 @@ input[type="text"]:focus {
 
 }
 
-/* =========================
-   CELULAR
-========================= */
+.whatsapp:hover {
+
+  opacity: .9;
+
+}
+
+.small-text {
+
+  max-width: 470px;
+
+  margin-top: 15px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color: var(--cinza);
+
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.footer {
+
+  padding: 28px 7vw;
+
+  border-top: 1px solid var(--linha);
+
+  text-align: center;
+
+  font-size: 9px;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
+  color: var(--cinza);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 650px) {
 
   .header {
-    padding: 20px 7vw;
+
+    height: 68px;
+
+    padding: 0 7vw;
+
   }
 
   .header-label {
+
     display: none;
+
   }
 
   main {
+
     width: 86vw;
+
   }
 
   .page {
+
     padding-top: 7vh;
+
   }
 
-  h1 {
-    font-size: clamp(38px, 11vw, 52px);
+  .hero-title {
+
+    font-size: clamp(40px, 11vw, 52px);
+
   }
 
-  h2 {
-    font-size: clamp(30px, 8vw, 38px);
+  .page-title {
+
+    font-size: clamp(31px, 8vw, 38px);
+
+  }
+
+  .page-description {
+
+    font-size: 14px;
+
+    margin-bottom: 32px;
+
+  }
+
+  .question-card {
+
+    padding: 25px 22px 27px;
+
+    margin: 18px 0;
+
   }
 
   .question-title {
-    font-size: 21px;
+
+    font-size: 20px;
+
   }
 
   .options {
+
     grid-template-columns: 1fr;
+
+  }
+
+  .slider-card {
+
+    padding: 22px 20px;
+
   }
 
   .slider-names {
-    font-size: 17px;
+
+    font-size: 16px;
+
   }
 
   .actions {
-    margin-top: 42px;
-  }
 
-  .button {
-    padding: 14px 18px;
-    font-size: 10px;
+    margin-top: 35px;
+
   }
 
 }
 
 
-/* =========================
+/* =====================================================
    ACESSIBILIDADE
-========================= */
+===================================================== */
 
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
+
   outline: 2px solid var(--terracota);
+
   outline-offset: 4px;
+
 }
 
 </style>
@@ -619,8 +801,6 @@ textarea:focus-visible {
 
 
 <body>
-
-<div class="site">
 
 
 <header class="header">
@@ -636,7 +816,7 @@ textarea:focus-visible {
 </header>
 
 
-<div class="progress-container">
+<div class="progress-area">
 
   <div class="progress-line">
 
@@ -653,32 +833,32 @@ textarea:focus-visible {
 <main>
 
 
-<!-- =========================
+<!-- =====================================================
      ABERTURA
-========================= -->
+===================================================== -->
 
 <section class="page active">
 
-  <div class="eyebrow">
+  <div class="step-label">
     Antes da nossa conversa
   </div>
 
-  <h1>
+  <h1 class="hero-title">
     Direcionamento<br>
     Artístico
   </h1>
 
-  <p class="intro">
+  <p class="hero-text">
 
     Antes da nossa conversa, gostaria de conhecer
-    um pouco melhor a sua necessidade, entender o
-    que despertou seu interesse pelo meu trabalho
+    um pouco melhor a sua necessidade, entender
+    o que despertou seu interesse pelo meu trabalho
     e explorar as possibilidades para uma futura
     intervenção artística.
 
   </p>
 
-  <p class="note">
+  <p class="hero-note">
 
     Este breve direcionamento não é um orçamento.
     É um ponto de partida para compreender o lugar,
@@ -704,22 +884,31 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 01
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     01 — O olhar
   </div>
 
-  <h2>
+  <h2 class="page-title">
     Primeiro, quero conhecer o seu olhar.
   </h2>
 
+  <p class="page-description">
+    Antes de pensar na obra, quero entender
+    o que despertou seu interesse.
+  </p>
 
-  <div class="question">
+
+  <div class="question-card">
+
+    <div class="question-number">
+      Pergunta 01
+    </div>
 
     <div class="question-title">
       O que fez você se interessar pelo meu trabalho?
@@ -733,7 +922,11 @@ textarea:focus-visible {
   </div>
 
 
-  <div class="question">
+  <div class="question-card">
+
+    <div class="question-number">
+      Pergunta 02
+    </div>
 
     <div class="question-title">
       Ao conhecer meu trabalho, o que mais chamou sua atenção na minha linguagem artística?
@@ -768,22 +961,31 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 02
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     02 — O lugar
   </div>
 
-  <h2>
+  <h2 class="page-title">
     Agora, vamos falar sobre o lugar.
   </h2>
 
+  <p class="page-description">
+    Quero compreender onde a intervenção poderia
+    encontrar o espaço e fazer sentido dentro dele.
+  </p>
 
-  <div class="question">
+
+  <div class="question-card">
+
+    <div class="question-number">
+      Pergunta 01
+    </div>
 
     <div class="question-title">
       Existe algum ambiente ou área que você já imaginou para uma intervenção artística?
@@ -798,13 +1000,17 @@ textarea:focus-visible {
   </div>
 
 
-  <div class="question">
+  <div class="question-card">
+
+    <div class="question-number">
+      Pergunta 02
+    </div>
 
     <div class="question-title">
       Quais áreas você considera abertas para uma intervenção artística?
     </div>
 
-    <div class="hint">
+    <div class="question-hint">
       Você pode selecionar mais de uma.
     </div>
 
@@ -812,98 +1018,43 @@ textarea:focus-visible {
     <div class="options">
 
       <div class="option">
-        <input
-          type="checkbox"
-          id="recepcao"
-          value="Recepção"
-        >
-        <label for="recepcao">
-          Recepção
-        </label>
+        <input type="checkbox" id="recepcao" value="Recepção">
+        <label for="recepcao">Recepção</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="externa"
-          value="Área externa"
-        >
-        <label for="externa">
-          Área externa
-        </label>
+        <input type="checkbox" id="externa" value="Área externa">
+        <label for="externa">Área externa</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="jardim"
-          value="Jardim"
-        >
-        <label for="jardim">
-          Jardim
-        </label>
+        <input type="checkbox" id="jardim" value="Jardim">
+        <label for="jardim">Jardim</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="cafe"
-          value="Café / Restaurante"
-        >
-        <label for="cafe">
-          Café / Restaurante
-        </label>
+        <input type="checkbox" id="cafe" value="Café / Restaurante">
+        <label for="cafe">Café / Restaurante</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="quartos"
-          value="Quartos ou suítes"
-        >
-        <label for="quartos">
-          Quartos ou suítes
-        </label>
+        <input type="checkbox" id="quartos" value="Quartos ou suítes">
+        <label for="quartos">Quartos ou suítes</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="convivencia"
-          value="Área de convivência"
-        >
-        <label for="convivencia">
-          Área de convivência
-        </label>
+        <input type="checkbox" id="convivencia" value="Área de convivência">
+        <label for="convivencia">Área de convivência</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="outro"
-          value="Outro"
-        >
-        <label for="outro">
-          Outro
-        </label>
+        <input type="checkbox" id="outro" value="Outro">
+        <label for="outro">Outro</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="checkbox"
-          id="naoDefini"
-          value="Ainda não defini"
-        >
-        <label for="naoDefini">
-          Ainda não defini
-        </label>
+        <input type="checkbox" id="naoDefini" value="Ainda não defini">
+        <label for="naoDefini">Ainda não defini</label>
       </div>
 
     </div>
@@ -913,17 +1064,11 @@ textarea:focus-visible {
 
   <div class="actions">
 
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="button secondary" onclick="prev()">
       Voltar
     </button>
 
-    <button
-      class="button primary"
-      onclick="next()"
-    >
+    <button class="button primary" onclick="next()">
       Continuar
     </button>
 
@@ -932,22 +1077,32 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 03
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     03 — O propósito
   </div>
 
-  <h2>
+  <h2 class="page-title">
     O que a arte precisa encontrar aqui?
   </h2>
 
+  <p class="page-description">
+    Toda intervenção pode ter uma intenção além
+    da estética. Quero entender qual poderia ser
+    a desse projeto.
+  </p>
 
-  <div class="question">
+
+  <div class="question-card">
+
+    <div class="question-number">
+      Pergunta 01
+    </div>
 
     <div class="question-title">
       Existe alguma necessidade que você gostaria que a arte ajudasse a resolver, valorizar ou potencializar?
@@ -961,7 +1116,11 @@ textarea:focus-visible {
   </div>
 
 
-  <div class="question">
+  <div class="question-card">
+
+    <div class="question-number">
+      Pergunta 02
+    </div>
 
     <div class="question-title">
       Existe alguma história, elemento, memória ou característica desse lugar que você gostaria que inspirasse a criação da obra?
@@ -977,17 +1136,11 @@ textarea:focus-visible {
 
   <div class="actions">
 
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="button secondary" onclick="prev()">
       Voltar
     </button>
 
-    <button
-      class="button primary"
-      onclick="next()"
-    >
+    <button class="button primary" onclick="next()">
       Continuar
     </button>
 
@@ -996,30 +1149,27 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 04
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     04 — A linguagem
   </div>
 
-  <h2>
+  <h2 class="page-title">
     Encontrando a linguagem.
   </h2>
 
-  <p class="intro">
-
-    Não existem respostas certas.
-    Posicione cada eixo onde você sente que
-    a obra poderia se aproximar.
-
+  <p class="page-description">
+    Não existem respostas certas. Posicione cada eixo
+    onde você sente que a obra poderia se aproximar.
   </p>
 
 
-  <div class="slider">
+  <div class="slider-card">
 
     <div class="slider-names">
       <span>Orgânico</span>
@@ -1035,17 +1185,14 @@ textarea:focus-visible {
       value="50"
     >
 
-    <div
-      class="range-value"
-      id="organicoValue"
-    >
+    <div class="range-value" id="organicoValue">
       Equilíbrio
     </div>
 
   </div>
 
 
-  <div class="slider">
+  <div class="slider-card">
 
     <div class="slider-names">
       <span>Minimalista</span>
@@ -1061,17 +1208,14 @@ textarea:focus-visible {
       value="50"
     >
 
-    <div
-      class="range-value"
-      id="minimalistaValue"
-    >
+    <div class="range-value" id="minimalistaValue">
       Equilíbrio
     </div>
 
   </div>
 
 
-  <div class="slider">
+  <div class="slider-card">
 
     <div class="slider-names">
       <span>Suave</span>
@@ -1087,17 +1231,14 @@ textarea:focus-visible {
       value="50"
     >
 
-    <div
-      class="range-value"
-      id="suaveValue"
-    >
+    <div class="range-value" id="suaveValue">
       Equilíbrio
     </div>
 
   </div>
 
 
-  <div class="slider">
+  <div class="slider-card">
 
     <div class="slider-names">
       <span>Natural</span>
@@ -1113,17 +1254,14 @@ textarea:focus-visible {
       value="50"
     >
 
-    <div
-      class="range-value"
-      id="naturalValue"
-    >
+    <div class="range-value" id="naturalValue">
       Equilíbrio
     </div>
 
   </div>
 
 
-  <div class="slider">
+  <div class="slider-card">
 
     <div class="slider-names">
       <span>Contemplativo</span>
@@ -1139,17 +1277,14 @@ textarea:focus-visible {
       value="50"
     >
 
-    <div
-      class="range-value"
-      id="contemplativoValue"
-    >
+    <div class="range-value" id="contemplativoValue">
       Equilíbrio
     </div>
 
   </div>
 
 
-  <div class="slider">
+  <div class="slider-card">
 
     <div class="slider-names">
       <span>Discreto</span>
@@ -1165,10 +1300,7 @@ textarea:focus-visible {
       value="50"
     >
 
-    <div
-      class="range-value"
-      id="discretoValue"
-    >
+    <div class="range-value" id="discretoValue">
       Equilíbrio
     </div>
 
@@ -1177,17 +1309,11 @@ textarea:focus-visible {
 
   <div class="actions">
 
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="button secondary" onclick="prev()">
       Voltar
     </button>
 
-    <button
-      class="button primary"
-      onclick="next()"
-    >
+    <button class="button primary" onclick="next()">
       Continuar
     </button>
 
@@ -1196,28 +1322,33 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 05
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     05 — A possibilidade
   </div>
 
-  <h2>
+  <h2 class="page-title">
     O que você imaginou até aqui?
   </h2>
 
+  <p class="page-description">
+    Quando conheceu meu trabalho, alguma possibilidade
+    veio primeiro à sua mente?
+  </p>
 
-  <div class="question">
+
+  <div class="question-card">
 
     <div class="question-title">
-      Quando conheceu meu trabalho, qual possibilidade veio primeiro à sua mente?
+      Qual dessas possibilidades mais se aproxima do que você imaginou?
     </div>
 
-    <div class="hint">
+    <div class="question-hint">
       Escolha uma opção.
     </div>
 
@@ -1225,66 +1356,54 @@ textarea:focus-visible {
     <div class="options">
 
       <div class="option">
-
         <input
           type="radio"
           name="possibilidade"
           value="Pintura mural autoral"
           id="mural"
         >
-
         <label for="mural">
           Pintura mural autoral
         </label>
-
       </div>
 
 
       <div class="option">
-
         <input
           type="radio"
           name="possibilidade"
           value="Macramê sob medida"
           id="macrame"
         >
-
         <label for="macrame">
           Macramê sob medida
         </label>
-
       </div>
 
 
       <div class="option">
-
         <input
           type="radio"
           name="possibilidade"
           value="Integração entre mural e macramê"
           id="integracao"
         >
-
         <label for="integracao">
           Integração entre mural e macramê
         </label>
-
       </div>
 
 
       <div class="option">
-
         <input
           type="radio"
           name="possibilidade"
           value="Ainda estou aberto às possibilidades"
           id="aberto"
         >
-
         <label for="aberto">
           Ainda estou aberto às possibilidades
         </label>
-
       </div>
 
     </div>
@@ -1294,17 +1413,11 @@ textarea:focus-visible {
 
   <div class="actions">
 
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="button secondary" onclick="prev()">
       Voltar
     </button>
 
-    <button
-      class="button primary"
-      onclick="next()"
-    >
+    <button class="button primary" onclick="next()">
       Continuar
     </button>
 
@@ -1313,22 +1426,28 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 06
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     06 — O resultado
   </div>
 
-  <h2>
+  <h2 class="page-title">
     O que você gostaria que permanecesse?
   </h2>
 
+  <p class="page-description">
+    Aqui quero entender o efeito que você gostaria
+    que a intervenção tivesse sobre o lugar e sobre
+    quem o vive.
+  </p>
 
-  <div class="question">
+
+  <div class="question-card">
 
     <div class="question-title">
       Se essa intervenção fosse exatamente como você imagina, o que ela acrescentaria à experiência de quem vive ou visita esse lugar?
@@ -1344,17 +1463,11 @@ textarea:focus-visible {
 
   <div class="actions">
 
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="button secondary" onclick="prev()">
       Voltar
     </button>
 
-    <button
-      class="button primary"
-      onclick="next()"
-    >
+    <button class="button primary" onclick="next()">
       Continuar
     </button>
 
@@ -1363,28 +1476,33 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ETAPA 07
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     07 — O momento
   </div>
 
-  <h2>
+  <h2 class="page-title">
     Quando essa ideia poderia acontecer?
   </h2>
 
+  <p class="page-description">
+    Essa informação me ajuda a compreender em que
+    momento o projeto está.
+  </p>
 
-  <div class="question">
+
+  <div class="question-card">
 
     <div class="question-title">
       Em que momento essa ideia está?
     </div>
 
-    <div class="hint">
+    <div class="question-hint">
       Escolha a alternativa que melhor representa o momento atual.
     </div>
 
@@ -1392,50 +1510,41 @@ textarea:focus-visible {
     <div class="options">
 
       <div class="option">
-
         <input
           type="radio"
           name="momento"
           value="Gostaria de realizar agora."
           id="agora"
         >
-
         <label for="agora">
           Gostaria de realizar agora.
         </label>
-
       </div>
 
 
       <div class="option">
-
         <input
           type="radio"
           name="momento"
           value="Pretendo desenvolver nos próximos meses."
           id="meses"
         >
-
         <label for="meses">
           Pretendo desenvolver nos próximos meses.
         </label>
-
       </div>
 
 
       <div class="option">
-
         <input
           type="radio"
           name="momento"
           value="Estou conhecendo possibilidades para o futuro."
           id="futuro"
         >
-
         <label for="futuro">
           Estou conhecendo possibilidades para o futuro.
         </label>
-
       </div>
 
     </div>
@@ -1445,17 +1554,11 @@ textarea:focus-visible {
 
   <div class="actions">
 
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="button secondary" onclick="prev()">
       Voltar
     </button>
 
-    <button
-      class="button primary"
-      onclick="finalizar()"
-    >
+    <button class="button primary" onclick="finalizar()">
       Concluir
     </button>
 
@@ -1464,17 +1567,17 @@ textarea:focus-visible {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FINAL
-========================= -->
+===================================================== -->
 
 <section class="page">
 
-  <div class="eyebrow">
+  <div class="step-label">
     Direcionamento concluído
   </div>
 
-  <h2>
+  <h2 class="page-title">
     Obrigada por compartilhar.
   </h2>
 
@@ -1482,20 +1585,15 @@ textarea:focus-visible {
   <div class="final-box">
 
     <p>
-
       Suas respostas me ajudam a compreender melhor
       o lugar, suas intenções e o que despertou seu
       interesse pelo meu trabalho.
-
     </p>
 
-
     <p>
-
       Agora é só enviar seu direcionamento.
-      Ele será aberto no WhatsApp para que você
-      possa conferir as informações antes de enviar.
-
+      O WhatsApp será aberto com uma mensagem já
+      preparada para você conferir antes de enviar.
     </p>
 
 
@@ -1508,10 +1606,7 @@ textarea:focus-visible {
 
 
     <div class="small-text">
-
-      O WhatsApp abrirá uma mensagem já preparada
-      com as suas respostas. Basta tocar em enviar.
-
+      Basta conferir as informações e tocar em enviar.
     </div>
 
   </div>
@@ -1541,14 +1636,11 @@ textarea:focus-visible {
 </footer>
 
 
-</div>
-
-
 <script>
 
-/* =========================
+/* =====================================================
    NAVEGAÇÃO
-========================= */
+===================================================== */
 
 let paginaAtual = 0;
 
@@ -1561,8 +1653,7 @@ const progress =
 
 function atualizarProgresso() {
 
-  const total =
-    paginas.length - 1;
+  const total = paginas.length - 1;
 
   const porcentagem =
     (paginaAtual / total) * 100;
@@ -1576,9 +1667,7 @@ function atualizarProgresso() {
 function mostrarPagina(numero) {
 
   paginas.forEach(pagina => {
-
     pagina.classList.remove("active");
-
   });
 
   paginas[numero].classList.add("active");
@@ -1623,9 +1712,9 @@ function prev() {
 }
 
 
-/* =========================
+/* =====================================================
    SLIDERS
-========================= */
+===================================================== */
 
 function atualizarSlider(slider) {
 
@@ -1639,22 +1728,17 @@ function atualizarSlider(slider) {
 
   if (!campo) return;
 
-
   if (valor < 35) {
 
     campo.textContent =
       "Mais próximo do primeiro lado";
 
-  }
-
-  else if (valor > 65) {
+  } else if (valor > 65) {
 
     campo.textContent =
       "Mais próximo do segundo lado";
 
-  }
-
-  else {
+  } else {
 
     campo.textContent =
       "Equilíbrio";
@@ -1684,9 +1768,9 @@ document
   });
 
 
-/* =========================
-   SALVAMENTO AUTOMÁTICO
-========================= */
+/* =====================================================
+   SALVAR
+===================================================== */
 
 function salvar() {
 
@@ -1758,9 +1842,9 @@ function salvar() {
 }
 
 
-/* =========================
-   RECUPERAR RESPOSTAS
-========================= */
+/* =====================================================
+   CARREGAR RESPOSTAS
+===================================================== */
 
 function carregar() {
 
@@ -1775,26 +1859,20 @@ function carregar() {
     JSON.parse(salvo);
 
 
-  const campos = [
+  [
     "interesse",
     "linguagemInteresse",
     "ambiente",
     "necessidade",
     "inspiracao",
     "resultado"
-  ];
-
-
-  campos.forEach(id => {
+  ].forEach(id => {
 
     const campo =
       document.getElementById(id);
 
     if (campo && dados[id]) {
-
-      campo.value =
-        dados[id];
-
+      campo.value = dados[id];
     }
 
   });
@@ -1871,9 +1949,9 @@ function carregar() {
 }
 
 
-/* =========================
-   EVENTOS DE SALVAMENTO
-========================= */
+/* =====================================================
+   SALVAMENTO AUTOMÁTICO
+===================================================== */
 
 document
   .querySelectorAll(
@@ -1894,9 +1972,9 @@ document
   });
 
 
-/* =========================
-   FINALIZAÇÃO
-========================= */
+/* =====================================================
+   FINALIZAR
+===================================================== */
 
 function finalizar() {
 
@@ -1909,9 +1987,9 @@ function finalizar() {
 }
 
 
-/* =========================
+/* =====================================================
    INTERPRETAR SLIDERS
-========================= */
+===================================================== */
 
 function interpretar(
   valor,
@@ -1919,23 +1997,15 @@ function interpretar(
   segundo
 ) {
 
-  valor =
-    Number(valor);
-
+  valor = Number(valor);
 
   if (valor < 35) {
-
     return primeiro;
-
   }
-
 
   if (valor > 65) {
-
     return segundo;
-
   }
-
 
   return "Equilíbrio entre " +
     primeiro.toLowerCase() +
@@ -1945,9 +2015,9 @@ function interpretar(
 }
 
 
-/* =========================
+/* =====================================================
    WHATSAPP
-========================= */
+===================================================== */
 
 function enviarWhatsApp() {
 
@@ -1979,9 +2049,7 @@ function enviarWhatsApp() {
     "5535997003906";
 
 
-  const mensagem = `
-
-Olá, Giovanna!
+  const mensagem = `Olá, Giovanna!
 
 Acabei de preencher o Direcionamento Artístico da D’Arte Maris.
 
@@ -2036,52 +2104,41 @@ ${dados.inspiracao || "Não informado."}
 A LINGUAGEM
 
 Orgânico / Geométrico:
-
 ${interpretar(
   dados.sliders.organico,
   "Orgânico",
   "Geométrico"
 )}
 
-
 Minimalista / Expressivo:
-
 ${interpretar(
   dados.sliders.minimalista,
   "Minimalista",
   "Expressivo"
 )}
 
-
 Suave / Contrastante:
-
 ${interpretar(
   dados.sliders.suave,
   "Suave",
   "Contrastante"
 )}
 
-
 Natural / Sofisticado:
-
 ${interpretar(
   dados.sliders.natural,
   "Natural",
   "Sofisticado"
 )}
 
-
 Contemplativo / Vibrante:
-
 ${interpretar(
   dados.sliders.contemplativo,
   "Contemplativo",
   "Vibrante"
 )}
 
-
 Discreto / Marcante:
-
 ${interpretar(
   dados.sliders.discreto,
   "Discreto",
@@ -2114,29 +2171,24 @@ ${dados.momento || "Não informado."}
 
 ━━━━━━━━━━━━━━━━━━
 
-Envio essas informações como ponto de partida para nossa conversa.
-
-`.trim();
+Envio essas informações como ponto de partida para nossa conversa.`;
 
 
   const url =
     "https://wa.me/" +
     numero +
     "?text=" +
-    encodeURIComponent(
-      mensagem
-    );
+    encodeURIComponent(mensagem);
 
 
-  window.location.href =
-    url;
+  window.location.href = url;
 
 }
 
 
-/* =========================
+/* =====================================================
    INICIALIZAÇÃO
-========================= */
+===================================================== */
 
 carregar();
 
