@@ -15,7 +15,6 @@
   --creme:#f3efe6;
   --papel:#fcfaf5;
   --linha:rgba(25,54,45,.16);
-
   --serif:Georgia,"Times New Roman",serif;
   --sans:Arial,Helvetica,sans-serif;
 }
@@ -82,11 +81,8 @@ header{
 .progress{
   width:min(760px,84vw);
   height:2px;
-
   margin:28px auto 0;
-
   background:rgba(25,54,45,.10);
-
   position:relative;
 }
 
@@ -94,13 +90,10 @@ header{
   position:absolute;
   left:0;
   top:0;
-
   height:2px;
   width:0;
-
   background:var(--terracota);
-
-  transition:width .45s ease;
+  transition:width .4s ease;
 }
 
 /* =========================
@@ -114,31 +107,26 @@ main{
 
 .screen{
   display:none;
-
   min-height:calc(100vh - 145px);
-
   padding:9vh 0 8vh;
-
-  animation:entrar .45s ease;
 }
 
 .screen.active{
   display:flex;
   flex-direction:column;
+  animation:entrar .4s ease;
 }
 
 @keyframes entrar{
-
   from{
     opacity:0;
-    transform:translateY(10px);
+    transform:translateY(8px);
   }
 
   to{
     opacity:1;
     transform:translateY(0);
   }
-
 }
 
 /* =========================
@@ -167,7 +155,6 @@ main{
   font-size:clamp(43px,7vw,66px);
 
   line-height:1.06;
-
   font-weight:400;
 
   margin:0 0 28px;
@@ -175,10 +162,10 @@ main{
   color:var(--verde);
 }
 
-.cover p{
-  max-width:620px;
+.cover-intro{
+  max-width:650px;
 
-  font-size:16px;
+  font-size:17px;
   line-height:1.75;
 
   color:var(--verde-suave);
@@ -187,15 +174,25 @@ main{
 }
 
 .cover-note{
-  max-width:600px;
+  max-width:620px;
 
-  margin-top:32px!important;
+  margin-top:32px;
 
-  padding-top:22px;
+  padding:25px 28px;
 
-  border-top:1px solid var(--linha);
+  background:var(--papel);
 
-  font-size:14px!important;
+  border:1px solid rgba(25,54,45,.06);
+
+  color:var(--verde-suave);
+
+  font-size:14px;
+  line-height:1.7;
+}
+
+.cover-note strong{
+  color:var(--terracota);
+  font-weight:700;
 }
 
 /* =========================
@@ -229,7 +226,7 @@ main{
 }
 
 /* =========================
-   BLOCO DA PERGUNTA
+   PERGUNTAS
 ========================= */
 
 .question{
@@ -328,9 +325,7 @@ textarea:focus,
 
 .options{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:10px;
 }
 
@@ -372,9 +367,7 @@ textarea:focus,
 
 .slider-title{
   display:flex;
-
   justify-content:space-between;
-
   gap:20px;
 
   font-family:var(--serif);
@@ -447,16 +440,10 @@ textarea:focus,
   margin-top:37px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   gap:20px;
-}
-
-button{
-  border:0;
 }
 
 .primary{
@@ -472,6 +459,8 @@ button{
   letter-spacing:.13em;
 
   text-transform:uppercase;
+
+  border:0;
 }
 
 .primary:hover{
@@ -491,6 +480,8 @@ button{
   letter-spacing:.13em;
 
   text-transform:uppercase;
+
+  border:0;
 }
 
 /* =========================
@@ -551,6 +542,8 @@ button{
   letter-spacing:.12em;
 
   text-transform:uppercase;
+
+  border:0;
 }
 
 .final-note{
@@ -607,13 +600,16 @@ footer{
     font-size:43px;
   }
 
-  .cover p{
-    font-size:16px;
+  .cover-intro{
+    font-size:16.5px;
     line-height:1.72;
   }
 
   .cover-note{
-    font-size:14px!important;
+    padding:22px 20px;
+
+    font-size:14px;
+    line-height:1.68;
   }
 
   .step{
@@ -686,7 +682,7 @@ footer{
 }
 
 /* =========================
-   TELAS MUITO PEQUENAS
+   CELULARES PEQUENOS
 ========================= */
 
 @media(max-width:380px){
@@ -727,61 +723,73 @@ footer{
 </header>
 
 <div class="progress">
-  <div class="progress-bar" id="progress"></div>
+  <div class="progress-bar" id="progressBar"></div>
 </div>
 
-<main>
+<main id="app">
+
 
 <!-- =========================
-     ABERTURA
+     TELA 0 — ABERTURA
 ========================= -->
 
-<section class="screen active cover">
+<section class="screen active" data-screen="0">
 
-  <div class="eyebrow">
-    Antes da nossa conversa
-  </div>
+  <div class="cover">
 
-  <h1>
-    Direcionamento<br>
-    Artístico
-  </h1>
+    <div class="eyebrow">
+      Antes da nossa conversa
+    </div>
 
-  <p>
-    Antes da nossa conversa, gostaria de conhecer
-    um pouco melhor a sua necessidade, entender
-    o que despertou seu interesse pelo meu trabalho
-    e explorar as possibilidades para uma futura
-    intervenção artística.
-  </p>
+    <h1>
+      Direcionamento<br>
+      Artístico
+    </h1>
 
-  <p class="cover-note">
-    Este breve direcionamento não é um orçamento.
-    É um ponto de partida para compreender o lugar,
-    suas intenções e a possibilidade de uma criação
-    personalizada.
-  </p>
+    <p class="cover-intro">
+      Antes da nossa conversa, gostaria de conhecer
+      um pouco melhor a sua necessidade, entender
+      o que despertou seu interesse pelo meu trabalho
+      e explorar as possibilidades para uma futura
+      intervenção artística.
+    </p>
 
-  <div class="actions">
-    <span></span>
+    <div class="cover-note">
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
-      Começar
-    </button>
+      <strong>
+        Este breve direcionamento não é um orçamento.
+      </strong>
+
+      É um ponto de partida para compreender o lugar,
+      suas intenções e a possibilidade de uma criação
+      personalizada.
+
+    </div>
+
+    <div class="actions">
+
+      <span></span>
+
+      <button
+        type="button"
+        class="primary"
+        data-next
+      >
+        Começar
+      </button>
+
+    </div>
+
   </div>
 
 </section>
 
 
 <!-- =========================
-     01
+     TELA 1
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="1">
 
   <div class="step">
     01 — O olhar
@@ -810,19 +818,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -832,10 +832,10 @@ footer{
 
 
 <!-- =========================
-     02
+     TELA 2
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="2">
 
   <div class="step">
     01 — O olhar
@@ -868,19 +868,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -890,10 +882,10 @@ footer{
 
 
 <!-- =========================
-     03
+     TELA 3
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="3">
 
   <div class="step">
     02 — O lugar
@@ -924,19 +916,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -946,10 +930,10 @@ footer{
 
 
 <!-- =========================
-     04
+     TELA 4
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="4">
 
   <div class="step">
     02 — O lugar
@@ -1021,19 +1005,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1043,10 +1019,10 @@ footer{
 
 
 <!-- =========================
-     05
+     TELA 5
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="5">
 
   <div class="step">
     03 — O propósito
@@ -1075,19 +1051,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1097,10 +1065,10 @@ footer{
 
 
 <!-- =========================
-     06
+     TELA 6
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="6">
 
   <div class="step">
     03 — O propósito
@@ -1129,19 +1097,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1151,10 +1111,10 @@ footer{
 
 
 <!-- =========================
-     07
+     TELA 7
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="7">
 
   <div class="step">
     04 — A linguagem
@@ -1179,19 +1139,9 @@ footer{
       <span>Geométrico</span>
     </div>
 
-    <input
-      class="slider"
-      id="organico"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="organico" type="range" min="0" max="100" value="50">
 
-    <div
-      class="slider-result"
-      id="organicoResult"
-    >
+    <div class="slider-result" id="organicoResult">
       Equilíbrio
     </div>
 
@@ -1199,19 +1149,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1221,10 +1163,10 @@ footer{
 
 
 <!-- =========================
-     08
+     TELA 8
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="8">
 
   <div class="step">
     04 — A linguagem
@@ -1249,19 +1191,9 @@ footer{
       <span>Expressivo</span>
     </div>
 
-    <input
-      class="slider"
-      id="minimalista"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="minimalista" type="range" min="0" max="100" value="50">
 
-    <div
-      class="slider-result"
-      id="minimalistaResult"
-    >
+    <div class="slider-result" id="minimalistaResult">
       Equilíbrio
     </div>
 
@@ -1269,19 +1201,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1291,10 +1215,10 @@ footer{
 
 
 <!-- =========================
-     09
+     TELA 9
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="9">
 
   <div class="step">
     04 — A linguagem
@@ -1319,19 +1243,9 @@ footer{
       <span>Contrastante</span>
     </div>
 
-    <input
-      class="slider"
-      id="suave"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="suave" type="range" min="0" max="100" value="50">
 
-    <div
-      class="slider-result"
-      id="suaveResult"
-    >
+    <div class="slider-result" id="suaveResult">
       Equilíbrio
     </div>
 
@@ -1339,19 +1253,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1361,10 +1267,10 @@ footer{
 
 
 <!-- =========================
-     10
+     TELA 10
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="10">
 
   <div class="step">
     04 — A linguagem
@@ -1389,19 +1295,9 @@ footer{
       <span>Sofisticado</span>
     </div>
 
-    <input
-      class="slider"
-      id="natural"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="natural" type="range" min="0" max="100" value="50">
 
-    <div
-      class="slider-result"
-      id="naturalResult"
-    >
+    <div class="slider-result" id="naturalResult">
       Equilíbrio
     </div>
 
@@ -1409,19 +1305,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1431,10 +1319,10 @@ footer{
 
 
 <!-- =========================
-     11
+     TELA 11
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="11">
 
   <div class="step">
     04 — A linguagem
@@ -1459,19 +1347,9 @@ footer{
       <span>Vibrante</span>
     </div>
 
-    <input
-      class="slider"
-      id="contemplativo"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="contemplativo" type="range" min="0" max="100" value="50">
 
-    <div
-      class="slider-result"
-      id="contemplativoResult"
-    >
+    <div class="slider-result" id="contemplativoResult">
       Equilíbrio
     </div>
 
@@ -1479,19 +1357,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1501,10 +1371,10 @@ footer{
 
 
 <!-- =========================
-     12
+     TELA 12
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="12">
 
   <div class="step">
     04 — A linguagem
@@ -1529,19 +1399,9 @@ footer{
       <span>Marcante</span>
     </div>
 
-    <input
-      class="slider"
-      id="discreto"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="discreto" type="range" min="0" max="100" value="50">
 
-    <div
-      class="slider-result"
-      id="discretoResult"
-    >
+    <div class="slider-result" id="discretoResult">
       Equilíbrio
     </div>
 
@@ -1549,19 +1409,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1571,10 +1423,10 @@ footer{
 
 
 <!-- =========================
-     13
+     TELA 13
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="13">
 
   <div class="step">
     05 — A possibilidade
@@ -1597,63 +1449,23 @@ footer{
     <div class="options">
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Pintura mural autoral"
-          id="mural"
-        >
-
-        <label for="mural">
-          Pintura mural autoral
-        </label>
-
+        <input type="radio" name="possibilidade" value="Pintura mural autoral" id="mural">
+        <label for="mural">Pintura mural autoral</label>
       </div>
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Macramê sob medida"
-          id="macrame"
-        >
-
-        <label for="macrame">
-          Macramê sob medida
-        </label>
-
+        <input type="radio" name="possibilidade" value="Macramê sob medida" id="macrame">
+        <label for="macrame">Macramê sob medida</label>
       </div>
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Integração entre mural e macramê"
-          id="integracao"
-        >
-
-        <label for="integracao">
-          Integração entre mural e macramê
-        </label>
-
+        <input type="radio" name="possibilidade" value="Integração entre mural e macramê" id="integracao">
+        <label for="integracao">Integração entre mural e macramê</label>
       </div>
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Ainda estou aberto às possibilidades"
-          id="aberto"
-        >
-
-        <label for="aberto">
-          Ainda estou aberto às possibilidades
-        </label>
-
+        <input type="radio" name="possibilidade" value="Ainda estou aberto às possibilidades" id="aberto">
+        <label for="aberto">Ainda estou aberto às possibilidades</label>
       </div>
 
     </div>
@@ -1662,19 +1474,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1684,10 +1488,10 @@ footer{
 
 
 <!-- =========================
-     14
+     TELA 14
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="14">
 
   <div class="step">
     06 — O resultado
@@ -1716,19 +1520,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="avancarTela()"
-    >
+    <button type="button" class="primary" data-next>
       Continuar
     </button>
 
@@ -1738,10 +1534,10 @@ footer{
 
 
 <!-- =========================
-     15
+     TELA 15
 ========================= -->
 
-<section class="screen">
+<section class="screen" data-screen="15">
 
   <div class="step">
     07 — O momento
@@ -1764,48 +1560,18 @@ footer{
     <div class="options">
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="momento"
-          value="Gostaria de realizar agora."
-          id="agora"
-        >
-
-        <label for="agora">
-          Gostaria de realizar agora.
-        </label>
-
+        <input type="radio" name="momento" value="Gostaria de realizar agora." id="agora">
+        <label for="agora">Gostaria de realizar agora.</label>
       </div>
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="momento"
-          value="Pretendo desenvolver nos próximos meses."
-          id="meses"
-        >
-
-        <label for="meses">
-          Pretendo desenvolver nos próximos meses.
-        </label>
-
+        <input type="radio" name="momento" value="Pretendo desenvolver nos próximos meses." id="meses">
+        <label for="meses">Pretendo desenvolver nos próximos meses.</label>
       </div>
 
       <div class="option">
-
-        <input
-          type="radio"
-          name="momento"
-          value="Estou conhecendo possibilidades para o futuro."
-          id="futuro"
-        >
-
-        <label for="futuro">
-          Estou conhecendo possibilidades para o futuro.
-        </label>
-
+        <input type="radio" name="momento" value="Estou conhecendo possibilidades para o futuro." id="futuro">
+        <label for="futuro">Estou conhecendo possibilidades para o futuro.</label>
       </div>
 
     </div>
@@ -1814,19 +1580,11 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar
     </button>
 
-    <button
-      type="button"
-      class="primary"
-      onclick="finalizarBriefing()"
-    >
+    <button type="button" class="primary" id="finishButton">
       Concluir
     </button>
 
@@ -1836,10 +1594,10 @@ footer{
 
 
 <!-- =========================
-     FINAL
+     TELA 16 — FINAL
 ========================= -->
 
-<section class="screen final">
+<section class="screen final" data-screen="16">
 
   <div class="eyebrow">
     Direcionamento concluído
@@ -1867,7 +1625,7 @@ footer{
     <button
       type="button"
       class="whatsapp"
-      onclick="enviarParaWhatsApp()"
+      id="whatsappButton"
     >
       Enviar meu direcionamento
     </button>
@@ -1880,11 +1638,7 @@ footer{
 
   <div class="actions">
 
-    <button
-      type="button"
-      class="secondary"
-      onclick="voltarTela()"
-    >
+    <button type="button" class="secondary" data-back>
       Voltar e editar
     </button>
 
@@ -1901,399 +1655,455 @@ footer{
 
 <script>
 
-/* =========================
+/* =====================================================
    NAVEGAÇÃO
-========================= */
+===================================================== */
 
-const telas = document.querySelectorAll(".screen");
+(function(){
 
-let telaAtual = 0;
+  const screens =
+    Array.from(document.querySelectorAll(".screen"));
 
-function atualizarTela(){
+  const progressBar =
+    document.getElementById("progressBar");
 
-  telas.forEach(function(tela,index){
+  let current = 0;
 
-    if(index === telaAtual){
-      tela.classList.add("active");
-    }else{
-      tela.classList.remove("active");
+  function showScreen(number){
+
+    if(number < 0){
+      number = 0;
     }
 
-  });
+    if(number >= screens.length){
+      number = screens.length - 1;
+    }
 
-  const porcentagem =
-    (telaAtual / (telas.length - 1)) * 100;
+    current = number;
 
-  document.getElementById("progress").style.width =
-    porcentagem + "%";
+    screens.forEach(function(screen,index){
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+      screen.classList.toggle(
+        "active",
+        index === current
+      );
 
-}
+    });
 
-function avancarTela(){
+    const progress =
+      current === 0
+      ? 0
+      : (current / (screens.length - 1)) * 100;
 
-  salvarDados();
+    progressBar.style.width =
+      progress + "%";
 
-  if(telaAtual < telas.length - 1){
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
 
-    telaAtual++;
-
-    atualizarTela();
-
-  }
-
-}
-
-function voltarTela(){
-
-  if(telaAtual > 0){
-
-    telaAtual--;
-
-    atualizarTela();
+    saveData();
 
   }
 
-}
 
-function finalizarBriefing(){
+  /* BOTÕES AVANÇAR */
 
-  salvarDados();
+  document
+    .querySelectorAll("[data-next]")
+    .forEach(function(button){
 
-  telaAtual = telas.length - 1;
+      button.addEventListener("click",function(){
 
-  atualizarTela();
+        showScreen(current + 1);
 
-}
+      });
+
+    });
 
 
-/* =========================
-   SLIDERS
-========================= */
+  /* BOTÕES VOLTAR */
 
-const configuracaoSliders = [
+  document
+    .querySelectorAll("[data-back]")
+    .forEach(function(button){
 
-  ["organico","Orgânico","Geométrico"],
+      button.addEventListener("click",function(){
 
-  ["minimalista","Minimalista","Expressivo"],
+        showScreen(current - 1);
 
-  ["suave","Suave","Contrastante"],
+      });
 
-  ["natural","Natural","Sofisticado"],
+    });
 
-  ["contemplativo","Contemplativo","Vibrante"],
 
-  ["discreto","Discreto","Marcante"]
+  /* =====================================================
+     SLIDERS
+  ===================================================== */
 
-];
+  const sliders = [
 
-function atualizarSlider(id,esquerda,direita){
+    ["organico","Orgânico","Geométrico"],
+    ["minimalista","Minimalista","Expressivo"],
+    ["suave","Suave","Contrastante"],
+    ["natural","Natural","Sofisticado"],
+    ["contemplativo","Contemplativo","Vibrante"],
+    ["discreto","Discreto","Marcante"]
 
-  const slider =
-    document.getElementById(id);
+  ];
 
-  const resultado =
-    document.getElementById(id + "Result");
 
-  const valor =
-    Number(slider.value);
+  function updateSlider(id,left,right){
 
-  if(valor < 35){
+    const slider =
+      document.getElementById(id);
 
-    resultado.textContent = esquerda;
+    const result =
+      document.getElementById(id + "Result");
 
-  }else if(valor > 65){
+    const value =
+      Number(slider.value);
 
-    resultado.textContent = direita;
+    if(value < 35){
 
-  }else{
+      result.textContent = left;
 
-    resultado.textContent = "Equilíbrio";
+    }else if(value > 65){
+
+      result.textContent = right;
+
+    }else{
+
+      result.textContent = "Equilíbrio";
+
+    }
 
   }
 
-}
 
-configuracaoSliders.forEach(function(item){
+  sliders.forEach(function(item){
 
-  const slider =
-    document.getElementById(item[0]);
+    const slider =
+      document.getElementById(item[0]);
 
-  slider.addEventListener("input",function(){
+    slider.addEventListener("input",function(){
 
-    atualizarSlider(
-      item[0],
-      item[1],
-      item[2]
-    );
+      updateSlider(
+        item[0],
+        item[1],
+        item[2]
+      );
 
-    salvarDados();
+      saveData();
+
+    });
 
   });
 
-});
 
+  /* =====================================================
+     COLETAR DADOS
+  ===================================================== */
 
-/* =========================
-   COLETAR RESPOSTAS
-========================= */
+  function getData(){
 
-function coletarRespostas(){
-
-  return {
-
-    interesse:
-      document.getElementById("interesse").value,
-
-    linguagem:
-      document.getElementById("linguagem").value,
-
-    ambiente:
-      document.getElementById("ambiente").value,
-
-    areas:
+    const areas =
       Array.from(
         document.querySelectorAll(
           'input[type="checkbox"]:checked'
         )
-      ).map(function(el){
-        return el.value;
-      }),
+      ).map(function(element){
 
-    necessidade:
-      document.getElementById("necessidade").value,
-
-    inspiracao:
-      document.getElementById("inspiracao").value,
-
-    organico:
-      document.getElementById("organico").value,
-
-    minimalista:
-      document.getElementById("minimalista").value,
-
-    suave:
-      document.getElementById("suave").value,
-
-    natural:
-      document.getElementById("natural").value,
-
-    contemplativo:
-      document.getElementById("contemplativo").value,
-
-    discreto:
-      document.getElementById("discreto").value,
-
-    possibilidade:
-      document.querySelector(
-        'input[name="possibilidade"]:checked'
-      )?.value || "",
-
-    resultado:
-      document.getElementById("resultado").value,
-
-    momento:
-      document.querySelector(
-        'input[name="momento"]:checked'
-      )?.value || ""
-
-  };
-
-}
-
-
-/* =========================
-   SALVAR AUTOMATICAMENTE
-========================= */
-
-function salvarDados(){
-
-  localStorage.setItem(
-    "darteMarisDirecionamento",
-    JSON.stringify(
-      coletarRespostas()
-    )
-  );
-
-}
-
-
-/* =========================
-   RESTAURAR RESPOSTAS
-========================= */
-
-function carregarDados(){
-
-  const salvo =
-    localStorage.getItem(
-      "darteMarisDirecionamento"
-    );
-
-  if(!salvo){
-    return;
-  }
-
-  try{
-
-    const dados =
-      JSON.parse(salvo);
-
-    const campos = [
-      "interesse",
-      "linguagem",
-      "ambiente",
-      "necessidade",
-      "inspiracao",
-      "resultado"
-    ];
-
-    campos.forEach(function(id){
-
-      const campo =
-        document.getElementById(id);
-
-      if(campo && dados[id]){
-        campo.value = dados[id];
-      }
-
-    });
-
-    document
-      .querySelectorAll(
-        'input[type="checkbox"]'
-      )
-      .forEach(function(el){
-
-        el.checked =
-          dados.areas?.includes(el.value) || false;
+        return element.value;
 
       });
 
-    if(dados.possibilidade){
 
-      const radio =
-        document.querySelector(
-          'input[name="possibilidade"][value="' +
-          dados.possibilidade +
-          '"]'
-        );
+    const possibilidade =
+      document.querySelector(
+        'input[name="possibilidade"]:checked'
+      );
 
-      if(radio){
-        radio.checked = true;
-      }
+
+    const momento =
+      document.querySelector(
+        'input[name="momento"]:checked'
+      );
+
+
+    return {
+
+      interesse:
+        document.getElementById("interesse").value,
+
+      linguagem:
+        document.getElementById("linguagem").value,
+
+      ambiente:
+        document.getElementById("ambiente").value,
+
+      areas:areas,
+
+      necessidade:
+        document.getElementById("necessidade").value,
+
+      inspiracao:
+        document.getElementById("inspiracao").value,
+
+      organico:
+        document.getElementById("organico").value,
+
+      minimalista:
+        document.getElementById("minimalista").value,
+
+      suave:
+        document.getElementById("suave").value,
+
+      natural:
+        document.getElementById("natural").value,
+
+      contemplativo:
+        document.getElementById("contemplativo").value,
+
+      discreto:
+        document.getElementById("discreto").value,
+
+      possibilidade:
+        possibilidade ? possibilidade.value : "",
+
+      resultado:
+        document.getElementById("resultado").value,
+
+      momento:
+        momento ? momento.value : ""
+
+    };
+
+  }
+
+
+  /* =====================================================
+     SALVAR AUTOMATICAMENTE
+  ===================================================== */
+
+  function saveData(){
+
+    try{
+
+      localStorage.setItem(
+        "darteMarisBriefing",
+        JSON.stringify(getData())
+      );
+
+    }catch(error){
+
+      console.log("Não foi possível salvar os dados.");
 
     }
 
-    if(dados.momento){
+  }
 
-      const radio =
-        document.querySelector(
-          'input[name="momento"][value="' +
-          dados.momento +
-          '"]'
+
+  /* =====================================================
+     RESTAURAR DADOS
+  ===================================================== */
+
+  function loadData(){
+
+    try{
+
+      const saved =
+        localStorage.getItem(
+          "darteMarisBriefing"
         );
 
-      if(radio){
-        radio.checked = true;
+      if(!saved){
+        return;
       }
+
+      const data =
+        JSON.parse(saved);
+
+
+      const fields = [
+
+        "interesse",
+        "linguagem",
+        "ambiente",
+        "necessidade",
+        "inspiracao",
+        "resultado"
+
+      ];
+
+
+      fields.forEach(function(id){
+
+        const element =
+          document.getElementById(id);
+
+        if(element && data[id]){
+
+          element.value =
+            data[id];
+
+        }
+
+      });
+
+
+      document
+        .querySelectorAll(
+          'input[type="checkbox"]'
+        )
+        .forEach(function(element){
+
+          element.checked =
+            Array.isArray(data.areas) &&
+            data.areas.includes(
+              element.value
+            );
+
+        });
+
+
+      if(data.possibilidade){
+
+        const radio =
+          document.querySelector(
+            'input[name="possibilidade"][value="' +
+            CSS.escape(data.possibilidade) +
+            '"]'
+          );
+
+        if(radio){
+          radio.checked = true;
+        }
+
+      }
+
+
+      if(data.momento){
+
+        const radio =
+          document.querySelector(
+            'input[name="momento"][value="' +
+            CSS.escape(data.momento) +
+            '"]'
+          );
+
+        if(radio){
+          radio.checked = true;
+        }
+
+      }
+
+
+      sliders.forEach(function(item){
+
+        const id = item[0];
+
+        if(data[id] !== undefined){
+
+          const slider =
+            document.getElementById(id);
+
+          slider.value =
+            data[id];
+
+          updateSlider(
+            id,
+            item[1],
+            item[2]
+          );
+
+        }
+
+      });
+
+    }catch(error){
+
+      console.log(
+        "Não foi possível restaurar os dados."
+      );
 
     }
 
-    configuracaoSliders.forEach(function(item){
+  }
 
-      const id = item[0];
 
-      if(dados[id]){
+  /* =====================================================
+     SALVAR AO PREENCHER
+  ===================================================== */
 
-        document.getElementById(id).value =
-          dados[id];
+  document
+    .querySelectorAll("input, textarea")
+    .forEach(function(element){
 
-        atualizarSlider(
-          id,
-          item[1],
-          item[2]
-        );
+      element.addEventListener(
+        "input",
+        saveData
+      );
 
-      }
+      element.addEventListener(
+        "change",
+        saveData
+      );
 
     });
 
-  }catch(erro){
 
-    console.log(
-      "Não foi possível restaurar os dados."
-    );
+  /* =====================================================
+     FINALIZAR
+  ===================================================== */
+
+  document
+    .getElementById("finishButton")
+    .addEventListener("click",function(){
+
+      saveData();
+
+      showScreen(16);
+
+    });
+
+
+  /* =====================================================
+     INTERPRETAR SLIDER
+  ===================================================== */
+
+  function interpret(value,left,right){
+
+    value =
+      Number(value);
+
+    if(value < 35){
+      return left;
+    }
+
+    if(value > 65){
+      return right;
+    }
+
+    return "Equilíbrio";
 
   }
 
-}
+
+  /* =====================================================
+     WHATSAPP
+  ===================================================== */
+
+  document
+    .getElementById("whatsappButton")
+    .addEventListener("click",function(){
+
+      const data =
+        getData();
 
 
-/* =========================
-   SALVAR AO DIGITAR
-========================= */
-
-document
-  .querySelectorAll("input, textarea")
-  .forEach(function(campo){
-
-    campo.addEventListener(
-      "input",
-      salvarDados
-    );
-
-    campo.addEventListener(
-      "change",
-      salvarDados
-    );
-
-  });
-
-
-/* =========================
-   INTERPRETAR SLIDER
-========================= */
-
-function interpretarSlider(
-  valor,
-  esquerda,
-  direita
-){
-
-  valor = Number(valor);
-
-  if(valor < 35){
-    return esquerda;
-  }
-
-  if(valor > 65){
-    return direita;
-  }
-
-  return "Equilíbrio";
-
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-function enviarParaWhatsApp(){
-
-  const dados =
-    coletarRespostas();
-
-  salvarDados();
-
-  const numero =
-    "5535997003906";
-
-  const mensagem =
+      const message =
 
 `Olá, Giovanna!
 
@@ -2305,12 +2115,12 @@ Acabei de preencher o Direcionamento Artístico da D’Arte Maris.
 
 O que fez você se interessar pelo meu trabalho?
 
-${dados.interesse || "Não informado."}
+${data.interesse || "Não informado."}
 
 
 O que mais chamou sua atenção na minha linguagem artística?
 
-${dados.linguagem || "Não informado."}
+${data.linguagem || "Não informado."}
 
 
 ━━━━━━━━━━━━━━━━━━
@@ -2319,15 +2129,15 @@ ${dados.linguagem || "Não informado."}
 
 Ambiente imaginado:
 
-${dados.ambiente || "Não informado."}
+${data.ambiente || "Não informado."}
 
 
 Áreas abertas para intervenção:
 
 ${
-  dados.areas.length
-    ? dados.areas.join(", ")
-    : "Não informado."
+  data.areas.length
+  ? data.areas.join(", ")
+  : "Não informado."
 }
 
 
@@ -2337,12 +2147,12 @@ ${
 
 Necessidade que a arte poderia resolver, valorizar ou potencializar:
 
-${dados.necessidade || "Não informado."}
+${data.necessidade || "Não informado."}
 
 
 História, elemento ou característica que poderia inspirar a obra:
 
-${dados.inspiracao || "Não informado."}
+${data.inspiracao || "Não informado."}
 
 
 ━━━━━━━━━━━━━━━━━━
@@ -2350,43 +2160,43 @@ ${dados.inspiracao || "Não informado."}
 04 — A LINGUAGEM
 
 Orgânico / Geométrico:
-${interpretarSlider(
-  dados.organico,
+${interpret(
+  data.organico,
   "Orgânico",
   "Geométrico"
 )}
 
 Minimalista / Expressivo:
-${interpretarSlider(
-  dados.minimalista,
+${interpret(
+  data.minimalista,
   "Minimalista",
   "Expressivo"
 )}
 
 Suave / Contrastante:
-${interpretarSlider(
-  dados.suave,
+${interpret(
+  data.suave,
   "Suave",
   "Contrastante"
 )}
 
 Natural / Sofisticado:
-${interpretarSlider(
-  dados.natural,
+${interpret(
+  data.natural,
   "Natural",
   "Sofisticado"
 )}
 
 Contemplativo / Vibrante:
-${interpretarSlider(
-  dados.contemplativo,
+${interpret(
+  data.contemplativo,
   "Contemplativo",
   "Vibrante"
 )}
 
 Discreto / Marcante:
-${interpretarSlider(
-  dados.discreto,
+${interpret(
+  data.discreto,
   "Discreto",
   "Marcante"
 )}
@@ -2396,45 +2206,59 @@ ${interpretarSlider(
 
 05 — A POSSIBILIDADE
 
-${dados.possibilidade || "Não informado."}
+${data.possibilidade || "Não informado."}
 
 
 ━━━━━━━━━━━━━━━━━━
 
 06 — O RESULTADO
 
-${dados.resultado || "Não informado."}
+${data.resultado || "Não informado."}
 
 
 ━━━━━━━━━━━━━━━━━━
 
 07 — O MOMENTO
 
-${dados.momento || "Não informado."}
+${data.momento || "Não informado."}
 
 
 ━━━━━━━━━━━━━━━━━━
 
 Essas informações serão nosso ponto de partida para a conversa.`;
 
-  const url =
-    "https://wa.me/" +
-    numero +
-    "?text=" +
-    encodeURIComponent(mensagem);
 
-  window.location.href = url;
+      /*
+        Número do seu WhatsApp:
+        +55 35 99700-3906
+      */
 
-}
+      const phone =
+        "5535997003906";
 
 
-/* =========================
-   INICIAR
-========================= */
+      const whatsappURL =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
 
-carregarDados();
 
-atualizarTela();
+      window.location.href =
+        whatsappURL;
+
+    });
+
+
+  /* =====================================================
+     INICIALIZAÇÃO
+  ===================================================== */
+
+  loadData();
+
+  showScreen(0);
+
+})();
 
 </script>
 
