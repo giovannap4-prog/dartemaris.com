@@ -7,20 +7,26 @@
 <title>D’Arte Maris — Direcionamento Artístico</title>
 
 <style>
+
 :root{
   --verde:#19362d;
-  --verde-suave:#52645d;
+  --verde-suave:#53645d;
   --terracota:#965541;
   --creme:#f3efe6;
   --papel:#fcfaf5;
   --linha:rgba(25,54,45,.16);
+
   --serif:Georgia,"Times New Roman",serif;
   --sans:Arial,Helvetica,sans-serif;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -30,18 +36,28 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-button,input,textarea{font:inherit}
+button,
+input,
+textarea{
+  font:inherit;
+}
 
-button{cursor:pointer}
+button{
+  cursor:pointer;
+}
 
-/* HEADER */
+/* =========================
+   CABEÇALHO
+========================= */
 
 header{
   height:74px;
   padding:0 7vw;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   border-bottom:1px solid var(--linha);
 }
 
@@ -52,20 +68,25 @@ header{
 }
 
 .header-label{
-  font-size:10px;
-  letter-spacing:.15em;
+  font-size:11px;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  font-weight:600;
+  font-weight:700;
   color:var(--terracota);
 }
 
-/* PROGRESSO */
+/* =========================
+   PROGRESSO
+========================= */
 
 .progress{
   width:min(760px,84vw);
-  margin:28px auto 0;
   height:2px;
+
+  margin:28px auto 0;
+
   background:rgba(25,54,45,.10);
+
   position:relative;
 }
 
@@ -73,13 +94,18 @@ header{
   position:absolute;
   left:0;
   top:0;
+
   height:2px;
   width:0;
+
   background:var(--terracota);
+
   transition:width .45s ease;
 }
 
-/* CONTEÚDO */
+/* =========================
+   ESTRUTURA
+========================= */
 
 main{
   width:min(760px,84vw);
@@ -88,19 +114,36 @@ main{
 
 .screen{
   display:none;
+
   min-height:calc(100vh - 145px);
-  padding:10vh 0 8vh;
+
+  padding:9vh 0 8vh;
+
   animation:entrar .45s ease;
 }
 
-.screen.active{display:flex;flex-direction:column}
-
-@keyframes entrar{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:translateY(0)}
+.screen.active{
+  display:flex;
+  flex-direction:column;
 }
 
-/* CAPA */
+@keyframes entrar{
+
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* =========================
+   ABERTURA
+========================= */
 
 .cover{
   justify-content:center;
@@ -108,112 +151,162 @@ main{
 
 .eyebrow{
   color:var(--terracota);
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.16em;
+
+  font-size:12px;
+  font-weight:700;
+
+  letter-spacing:.15em;
   text-transform:uppercase;
-  margin-bottom:24px;
+
+  margin-bottom:25px;
 }
 
 .cover h1{
   font-family:var(--serif);
-  font-size:clamp(42px,7vw,66px);
+
+  font-size:clamp(43px,7vw,66px);
+
   line-height:1.06;
+
   font-weight:400;
-  margin:0 0 26px;
+
+  margin:0 0 28px;
+
   color:var(--verde);
 }
 
 .cover p{
   max-width:620px;
-  font-size:15px;
-  line-height:1.8;
+
+  font-size:16px;
+  line-height:1.75;
+
   color:var(--verde-suave);
+
   margin:0;
 }
 
 .cover-note{
   max-width:600px;
-  margin-top:35px!important;
+
+  margin-top:32px!important;
+
   padding-top:22px;
+
   border-top:1px solid var(--linha);
-  font-size:13px!important;
+
+  font-size:14px!important;
 }
 
-/* ETAPA */
+/* =========================
+   ETAPAS
+========================= */
 
 .step{
   color:var(--terracota);
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.16em;
+
+  font-size:12px;
+  font-weight:700;
+
+  letter-spacing:.15em;
   text-transform:uppercase;
-  margin-bottom:24px;
+
+  margin-bottom:23px;
 }
 
 .step-title{
   font-family:var(--serif);
-  font-size:clamp(30px,5vw,43px);
-  line-height:1.16;
+
+  font-size:clamp(32px,5vw,43px);
+
+  line-height:1.17;
+
   font-weight:400;
-  margin:0 0 42px;
+
+  margin:0 0 39px;
+
   color:var(--verde);
 }
 
-/* PERGUNTA */
+/* =========================
+   BLOCO DA PERGUNTA
+========================= */
 
 .question{
   background:var(--papel);
+
   border:1px solid rgba(25,54,45,.07);
+
   padding:38px 40px 42px;
+
   box-shadow:0 10px 35px rgba(25,54,45,.035);
 }
 
 .question-label{
   color:var(--terracota);
-  font-size:11px;
-  font-weight:600;
+
+  font-size:12px;
+  font-weight:700;
+
   letter-spacing:.12em;
   text-transform:uppercase;
-  margin-bottom:16px;
+
+  margin-bottom:17px;
 }
 
 .question h2{
   font-family:var(--serif);
-  font-size:clamp(22px,3vw,27px);
+
+  font-size:clamp(24px,3vw,28px);
+
   line-height:1.4;
+
   font-weight:400;
-  margin:0 0 25px;
+
+  margin:0 0 27px;
+
   color:var(--verde);
 }
 
 .question small{
   display:block;
-  font-size:13px;
-  line-height:1.6;
+
+  font-size:14px;
+  line-height:1.65;
+
   color:var(--verde-suave);
+
   margin-top:-10px;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
-/* CAMPOS */
+/* =========================
+   CAMPOS
+========================= */
 
 textarea,
 .text-input{
   width:100%;
+
   border:0;
   border-bottom:1px solid var(--linha);
+
   background:transparent;
+
   outline:none;
+
   color:var(--terracota);
-  font-size:15px;
+
+  font-size:17px;
   font-weight:500;
+
   line-height:1.7;
-  padding:10px 0 12px;
+
+  padding:10px 0 13px;
 }
 
 textarea{
-  min-height:115px;
+  min-height:125px;
   resize:vertical;
 }
 
@@ -221,6 +314,7 @@ textarea::placeholder,
 .text-input::placeholder{
   color:#89918c;
   font-weight:400;
+  font-size:15px;
 }
 
 textarea:focus,
@@ -228,11 +322,15 @@ textarea:focus,
   border-color:var(--terracota);
 }
 
-/* OPÇÕES */
+/* =========================
+   OPÇÕES
+========================= */
 
 .options{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:10px;
 }
 
@@ -243,11 +341,16 @@ textarea:focus,
 
 .option label{
   display:block;
-  padding:16px 17px;
+
+  padding:17px 18px;
+
   border:1px solid var(--linha);
-  font-size:13px;
+
+  font-size:15px;
   line-height:1.45;
+
   color:var(--verde-suave);
+
   transition:.2s ease;
 }
 
@@ -255,67 +358,100 @@ textarea:focus,
   border-color:var(--terracota);
 }
 
-.option input:checked+label{
+.option input:checked + label{
   background:var(--verde);
+
   color:var(--papel);
+
   border-color:var(--verde);
 }
 
-/* SLIDER */
+/* =========================
+   SLIDERS
+========================= */
 
 .slider-title{
   display:flex;
+
   justify-content:space-between;
+
   gap:20px;
+
   font-family:var(--serif);
-  font-size:19px;
+
+  font-size:20px;
+
   color:var(--verde);
 }
 
 .slider{
   width:100%;
-  margin:30px 0 8px;
+
+  margin:31px 0 8px;
+
   appearance:none;
+
   height:2px;
+
   background:var(--linha);
+
   outline:none;
 }
 
 .slider::-webkit-slider-thumb{
   appearance:none;
-  width:17px;
-  height:17px;
+
+  width:18px;
+  height:18px;
+
   border-radius:50%;
+
   background:var(--terracota);
+
   border:3px solid var(--papel);
+
   box-shadow:0 0 0 1px var(--terracota);
 }
 
 .slider::-moz-range-thumb{
-  width:12px;
-  height:12px;
+  width:13px;
+  height:13px;
+
   border-radius:50%;
+
   background:var(--terracota);
+
   border:3px solid var(--papel);
 }
 
 .slider-result{
   text-align:center;
-  margin-top:12px;
+
+  margin-top:13px;
+
   color:var(--terracota);
-  font-size:11px;
-  font-weight:600;
+
+  font-size:12px;
+  font-weight:700;
+
   letter-spacing:.1em;
+
   text-transform:uppercase;
 }
 
-/* AÇÕES */
+/* =========================
+   BOTÕES
+========================= */
 
 .actions{
-  margin-top:38px;
+  margin-top:37px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:20px;
 }
 
@@ -325,11 +461,16 @@ button{
 
 .primary{
   background:var(--verde);
+
   color:var(--papel);
-  padding:15px 23px;
-  font-size:10px;
-  font-weight:600;
+
+  padding:16px 24px;
+
+  font-size:11px;
+  font-weight:700;
+
   letter-spacing:.13em;
+
   text-transform:uppercase;
 }
 
@@ -339,15 +480,22 @@ button{
 
 .secondary{
   background:transparent;
+
   color:var(--verde);
+
   padding:12px 0;
-  font-size:10px;
-  font-weight:600;
+
+  font-size:11px;
+  font-weight:700;
+
   letter-spacing:.13em;
+
   text-transform:uppercase;
 }
 
-/* FINAL */
+/* =========================
+   FINAL
+========================= */
 
 .final{
   justify-content:center;
@@ -355,57 +503,85 @@ button{
 
 .final h1{
   font-family:var(--serif);
+
   font-weight:400;
-  font-size:clamp(34px,5vw,48px);
+
+  font-size:clamp(36px,5vw,49px);
+
   line-height:1.15;
+
   margin:0 0 25px;
 }
 
 .final p{
   max-width:600px;
+
   color:var(--verde-suave);
-  font-size:15px;
-  line-height:1.8;
+
+  font-size:16px;
+
+  line-height:1.75;
 }
 
 .final-box{
   margin-top:32px;
+
   padding:35px;
+
   background:var(--papel);
+
   border:1px solid rgba(25,54,45,.07);
 }
 
 .whatsapp{
   margin-top:18px;
+
   width:100%;
   max-width:470px;
+
   background:var(--terracota);
+
   color:white;
-  padding:17px 20px;
-  font-size:10px;
-  font-weight:600;
+
+  padding:18px 20px;
+
+  font-size:11px;
+  font-weight:700;
+
   letter-spacing:.12em;
+
   text-transform:uppercase;
 }
 
 .final-note{
-  font-size:12px!important;
+  font-size:13px!important;
+
   margin-top:14px!important;
 }
 
-/* RODAPÉ */
+/* =========================
+   RODAPÉ
+========================= */
 
 footer{
   border-top:1px solid var(--linha);
+
   text-align:center;
+
   padding:25px 7vw;
+
   color:var(--verde-suave);
-  font-size:9px;
+
+  font-size:10px;
+
   letter-spacing:.12em;
+
   text-transform:uppercase;
 }
 
-/* MOBILE */
+/* =========================
+   CELULAR
+========================= */
 
 @media(max-width:650px){
 
@@ -424,7 +600,7 @@ footer{
 
   .screen{
     min-height:calc(100vh - 135px);
-    padding:8vh 0 7vh;
+    padding:7vh 0 7vh;
   }
 
   .cover h1{
@@ -432,41 +608,105 @@ footer{
   }
 
   .cover p{
-    font-size:14px;
+    font-size:16px;
+    line-height:1.72;
+  }
+
+  .cover-note{
+    font-size:14px!important;
   }
 
   .step{
-    margin-bottom:19px;
+    font-size:12px;
+    margin-bottom:18px;
   }
 
   .step-title{
-    font-size:31px;
-    margin-bottom:31px;
+    font-size:32px;
+    line-height:1.18;
+    margin-bottom:30px;
   }
 
   .question{
-    padding:28px 22px 31px;
+    padding:29px 22px 32px;
+  }
+
+  .question-label{
+    font-size:12px;
   }
 
   .question h2{
-    font-size:22px;
+    font-size:24px;
+    line-height:1.38;
+  }
+
+  .question small{
+    font-size:14px;
+  }
+
+  textarea,
+  .text-input{
+    font-size:17px;
+  }
+
+  textarea::placeholder,
+  .text-input::placeholder{
+    font-size:15px;
   }
 
   .options{
     grid-template-columns:1fr;
   }
 
+  .option label{
+    font-size:15px;
+    padding:17px;
+  }
+
   .slider-title{
-    font-size:17px;
+    font-size:18px;
+  }
+
+  .slider-result{
+    font-size:12px;
   }
 
   .actions{
-    margin-top:30px;
+    margin-top:29px;
+  }
+
+  .primary{
+    padding:15px 20px;
   }
 
   .final-box{
     padding:27px 22px;
   }
+
+}
+
+/* =========================
+   TELAS MUITO PEQUENAS
+========================= */
+
+@media(max-width:380px){
+
+  .cover h1{
+    font-size:39px;
+  }
+
+  .step-title{
+    font-size:29px;
+  }
+
+  .question h2{
+    font-size:22px;
+  }
+
+  .question{
+    padding:25px 19px 28px;
+  }
+
 }
 
 </style>
@@ -475,8 +715,15 @@ footer{
 <body>
 
 <header>
-  <div class="logo">D’Arte Maris</div>
-  <div class="header-label">Direcionamento Artístico</div>
+
+  <div class="logo">
+    D’Arte Maris
+  </div>
+
+  <div class="header-label">
+    Direcionamento Artístico
+  </div>
+
 </header>
 
 <div class="progress">
@@ -485,11 +732,15 @@ footer{
 
 <main>
 
-<!-- CAPA -->
+<!-- =========================
+     ABERTURA
+========================= -->
 
 <section class="screen active cover">
 
-  <div class="eyebrow">Antes da nossa conversa</div>
+  <div class="eyebrow">
+    Antes da nossa conversa
+  </div>
 
   <h1>
     Direcionamento<br>
@@ -513,17 +764,28 @@ footer{
 
   <div class="actions">
     <span></span>
-    <button class="primary" onclick="next()">Começar</button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Começar
+    </button>
   </div>
 
 </section>
 
 
-<!-- 01 -->
+<!-- =========================
+     01
+========================= -->
 
 <section class="screen">
 
-  <div class="step">01 — O olhar</div>
+  <div class="step">
+    01 — O olhar
+  </div>
 
   <h1 class="step-title">
     Primeiro, quero conhecer o seu olhar.
@@ -531,7 +793,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Sua percepção</div>
+    <div class="question-label">
+      Sua percepção
+    </div>
 
     <h2>
       O que fez você se interessar pelo meu trabalho?
@@ -545,18 +809,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 02 -->
+<!-- =========================
+     02
+========================= -->
 
 <section class="screen">
 
-  <div class="step">01 — O olhar</div>
+  <div class="step">
+    01 — O olhar
+  </div>
 
   <h1 class="step-title">
     Quero entender o que você percebeu.
@@ -564,7 +847,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Sua percepção</div>
+    <div class="question-label">
+      Sua percepção
+    </div>
 
     <h2>
       Ao conhecer meu trabalho, o que mais chamou sua atenção na minha linguagem artística?
@@ -582,18 +867,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 03 -->
+<!-- =========================
+     03
+========================= -->
 
 <section class="screen">
 
-  <div class="step">02 — O lugar</div>
+  <div class="step">
+    02 — O lugar
+  </div>
 
   <h1 class="step-title">
     Agora, vamos falar sobre o lugar.
@@ -601,7 +905,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">O espaço</div>
+    <div class="question-label">
+      O espaço
+    </div>
 
     <h2>
       Existe algum ambiente ou área que você já imaginou para uma intervenção artística?
@@ -617,18 +923,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 04 -->
+<!-- =========================
+     04
+========================= -->
 
 <section class="screen">
 
-  <div class="step">02 — O lugar</div>
+  <div class="step">
+    02 — O lugar
+  </div>
 
   <h1 class="step-title">
     Quais possibilidades você enxerga?
@@ -636,7 +961,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Áreas disponíveis</div>
+    <div class="question-label">
+      Áreas disponíveis
+    </div>
 
     <h2>
       Quais áreas você considera abertas para uma intervenção artística?
@@ -693,18 +1020,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 05 -->
+<!-- =========================
+     05
+========================= -->
 
 <section class="screen">
 
-  <div class="step">03 — O propósito</div>
+  <div class="step">
+    03 — O propósito
+  </div>
 
   <h1 class="step-title">
     O que a arte poderia transformar?
@@ -712,7 +1058,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">A intenção</div>
+    <div class="question-label">
+      A intenção
+    </div>
 
     <h2>
       Existe alguma necessidade que você gostaria que a arte ajudasse a resolver, valorizar ou potencializar?
@@ -726,18 +1074,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 06 -->
+<!-- =========================
+     06
+========================= -->
 
 <section class="screen">
 
-  <div class="step">03 — O propósito</div>
+  <div class="step">
+    03 — O propósito
+  </div>
 
   <h1 class="step-title">
     O lugar também conta uma história.
@@ -745,7 +1112,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">A inspiração</div>
+    <div class="question-label">
+      A inspiração
+    </div>
 
     <h2>
       Existe alguma história, elemento, memória ou característica desse lugar que você gostaria que inspirasse a criação da obra?
@@ -759,18 +1128,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 07 -->
+<!-- =========================
+     07
+========================= -->
 
 <section class="screen">
 
-  <div class="step">04 — A linguagem</div>
+  <div class="step">
+    04 — A linguagem
+  </div>
 
   <h1 class="step-title">
     Encontrando a linguagem.
@@ -778,7 +1166,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Primeiro eixo</div>
+    <div class="question-label">
+      Primeiro eixo
+    </div>
 
     <h2>
       Para este projeto, você se aproxima mais de qual direção?
@@ -789,27 +1179,56 @@ footer{
       <span>Geométrico</span>
     </div>
 
-    <input class="slider" id="organico" type="range" min="0" max="100" value="50">
+    <input
+      class="slider"
+      id="organico"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    >
 
-    <div class="slider-result" id="organicoResult">
+    <div
+      class="slider-result"
+      id="organicoResult"
+    >
       Equilíbrio
     </div>
 
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 08 -->
+<!-- =========================
+     08
+========================= -->
 
 <section class="screen">
 
-  <div class="step">04 — A linguagem</div>
+  <div class="step">
+    04 — A linguagem
+  </div>
 
   <h1 class="step-title">
     E quanto à presença da obra?
@@ -817,7 +1236,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Segundo eixo</div>
+    <div class="question-label">
+      Segundo eixo
+    </div>
 
     <h2>
       Você imagina algo mais contido ou mais expressivo?
@@ -828,27 +1249,56 @@ footer{
       <span>Expressivo</span>
     </div>
 
-    <input class="slider" id="minimalista" type="range" min="0" max="100" value="50">
+    <input
+      class="slider"
+      id="minimalista"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    >
 
-    <div class="slider-result" id="minimalistaResult">
+    <div
+      class="slider-result"
+      id="minimalistaResult"
+    >
       Equilíbrio
     </div>
 
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 09 -->
+<!-- =========================
+     09
+========================= -->
 
 <section class="screen">
 
-  <div class="step">04 — A linguagem</div>
+  <div class="step">
+    04 — A linguagem
+  </div>
 
   <h1 class="step-title">
     Agora, pense na intensidade.
@@ -856,7 +1306,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Terceiro eixo</div>
+    <div class="question-label">
+      Terceiro eixo
+    </div>
 
     <h2>
       Você imagina uma presença mais suave ou contrastante?
@@ -867,27 +1319,56 @@ footer{
       <span>Contrastante</span>
     </div>
 
-    <input class="slider" id="suave" type="range" min="0" max="100" value="50">
+    <input
+      class="slider"
+      id="suave"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    >
 
-    <div class="slider-result" id="suaveResult">
+    <div
+      class="slider-result"
+      id="suaveResult"
+    >
       Equilíbrio
     </div>
 
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 10 -->
+<!-- =========================
+     10
+========================= -->
 
 <section class="screen">
 
-  <div class="step">04 — A linguagem</div>
+  <div class="step">
+    04 — A linguagem
+  </div>
 
   <h1 class="step-title">
     Que atmosfera você imagina?
@@ -895,7 +1376,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Quarto eixo</div>
+    <div class="question-label">
+      Quarto eixo
+    </div>
 
     <h2>
       Mais próxima da natureza ou de uma sofisticação marcada?
@@ -906,27 +1389,56 @@ footer{
       <span>Sofisticado</span>
     </div>
 
-    <input class="slider" id="natural" type="range" min="0" max="100" value="50">
+    <input
+      class="slider"
+      id="natural"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    >
 
-    <div class="slider-result" id="naturalResult">
+    <div
+      class="slider-result"
+      id="naturalResult"
+    >
       Equilíbrio
     </div>
 
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 11 -->
+<!-- =========================
+     11
+========================= -->
 
 <section class="screen">
 
-  <div class="step">04 — A linguagem</div>
+  <div class="step">
+    04 — A linguagem
+  </div>
 
   <h1 class="step-title">
     E qual sensação você gostaria de provocar?
@@ -934,7 +1446,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Quinto eixo</div>
+    <div class="question-label">
+      Quinto eixo
+    </div>
 
     <h2>
       Algo mais contemplativo ou vibrante?
@@ -945,27 +1459,56 @@ footer{
       <span>Vibrante</span>
     </div>
 
-    <input class="slider" id="contemplativo" type="range" min="0" max="100" value="50">
+    <input
+      class="slider"
+      id="contemplativo"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    >
 
-    <div class="slider-result" id="contemplativoResult">
+    <div
+      class="slider-result"
+      id="contemplativoResult"
+    >
       Equilíbrio
     </div>
 
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 12 -->
+<!-- =========================
+     12
+========================= -->
 
 <section class="screen">
 
-  <div class="step">04 — A linguagem</div>
+  <div class="step">
+    04 — A linguagem
+  </div>
 
   <h1 class="step-title">
     Por fim, pense na presença física da obra.
@@ -973,7 +1516,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Sexto eixo</div>
+    <div class="question-label">
+      Sexto eixo
+    </div>
 
     <h2>
       Você gostaria que ela fosse mais discreta ou marcante?
@@ -984,27 +1529,56 @@ footer{
       <span>Marcante</span>
     </div>
 
-    <input class="slider" id="discreto" type="range" min="0" max="100" value="50">
+    <input
+      class="slider"
+      id="discreto"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+    >
 
-    <div class="slider-result" id="discretoResult">
+    <div
+      class="slider-result"
+      id="discretoResult"
+    >
       Equilíbrio
     </div>
 
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 13 -->
+<!-- =========================
+     13
+========================= -->
 
 <section class="screen">
 
-  <div class="step">05 — A possibilidade</div>
+  <div class="step">
+    05 — A possibilidade
+  </div>
 
   <h1 class="step-title">
     O que você imaginou primeiro?
@@ -1012,7 +1586,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Possibilidade</div>
+    <div class="question-label">
+      Possibilidade
+    </div>
 
     <h2>
       Quando conheceu meu trabalho, qual possibilidade veio primeiro à sua mente?
@@ -1021,23 +1597,63 @@ footer{
     <div class="options">
 
       <div class="option">
-        <input type="radio" name="possibilidade" value="Pintura mural autoral" id="mural">
-        <label for="mural">Pintura mural autoral</label>
+
+        <input
+          type="radio"
+          name="possibilidade"
+          value="Pintura mural autoral"
+          id="mural"
+        >
+
+        <label for="mural">
+          Pintura mural autoral
+        </label>
+
       </div>
 
       <div class="option">
-        <input type="radio" name="possibilidade" value="Macramê sob medida" id="macrame">
-        <label for="macrame">Macramê sob medida</label>
+
+        <input
+          type="radio"
+          name="possibilidade"
+          value="Macramê sob medida"
+          id="macrame"
+        >
+
+        <label for="macrame">
+          Macramê sob medida
+        </label>
+
       </div>
 
       <div class="option">
-        <input type="radio" name="possibilidade" value="Integração entre mural e macramê" id="integracao">
-        <label for="integracao">Integração entre mural e macramê</label>
+
+        <input
+          type="radio"
+          name="possibilidade"
+          value="Integração entre mural e macramê"
+          id="integracao"
+        >
+
+        <label for="integracao">
+          Integração entre mural e macramê
+        </label>
+
       </div>
 
       <div class="option">
-        <input type="radio" name="possibilidade" value="Ainda estou aberto às possibilidades" id="aberto">
-        <label for="aberto">Ainda estou aberto às possibilidades</label>
+
+        <input
+          type="radio"
+          name="possibilidade"
+          value="Ainda estou aberto às possibilidades"
+          id="aberto"
+        >
+
+        <label for="aberto">
+          Ainda estou aberto às possibilidades
+        </label>
+
       </div>
 
     </div>
@@ -1045,18 +1661,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 14 -->
+<!-- =========================
+     14
+========================= -->
 
 <section class="screen">
 
-  <div class="step">06 — O resultado</div>
+  <div class="step">
+    06 — O resultado
+  </div>
 
   <h1 class="step-title">
     O que você gostaria que permanecesse?
@@ -1064,7 +1699,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Experiência</div>
+    <div class="question-label">
+      Experiência
+    </div>
 
     <h2>
       Se essa intervenção fosse exatamente como você imagina, o que ela acrescentaria à experiência de quem vive ou visita esse lugar?
@@ -1078,18 +1715,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="next()">Continuar</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="avancarTela()"
+    >
+      Continuar
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- 15 -->
+<!-- =========================
+     15
+========================= -->
 
 <section class="screen">
 
-  <div class="step">07 — O momento</div>
+  <div class="step">
+    07 — O momento
+  </div>
 
   <h1 class="step-title">
     Quando essa ideia poderia acontecer?
@@ -1097,7 +1753,9 @@ footer{
 
   <div class="question">
 
-    <div class="question-label">Momento do projeto</div>
+    <div class="question-label">
+      Momento do projeto
+    </div>
 
     <h2>
       Em que momento essa ideia está?
@@ -1106,18 +1764,48 @@ footer{
     <div class="options">
 
       <div class="option">
-        <input type="radio" name="momento" value="Gostaria de realizar agora." id="agora">
-        <label for="agora">Gostaria de realizar agora.</label>
+
+        <input
+          type="radio"
+          name="momento"
+          value="Gostaria de realizar agora."
+          id="agora"
+        >
+
+        <label for="agora">
+          Gostaria de realizar agora.
+        </label>
+
       </div>
 
       <div class="option">
-        <input type="radio" name="momento" value="Pretendo desenvolver nos próximos meses." id="meses">
-        <label for="meses">Pretendo desenvolver nos próximos meses.</label>
+
+        <input
+          type="radio"
+          name="momento"
+          value="Pretendo desenvolver nos próximos meses."
+          id="meses"
+        >
+
+        <label for="meses">
+          Pretendo desenvolver nos próximos meses.
+        </label>
+
       </div>
 
       <div class="option">
-        <input type="radio" name="momento" value="Estou conhecendo possibilidades para o futuro." id="futuro">
-        <label for="futuro">Estou conhecendo possibilidades para o futuro.</label>
+
+        <input
+          type="radio"
+          name="momento"
+          value="Estou conhecendo possibilidades para o futuro."
+          id="futuro"
+        >
+
+        <label for="futuro">
+          Estou conhecendo possibilidades para o futuro.
+        </label>
+
       </div>
 
     </div>
@@ -1125,18 +1813,37 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">Voltar</button>
-    <button class="primary" onclick="finalizar()">Concluir</button>
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
+      Voltar
+    </button>
+
+    <button
+      type="button"
+      class="primary"
+      onclick="finalizarBriefing()"
+    >
+      Concluir
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- FINAL -->
+<!-- =========================
+     FINAL
+========================= -->
 
 <section class="screen final">
 
-  <div class="eyebrow">Direcionamento concluído</div>
+  <div class="eyebrow">
+    Direcionamento concluído
+  </div>
 
   <h1>
     Obrigada por compartilhar.
@@ -1157,7 +1864,11 @@ footer{
       organizadas em uma mensagem.
     </p>
 
-    <button class="whatsapp" onclick="enviarWhatsApp()">
+    <button
+      type="button"
+      class="whatsapp"
+      onclick="enviarParaWhatsApp()"
+    >
       Enviar meu direcionamento
     </button>
 
@@ -1168,9 +1879,15 @@ footer{
   </div>
 
   <div class="actions">
-    <button class="secondary" onclick="prev()">
+
+    <button
+      type="button"
+      class="secondary"
+      onclick="voltarTela()"
+    >
       Voltar e editar
     </button>
+
   </div>
 
 </section>
@@ -1184,95 +1901,129 @@ footer{
 
 <script>
 
-/* ================================
+/* =========================
    NAVEGAÇÃO
-================================ */
+========================= */
 
-const screens=document.querySelectorAll(".screen");
-let atual=0;
+const telas = document.querySelectorAll(".screen");
 
-function atualizar(){
+let telaAtual = 0;
 
-  screens.forEach((screen,index)=>{
-    screen.classList.toggle("active",index===atual);
+function atualizarTela(){
+
+  telas.forEach(function(tela,index){
+
+    if(index === telaAtual){
+      tela.classList.add("active");
+    }else{
+      tela.classList.remove("active");
+    }
+
   });
 
-  const porcentagem=
-    (atual/(screens.length-1))*100;
+  const porcentagem =
+    (telaAtual / (telas.length - 1)) * 100;
 
-  document.getElementById("progress").style.width=
-    porcentagem+"%";
+  document.getElementById("progress").style.width =
+    porcentagem + "%";
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
 }
 
-function next(){
+function avancarTela(){
 
-  salvar();
+  salvarDados();
 
-  if(atual<screens.length-1){
-    atual++;
-    atualizar();
+  if(telaAtual < telas.length - 1){
+
+    telaAtual++;
+
+    atualizarTela();
+
   }
+
 }
 
-function prev(){
+function voltarTela(){
 
-  if(atual>0){
-    atual--;
-    atualizar();
+  if(telaAtual > 0){
+
+    telaAtual--;
+
+    atualizarTela();
+
   }
+
 }
 
-function finalizar(){
+function finalizarBriefing(){
 
-  salvar();
+  salvarDados();
 
-  atual=screens.length-1;
+  telaAtual = telas.length - 1;
 
-  atualizar();
+  atualizarTela();
+
 }
 
 
-/* ================================
+/* =========================
    SLIDERS
-================================ */
+========================= */
 
-const sliders=[
+const configuracaoSliders = [
+
   ["organico","Orgânico","Geométrico"],
+
   ["minimalista","Minimalista","Expressivo"],
+
   ["suave","Suave","Contrastante"],
+
   ["natural","Natural","Sofisticado"],
+
   ["contemplativo","Contemplativo","Vibrante"],
+
   ["discreto","Discreto","Marcante"]
+
 ];
 
-function atualizarSlider(id,a,b){
+function atualizarSlider(id,esquerda,direita){
 
-  const slider=document.getElementById(id);
-  const resultado=document.getElementById(id+"Result");
+  const slider =
+    document.getElementById(id);
 
-  const valor=Number(slider.value);
+  const resultado =
+    document.getElementById(id + "Result");
 
-  if(valor<35){
-    resultado.textContent=a;
+  const valor =
+    Number(slider.value);
+
+  if(valor < 35){
+
+    resultado.textContent = esquerda;
+
+  }else if(valor > 65){
+
+    resultado.textContent = direita;
+
+  }else{
+
+    resultado.textContent = "Equilíbrio";
+
   }
-  else if(valor>65){
-    resultado.textContent=b;
-  }
-  else{
-    resultado.textContent="Equilíbrio";
-  }
+
 }
 
-sliders.forEach(item=>{
+configuracaoSliders.forEach(function(item){
 
-  const slider=document.getElementById(item[0]);
+  const slider =
+    document.getElementById(item[0]);
 
-  slider.addEventListener("input",()=>{
+  slider.addEventListener("input",function(){
 
     atualizarSlider(
       item[0],
@@ -1280,44 +2031,412 @@ sliders.forEach(item=>{
       item[2]
     );
 
-    salvar();
+    salvarDados();
 
   });
 
 });
 
 
-/* ================================
-   COLETAR DADOS
-================================ */
+/* =========================
+   COLETAR RESPOSTAS
+========================= */
 
-function coletar(){
+function coletarRespostas(){
 
   return {
 
     interesse:
-      document.getElementById("interesse")?.value || "",
+      document.getElementById("interesse").value,
 
     linguagem:
-      document.getElementById("linguagem")?.value || "",
+      document.getElementById("linguagem").value,
 
     ambiente:
-      document.getElementById("ambiente")?.value || "",
+      document.getElementById("ambiente").value,
 
-    areas:[
-      ...document.querySelectorAll(
-        'input[type="checkbox"]:checked'
-      )
-    ].map(el=>el.value),
+    areas:
+      Array.from(
+        document.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        )
+      ).map(function(el){
+        return el.value;
+      }),
 
     necessidade:
-      document.getElementById("necessidade")?.value || "",
+      document.getElementById("necessidade").value,
 
     inspiracao:
-      document.getElementById("inspiracao")?.value || "",
+      document.getElementById("inspiracao").value,
 
     organico:
-      document.getElementById("organico")?.value || 50,
+      document.getElementById("organico").value,
 
     minimalista:
-      document.getElementById("minimalista
+      document.getElementById("minimalista").value,
+
+    suave:
+      document.getElementById("suave").value,
+
+    natural:
+      document.getElementById("natural").value,
+
+    contemplativo:
+      document.getElementById("contemplativo").value,
+
+    discreto:
+      document.getElementById("discreto").value,
+
+    possibilidade:
+      document.querySelector(
+        'input[name="possibilidade"]:checked'
+      )?.value || "",
+
+    resultado:
+      document.getElementById("resultado").value,
+
+    momento:
+      document.querySelector(
+        'input[name="momento"]:checked'
+      )?.value || ""
+
+  };
+
+}
+
+
+/* =========================
+   SALVAR AUTOMATICAMENTE
+========================= */
+
+function salvarDados(){
+
+  localStorage.setItem(
+    "darteMarisDirecionamento",
+    JSON.stringify(
+      coletarRespostas()
+    )
+  );
+
+}
+
+
+/* =========================
+   RESTAURAR RESPOSTAS
+========================= */
+
+function carregarDados(){
+
+  const salvo =
+    localStorage.getItem(
+      "darteMarisDirecionamento"
+    );
+
+  if(!salvo){
+    return;
+  }
+
+  try{
+
+    const dados =
+      JSON.parse(salvo);
+
+    const campos = [
+      "interesse",
+      "linguagem",
+      "ambiente",
+      "necessidade",
+      "inspiracao",
+      "resultado"
+    ];
+
+    campos.forEach(function(id){
+
+      const campo =
+        document.getElementById(id);
+
+      if(campo && dados[id]){
+        campo.value = dados[id];
+      }
+
+    });
+
+    document
+      .querySelectorAll(
+        'input[type="checkbox"]'
+      )
+      .forEach(function(el){
+
+        el.checked =
+          dados.areas?.includes(el.value) || false;
+
+      });
+
+    if(dados.possibilidade){
+
+      const radio =
+        document.querySelector(
+          'input[name="possibilidade"][value="' +
+          dados.possibilidade +
+          '"]'
+        );
+
+      if(radio){
+        radio.checked = true;
+      }
+
+    }
+
+    if(dados.momento){
+
+      const radio =
+        document.querySelector(
+          'input[name="momento"][value="' +
+          dados.momento +
+          '"]'
+        );
+
+      if(radio){
+        radio.checked = true;
+      }
+
+    }
+
+    configuracaoSliders.forEach(function(item){
+
+      const id = item[0];
+
+      if(dados[id]){
+
+        document.getElementById(id).value =
+          dados[id];
+
+        atualizarSlider(
+          id,
+          item[1],
+          item[2]
+        );
+
+      }
+
+    });
+
+  }catch(erro){
+
+    console.log(
+      "Não foi possível restaurar os dados."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   SALVAR AO DIGITAR
+========================= */
+
+document
+  .querySelectorAll("input, textarea")
+  .forEach(function(campo){
+
+    campo.addEventListener(
+      "input",
+      salvarDados
+    );
+
+    campo.addEventListener(
+      "change",
+      salvarDados
+    );
+
+  });
+
+
+/* =========================
+   INTERPRETAR SLIDER
+========================= */
+
+function interpretarSlider(
+  valor,
+  esquerda,
+  direita
+){
+
+  valor = Number(valor);
+
+  if(valor < 35){
+    return esquerda;
+  }
+
+  if(valor > 65){
+    return direita;
+  }
+
+  return "Equilíbrio";
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function enviarParaWhatsApp(){
+
+  const dados =
+    coletarRespostas();
+
+  salvarDados();
+
+  const numero =
+    "5535997003906";
+
+  const mensagem =
+
+`Olá, Giovanna!
+
+Acabei de preencher o Direcionamento Artístico da D’Arte Maris.
+
+━━━━━━━━━━━━━━━━━━
+
+01 — O OLHAR
+
+O que fez você se interessar pelo meu trabalho?
+
+${dados.interesse || "Não informado."}
+
+
+O que mais chamou sua atenção na minha linguagem artística?
+
+${dados.linguagem || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+02 — O LUGAR
+
+Ambiente imaginado:
+
+${dados.ambiente || "Não informado."}
+
+
+Áreas abertas para intervenção:
+
+${
+  dados.areas.length
+    ? dados.areas.join(", ")
+    : "Não informado."
+}
+
+
+━━━━━━━━━━━━━━━━━━
+
+03 — O PROPÓSITO
+
+Necessidade que a arte poderia resolver, valorizar ou potencializar:
+
+${dados.necessidade || "Não informado."}
+
+
+História, elemento ou característica que poderia inspirar a obra:
+
+${dados.inspiracao || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+04 — A LINGUAGEM
+
+Orgânico / Geométrico:
+${interpretarSlider(
+  dados.organico,
+  "Orgânico",
+  "Geométrico"
+)}
+
+Minimalista / Expressivo:
+${interpretarSlider(
+  dados.minimalista,
+  "Minimalista",
+  "Expressivo"
+)}
+
+Suave / Contrastante:
+${interpretarSlider(
+  dados.suave,
+  "Suave",
+  "Contrastante"
+)}
+
+Natural / Sofisticado:
+${interpretarSlider(
+  dados.natural,
+  "Natural",
+  "Sofisticado"
+)}
+
+Contemplativo / Vibrante:
+${interpretarSlider(
+  dados.contemplativo,
+  "Contemplativo",
+  "Vibrante"
+)}
+
+Discreto / Marcante:
+${interpretarSlider(
+  dados.discreto,
+  "Discreto",
+  "Marcante"
+)}
+
+
+━━━━━━━━━━━━━━━━━━
+
+05 — A POSSIBILIDADE
+
+${dados.possibilidade || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+06 — O RESULTADO
+
+${dados.resultado || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+07 — O MOMENTO
+
+${dados.momento || "Não informado."}
+
+
+━━━━━━━━━━━━━━━━━━
+
+Essas informações serão nosso ponto de partida para a conversa.`;
+
+  const url =
+    "https://wa.me/" +
+    numero +
+    "?text=" +
+    encodeURIComponent(mensagem);
+
+  window.location.href = url;
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+carregarDados();
+
+atualizarTela();
+
+</script>
+
+</body>
+</html>
