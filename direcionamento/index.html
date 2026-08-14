@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -7,912 +7,535 @@
 <title>D’Arte Maris — Direcionamento Artístico</title>
 
 <style>
-
-/* =====================================================
-   BASE
-===================================================== */
-
-:root {
-  --verde: #18342b;
-  --verde-medio: #40564d;
-  --terracota: #96543f;
-
-  --creme: #f3efe6;
-  --papel: #fbfaf6;
-
-  --texto: #263630;
-  --cinza: #69746f;
-
-  --linha: rgba(24, 52, 43, .15);
-
-  --serif: Georgia, "Times New Roman", serif;
-  --sans: Arial, Helvetica, sans-serif;
+:root{
+  --verde:#19362d;
+  --verde-suave:#52645d;
+  --terracota:#965541;
+  --creme:#f3efe6;
+  --papel:#fcfaf5;
+  --linha:rgba(25,54,45,.16);
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Arial,Helvetica,sans-serif;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--creme);
+  color:var(--verde);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
 }
 
-html {
-  scroll-behavior: smooth;
+button,input,textarea{font:inherit}
+
+button{cursor:pointer}
+
+/* HEADER */
+
+header{
+  height:74px;
+  padding:0 7vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--linha);
 }
 
-body {
-  margin: 0;
-  background: var(--creme);
-  color: var(--texto);
-  font-family: var(--sans);
-  line-height: 1.6;
+.logo{
+  font-family:var(--serif);
+  font-size:21px;
+  font-weight:400;
 }
 
-button,
-input,
-textarea {
-  font: inherit;
+.header-label{
+  font-size:10px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--terracota);
 }
 
-button {
-  cursor: pointer;
+/* PROGRESSO */
+
+.progress{
+  width:min(760px,84vw);
+  margin:28px auto 0;
+  height:2px;
+  background:rgba(25,54,45,.10);
+  position:relative;
 }
 
-
-/* =====================================================
-   CABEÇALHO
-===================================================== */
-
-.header {
-  height: 78px;
-
-  padding: 0 7vw;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  border-bottom: 1px solid var(--linha);
+.progress-bar{
+  position:absolute;
+  left:0;
+  top:0;
+  height:2px;
+  width:0;
+  background:var(--terracota);
+  transition:width .45s ease;
 }
 
-.logo {
-  font-family: var(--serif);
-  font-size: 21px;
-  color: var(--verde);
+/* CONTEÚDO */
+
+main{
+  width:min(760px,84vw);
+  margin:auto;
 }
 
-.header-label {
-  font-size: 10px;
-
-  letter-spacing: .14em;
-
-  text-transform: uppercase;
-
-  color: var(--verde-medio);
+.screen{
+  display:none;
+  min-height:calc(100vh - 145px);
+  padding:10vh 0 8vh;
+  animation:entrar .45s ease;
 }
 
+.screen.active{display:flex;flex-direction:column}
 
-/* =====================================================
-   PROGRESSO
-===================================================== */
-
-.progress-area {
-  width: min(850px, 84vw);
-
-  margin: 28px auto 0;
+@keyframes entrar{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-.progress-line {
-  height: 1px;
+/* CAPA */
 
-  background: var(--linha);
-
-  position: relative;
+.cover{
+  justify-content:center;
 }
 
-.progress-fill {
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  width: 0;
-  height: 2px;
-
-  background: var(--terracota);
-
-  transition: width .45s ease;
+.eyebrow{
+  color:var(--terracota);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:24px;
 }
 
-
-/* =====================================================
-   ÁREA PRINCIPAL
-===================================================== */
-
-main {
-  width: min(850px, 84vw);
-
-  margin: 0 auto;
-
-  min-height: calc(100vh - 150px);
+.cover h1{
+  font-family:var(--serif);
+  font-size:clamp(42px,7vw,66px);
+  line-height:1.06;
+  font-weight:400;
+  margin:0 0 26px;
+  color:var(--verde);
 }
 
-.page {
-  display: none;
-
-  padding: 8vh 0 7vh;
-
-  animation: pageIn .45s ease;
+.cover p{
+  max-width:620px;
+  font-size:15px;
+  line-height:1.8;
+  color:var(--verde-suave);
+  margin:0;
 }
 
-.page.active {
-  display: block;
+.cover-note{
+  max-width:600px;
+  margin-top:35px!important;
+  padding-top:22px;
+  border-top:1px solid var(--linha);
+  font-size:13px!important;
 }
 
-@keyframes pageIn {
+/* ETAPA */
 
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+.step{
+  color:var(--terracota);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:24px;
 }
 
-
-/* =====================================================
-   TÍTULOS DAS ETAPAS
-===================================================== */
-
-.step-label {
-  display: inline-block;
-
-  margin-bottom: 22px;
-
-  font-size: 10px;
-
-  letter-spacing: .15em;
-
-  text-transform: uppercase;
-
-  color: var(--terracota);
+.step-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,5vw,43px);
+  line-height:1.16;
+  font-weight:400;
+  margin:0 0 42px;
+  color:var(--verde);
 }
 
-.page-title {
-  max-width: 650px;
+/* PERGUNTA */
 
-  margin: 0 0 18px;
-
-  font-family: var(--serif);
-
-  font-size: clamp(32px, 5vw, 46px);
-
-  line-height: 1.15;
-
-  font-weight: 400;
-
-  color: var(--verde);
+.question{
+  background:var(--papel);
+  border:1px solid rgba(25,54,45,.07);
+  padding:38px 40px 42px;
+  box-shadow:0 10px 35px rgba(25,54,45,.035);
 }
 
-.page-description {
-  max-width: 610px;
-
-  margin: 0 0 42px;
-
-  font-size: 15px;
-
-  line-height: 1.75;
-
-  color: var(--verde-medio);
+.question-label{
+  color:var(--terracota);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:16px;
 }
 
-
-/* =====================================================
-   ABERTURA
-===================================================== */
-
-.hero-title {
-  max-width: 700px;
-
-  margin: 0 0 25px;
-
-  font-family: var(--serif);
-
-  font-size: clamp(42px, 7vw, 64px);
-
-  line-height: 1.08;
-
-  font-weight: 400;
-
-  color: var(--verde);
+.question h2{
+  font-family:var(--serif);
+  font-size:clamp(22px,3vw,27px);
+  line-height:1.4;
+  font-weight:400;
+  margin:0 0 25px;
+  color:var(--verde);
 }
 
-.hero-text {
-  max-width: 650px;
-
-  font-size: 16px;
-
-  line-height: 1.8;
-
-  color: var(--verde-medio);
+.question small{
+  display:block;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--verde-suave);
+  margin-top:-10px;
+  margin-bottom:18px;
 }
 
-.hero-note {
-
-  max-width: 610px;
-
-  margin-top: 40px;
-
-  padding: 22px 0 0;
-
-  border-top: 1px solid var(--linha);
-
-  font-size: 13px;
-
-  line-height: 1.7;
-
-  color: var(--cinza);
-}
-
-
-/* =====================================================
-   CARTÕES DE PERGUNTAS
-===================================================== */
-
-.question-card {
-
-  margin: 24px 0;
-
-  padding: 30px 32px 32px;
-
-  background: var(--papel);
-
-  border: 1px solid rgba(24, 52, 43, .07);
-
-  box-shadow: 0 8px 28px rgba(24, 52, 43, .035);
-
-}
-
-.question-number {
-
-  margin-bottom: 12px;
-
-  font-size: 10px;
-
-  letter-spacing: .12em;
-
-  text-transform: uppercase;
-
-  color: var(--terracota);
-}
-
-.question-title {
-
-  max-width: 680px;
-
-  margin-bottom: 18px;
-
-  font-family: var(--serif);
-
-  font-size: 21px;
-
-  line-height: 1.4;
-
-  font-weight: 400;
-
-  color: var(--verde);
-}
-
-.question-hint {
-
-  margin: -7px 0 17px;
-
-  font-size: 13px;
-
-  line-height: 1.6;
-
-  color: var(--cinza);
-}
-
-
-/* =====================================================
-   CAMPOS DE RESPOSTA
-===================================================== */
+/* CAMPOS */
 
 textarea,
-input[type="text"] {
-
-  width: 100%;
-
-  padding: 12px 0 10px;
-
-  background: transparent;
-
-  border: 0;
-
-  border-bottom: 1px solid var(--linha);
-
-  outline: none;
-
-  color: var(--terracota);
-
-  caret-color: var(--terracota);
-
-  font-size: 15px;
-
-  line-height: 1.65;
-
+.text-input{
+  width:100%;
+  border:0;
+  border-bottom:1px solid var(--linha);
+  background:transparent;
+  outline:none;
+  color:var(--terracota);
+  font-size:15px;
+  font-weight:500;
+  line-height:1.7;
+  padding:10px 0 12px;
 }
 
-textarea {
-
-  min-height: 100px;
-
-  resize: vertical;
-
+textarea{
+  min-height:115px;
+  resize:vertical;
 }
 
 textarea::placeholder,
-input::placeholder {
-
-  color: #8a918d;
-
-  opacity: 1;
-
+.text-input::placeholder{
+  color:#89918c;
+  font-weight:400;
 }
 
 textarea:focus,
-input[type="text"]:focus {
-
-  border-color: var(--terracota);
-
+.text-input:focus{
+  border-color:var(--terracota);
 }
 
+/* OPÇÕES */
 
-/* =====================================================
-   OPÇÕES
-===================================================== */
-
-.options {
-
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 10px;
-
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
-.option {
-
-  position: relative;
-
+.option input{
+  position:absolute;
+  opacity:0;
 }
 
-.option input {
-
-  position: absolute;
-
-  opacity: 0;
-
+.option label{
+  display:block;
+  padding:16px 17px;
+  border:1px solid var(--linha);
+  font-size:13px;
+  line-height:1.45;
+  color:var(--verde-suave);
+  transition:.2s ease;
 }
 
-.option label {
-
-  display: block;
-
-  padding: 15px 16px;
-
-  border: 1px solid var(--linha);
-
-  color: var(--verde-medio);
-
-  font-size: 13px;
-
-  line-height: 1.45;
-
-  transition: all .2s ease;
-
+.option label:hover{
+  border-color:var(--terracota);
 }
 
-.option label:hover {
-
-  border-color: var(--terracota);
-
+.option input:checked+label{
+  background:var(--verde);
+  color:var(--papel);
+  border-color:var(--verde);
 }
 
-.option input:checked + label {
+/* SLIDER */
 
-  background: var(--verde);
-
-  border-color: var(--verde);
-
-  color: var(--papel);
-
+.slider-title{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-family:var(--serif);
+  font-size:19px;
+  color:var(--verde);
 }
 
-
-/* =====================================================
-   SLIDERS
-===================================================== */
-
-.slider-card {
-
-  margin: 18px 0;
-
-  padding: 25px 28px;
-
-  background: var(--papel);
-
-  border: 1px solid rgba(24, 52, 43, .07);
-
+.slider{
+  width:100%;
+  margin:30px 0 8px;
+  appearance:none;
+  height:2px;
+  background:var(--linha);
+  outline:none;
 }
 
-.slider-names {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  font-family: var(--serif);
-
-  font-size: 17px;
-
-  color: var(--verde);
-
+.slider::-webkit-slider-thumb{
+  appearance:none;
+  width:17px;
+  height:17px;
+  border-radius:50%;
+  background:var(--terracota);
+  border:3px solid var(--papel);
+  box-shadow:0 0 0 1px var(--terracota);
 }
 
-.range {
-
-  width: 100%;
-
-  margin: 20px 0 5px;
-
-  appearance: none;
-
-  height: 2px;
-
-  background: var(--linha);
-
-  outline: none;
-
+.slider::-moz-range-thumb{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--terracota);
+  border:3px solid var(--papel);
 }
 
-.range::-webkit-slider-thumb {
-
-  appearance: none;
-
-  width: 17px;
-
-  height: 17px;
-
-  border-radius: 50%;
-
-  background: var(--terracota);
-
-  border: 3px solid var(--papel);
-
-  box-shadow: 0 0 0 1px var(--terracota);
-
+.slider-result{
+  text-align:center;
+  margin-top:12px;
+  color:var(--terracota);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
 }
 
-.range::-moz-range-thumb {
+/* AÇÕES */
 
-  width: 12px;
-
-  height: 12px;
-
-  border-radius: 50%;
-
-  background: var(--terracota);
-
-  border: 3px solid var(--papel);
-
+.actions{
+  margin-top:38px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.range-value {
-
-  text-align: center;
-
-  margin-top: 8px;
-
-  font-size: 10px;
-
-  letter-spacing: .1em;
-
-  text-transform: uppercase;
-
-  color: var(--terracota);
-
+button{
+  border:0;
 }
 
-
-/* =====================================================
-   BOTÕES
-===================================================== */
-
-.actions {
-
-  margin-top: 42px;
-
-  padding-top: 20px;
-
-  border-top: 1px solid var(--linha);
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  gap: 20px;
-
+.primary{
+  background:var(--verde);
+  color:var(--papel);
+  padding:15px 23px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
 }
 
-.button {
-
-  border: 0;
-
-  padding: 14px 22px;
-
-  font-size: 10px;
-
-  letter-spacing: .12em;
-
-  text-transform: uppercase;
-
-  font-weight: 500;
-
+.primary:hover{
+  background:var(--verde-suave);
 }
 
-.primary {
-
-  background: var(--verde);
-
-  color: var(--papel);
-
+.secondary{
+  background:transparent;
+  color:var(--verde);
+  padding:12px 0;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
 }
 
-.primary:hover {
+/* FINAL */
 
-  background: var(--verde-medio);
-
+.final{
+  justify-content:center;
 }
 
-.secondary {
-
-  padding-left: 0;
-
-  background: transparent;
-
-  color: var(--verde);
-
+.final h1{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(34px,5vw,48px);
+  line-height:1.15;
+  margin:0 0 25px;
 }
 
-
-/* =====================================================
-   TELA FINAL
-===================================================== */
-
-.final-box {
-
-  margin-top: 35px;
-
-  padding: clamp(30px, 5vw, 55px);
-
-  background: var(--papel);
-
-  border: 1px solid rgba(24, 52, 43, .07);
-
+.final p{
+  max-width:600px;
+  color:var(--verde-suave);
+  font-size:15px;
+  line-height:1.8;
 }
 
-.final-box p {
-
-  max-width: 610px;
-
-  font-size: 15px;
-
-  line-height: 1.75;
-
-  color: var(--verde-medio);
-
+.final-box{
+  margin-top:32px;
+  padding:35px;
+  background:var(--papel);
+  border:1px solid rgba(25,54,45,.07);
 }
 
-.whatsapp {
-
-  width: 100%;
-
-  max-width: 470px;
-
-  margin-top: 22px;
-
-  padding: 17px 22px;
-
-  border: 0;
-
-  background: var(--terracota);
-
-  color: white;
-
-  font-size: 10px;
-
-  letter-spacing: .12em;
-
-  text-transform: uppercase;
-
+.whatsapp{
+  margin-top:18px;
+  width:100%;
+  max-width:470px;
+  background:var(--terracota);
+  color:white;
+  padding:17px 20px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
-.whatsapp:hover {
-
-  opacity: .9;
-
+.final-note{
+  font-size:12px!important;
+  margin-top:14px!important;
 }
 
-.small-text {
+/* RODAPÉ */
 
-  max-width: 470px;
-
-  margin-top: 15px;
-
-  font-size: 12px;
-
-  line-height: 1.6;
-
-  color: var(--cinza);
-
+footer{
+  border-top:1px solid var(--linha);
+  text-align:center;
+  padding:25px 7vw;
+  color:var(--verde-suave);
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
+/* MOBILE */
 
-/* =====================================================
-   RODAPÉ
-===================================================== */
+@media(max-width:650px){
 
-.footer {
-
-  padding: 28px 7vw;
-
-  border-top: 1px solid var(--linha);
-
-  text-align: center;
-
-  font-size: 9px;
-
-  letter-spacing: .12em;
-
-  text-transform: uppercase;
-
-  color: var(--cinza);
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 650px) {
-
-  .header {
-
-    height: 68px;
-
-    padding: 0 7vw;
-
+  header{
+    height:68px;
+    padding:0 7vw;
   }
 
-  .header-label {
-
-    display: none;
-
+  .header-label{
+    display:none;
   }
 
-  main {
-
-    width: 86vw;
-
+  main{
+    width:86vw;
   }
 
-  .page {
-
-    padding-top: 7vh;
-
+  .screen{
+    min-height:calc(100vh - 135px);
+    padding:8vh 0 7vh;
   }
 
-  .hero-title {
-
-    font-size: clamp(40px, 11vw, 52px);
-
+  .cover h1{
+    font-size:43px;
   }
 
-  .page-title {
-
-    font-size: clamp(31px, 8vw, 38px);
-
+  .cover p{
+    font-size:14px;
   }
 
-  .page-description {
-
-    font-size: 14px;
-
-    margin-bottom: 32px;
-
+  .step{
+    margin-bottom:19px;
   }
 
-  .question-card {
-
-    padding: 25px 22px 27px;
-
-    margin: 18px 0;
-
+  .step-title{
+    font-size:31px;
+    margin-bottom:31px;
   }
 
-  .question-title {
-
-    font-size: 20px;
-
+  .question{
+    padding:28px 22px 31px;
   }
 
-  .options {
-
-    grid-template-columns: 1fr;
-
+  .question h2{
+    font-size:22px;
   }
 
-  .slider-card {
-
-    padding: 22px 20px;
-
+  .options{
+    grid-template-columns:1fr;
   }
 
-  .slider-names {
-
-    font-size: 16px;
-
+  .slider-title{
+    font-size:17px;
   }
 
-  .actions {
-
-    margin-top: 35px;
-
+  .actions{
+    margin-top:30px;
   }
 
-}
-
-
-/* =====================================================
-   ACESSIBILIDADE
-===================================================== */
-
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-
-  outline: 2px solid var(--terracota);
-
-  outline-offset: 4px;
-
+  .final-box{
+    padding:27px 22px;
+  }
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<header class="header">
-
-  <div class="logo">
-    D’Arte Maris
-  </div>
-
-  <div class="header-label">
-    Direcionamento Artístico
-  </div>
-
+<header>
+  <div class="logo">D’Arte Maris</div>
+  <div class="header-label">Direcionamento Artístico</div>
 </header>
 
-
-<div class="progress-area">
-
-  <div class="progress-line">
-
-    <div
-      class="progress-fill"
-      id="progress"
-    ></div>
-
-  </div>
-
+<div class="progress">
+  <div class="progress-bar" id="progress"></div>
 </div>
-
 
 <main>
 
+<!-- CAPA -->
 
-<!-- =====================================================
-     ABERTURA
-===================================================== -->
+<section class="screen active cover">
 
-<section class="page active">
+  <div class="eyebrow">Antes da nossa conversa</div>
 
-  <div class="step-label">
-    Antes da nossa conversa
-  </div>
-
-  <h1 class="hero-title">
+  <h1>
     Direcionamento<br>
     Artístico
   </h1>
 
-  <p class="hero-text">
-
+  <p>
     Antes da nossa conversa, gostaria de conhecer
     um pouco melhor a sua necessidade, entender
     o que despertou seu interesse pelo meu trabalho
     e explorar as possibilidades para uma futura
     intervenção artística.
-
   </p>
 
-  <p class="hero-note">
-
+  <p class="cover-note">
     Este breve direcionamento não é um orçamento.
     É um ponto de partida para compreender o lugar,
     suas intenções e a possibilidade de uma criação
     personalizada.
-
   </p>
 
-
   <div class="actions">
-
-    <span>Início</span>
-
-    <button
-      class="button primary"
-      onclick="next()"
-    >
-      Começar
-    </button>
-
+    <span></span>
+    <button class="primary" onclick="next()">Começar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 01
-===================================================== -->
+<!-- 01 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    01 — O olhar
-  </div>
+  <div class="step">01 — O olhar</div>
 
-  <h2 class="page-title">
+  <h1 class="step-title">
     Primeiro, quero conhecer o seu olhar.
-  </h2>
+  </h1>
 
-  <p class="page-description">
-    Antes de pensar na obra, quero entender
-    o que despertou seu interesse.
-  </p>
+  <div class="question">
 
+    <div class="question-label">Sua percepção</div>
 
-  <div class="question-card">
-
-    <div class="question-number">
-      Pergunta 01
-    </div>
-
-    <div class="question-title">
+    <h2>
       O que fez você se interessar pelo meu trabalho?
-    </div>
+    </h2>
 
     <textarea
       id="interesse"
@@ -921,192 +544,179 @@ textarea:focus-visible {
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="question-card">
+</section>
 
-    <div class="question-number">
-      Pergunta 02
-    </div>
 
-    <div class="question-title">
+<!-- 02 -->
+
+<section class="screen">
+
+  <div class="step">01 — O olhar</div>
+
+  <h1 class="step-title">
+    Quero entender o que você percebeu.
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Sua percepção</div>
+
+    <h2>
       Ao conhecer meu trabalho, o que mais chamou sua atenção na minha linguagem artística?
-    </div>
+    </h2>
+
+    <small>
+      Pode ser uma técnica, uma sensação, uma forma de trabalhar ou simplesmente algo que despertou sua atenção.
+    </small>
 
     <textarea
-      id="linguagemInteresse"
-      placeholder="Pode ser uma técnica, uma sensação, uma forma de trabalhar..."
+      id="linguagem"
+      placeholder="Escreva livremente..."
     ></textarea>
 
   </div>
 
-
   <div class="actions">
-
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
-      Voltar
-    </button>
-
-    <button
-      class="button primary"
-      onclick="next()"
-    >
-      Continuar
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 02
-===================================================== -->
+<!-- 03 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    02 — O lugar
-  </div>
+  <div class="step">02 — O lugar</div>
 
-  <h2 class="page-title">
+  <h1 class="step-title">
     Agora, vamos falar sobre o lugar.
-  </h2>
+  </h1>
 
-  <p class="page-description">
-    Quero compreender onde a intervenção poderia
-    encontrar o espaço e fazer sentido dentro dele.
-  </p>
+  <div class="question">
 
+    <div class="question-label">O espaço</div>
 
-  <div class="question-card">
-
-    <div class="question-number">
-      Pergunta 01
-    </div>
-
-    <div class="question-title">
+    <h2>
       Existe algum ambiente ou área que você já imaginou para uma intervenção artística?
-    </div>
+    </h2>
 
     <input
-      type="text"
+      class="text-input"
       id="ambiente"
-      placeholder="Ex.: recepção, suíte, jardim..."
+      type="text"
+      placeholder="Ex.: recepção, jardim, suíte..."
     >
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="question-card">
+</section>
 
-    <div class="question-number">
-      Pergunta 02
-    </div>
 
-    <div class="question-title">
+<!-- 04 -->
+
+<section class="screen">
+
+  <div class="step">02 — O lugar</div>
+
+  <h1 class="step-title">
+    Quais possibilidades você enxerga?
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Áreas disponíveis</div>
+
+    <h2>
       Quais áreas você considera abertas para uma intervenção artística?
-    </div>
+    </h2>
 
-    <div class="question-hint">
+    <small>
       Você pode selecionar mais de uma.
-    </div>
-
+    </small>
 
     <div class="options">
 
       <div class="option">
-        <input type="checkbox" id="recepcao" value="Recepção">
+        <input type="checkbox" value="Recepção" id="recepcao">
         <label for="recepcao">Recepção</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="externa" value="Área externa">
+        <input type="checkbox" value="Área externa" id="externa">
         <label for="externa">Área externa</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="jardim" value="Jardim">
+        <input type="checkbox" value="Jardim" id="jardim">
         <label for="jardim">Jardim</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="cafe" value="Café / Restaurante">
+        <input type="checkbox" value="Café / Restaurante" id="cafe">
         <label for="cafe">Café / Restaurante</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="quartos" value="Quartos ou suítes">
+        <input type="checkbox" value="Quartos ou suítes" id="quartos">
         <label for="quartos">Quartos ou suítes</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="convivencia" value="Área de convivência">
+        <input type="checkbox" value="Área de convivência" id="convivencia">
         <label for="convivencia">Área de convivência</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="outro" value="Outro">
+        <input type="checkbox" value="Outro" id="outro">
         <label for="outro">Outro</label>
       </div>
 
       <div class="option">
-        <input type="checkbox" id="naoDefini" value="Ainda não defini">
-        <label for="naoDefini">Ainda não defini</label>
+        <input type="checkbox" value="Ainda não defini" id="nao">
+        <label for="nao">Ainda não defini</label>
       </div>
 
     </div>
 
   </div>
 
-
   <div class="actions">
-
-    <button class="button secondary" onclick="prev()">
-      Voltar
-    </button>
-
-    <button class="button primary" onclick="next()">
-      Continuar
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 03
-===================================================== -->
+<!-- 05 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    03 — O propósito
-  </div>
+  <div class="step">03 — O propósito</div>
 
-  <h2 class="page-title">
-    O que a arte precisa encontrar aqui?
-  </h2>
+  <h1 class="step-title">
+    O que a arte poderia transformar?
+  </h1>
 
-  <p class="page-description">
-    Toda intervenção pode ter uma intenção além
-    da estética. Quero entender qual poderia ser
-    a desse projeto.
-  </p>
+  <div class="question">
 
+    <div class="question-label">A intenção</div>
 
-  <div class="question-card">
-
-    <div class="question-number">
-      Pergunta 01
-    </div>
-
-    <div class="question-title">
+    <h2>
       Existe alguma necessidade que você gostaria que a arte ajudasse a resolver, valorizar ou potencializar?
-    </div>
+    </h2>
 
     <textarea
       id="necessidade"
@@ -1115,16 +725,31 @@ textarea:focus-visible {
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="question-card">
+</section>
 
-    <div class="question-number">
-      Pergunta 02
-    </div>
 
-    <div class="question-title">
+<!-- 06 -->
+
+<section class="screen">
+
+  <div class="step">03 — O propósito</div>
+
+  <h1 class="step-title">
+    O lugar também conta uma história.
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">A inspiração</div>
+
+    <h2>
       Existe alguma história, elemento, memória ou característica desse lugar que você gostaria que inspirasse a criação da obra?
-    </div>
+    </h2>
 
     <textarea
       id="inspiracao"
@@ -1133,325 +758,317 @@ textarea:focus-visible {
 
   </div>
 
-
   <div class="actions">
-
-    <button class="button secondary" onclick="prev()">
-      Voltar
-    </button>
-
-    <button class="button primary" onclick="next()">
-      Continuar
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 04
-===================================================== -->
+<!-- 07 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    04 — A linguagem
-  </div>
+  <div class="step">04 — A linguagem</div>
 
-  <h2 class="page-title">
+  <h1 class="step-title">
     Encontrando a linguagem.
-  </h2>
+  </h1>
 
-  <p class="page-description">
-    Não existem respostas certas. Posicione cada eixo
-    onde você sente que a obra poderia se aproximar.
-  </p>
+  <div class="question">
 
+    <div class="question-label">Primeiro eixo</div>
 
-  <div class="slider-card">
+    <h2>
+      Para este projeto, você se aproxima mais de qual direção?
+    </h2>
 
-    <div class="slider-names">
+    <div class="slider-title">
       <span>Orgânico</span>
       <span>Geométrico</span>
     </div>
 
-    <input
-      class="range"
-      type="range"
-      id="organico"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="organico" type="range" min="0" max="100" value="50">
 
-    <div class="range-value" id="organicoValue">
+    <div class="slider-result" id="organicoResult">
       Equilíbrio
     </div>
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="slider-card">
+</section>
 
-    <div class="slider-names">
+
+<!-- 08 -->
+
+<section class="screen">
+
+  <div class="step">04 — A linguagem</div>
+
+  <h1 class="step-title">
+    E quanto à presença da obra?
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Segundo eixo</div>
+
+    <h2>
+      Você imagina algo mais contido ou mais expressivo?
+    </h2>
+
+    <div class="slider-title">
       <span>Minimalista</span>
       <span>Expressivo</span>
     </div>
 
-    <input
-      class="range"
-      type="range"
-      id="minimalista"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="minimalista" type="range" min="0" max="100" value="50">
 
-    <div class="range-value" id="minimalistaValue">
+    <div class="slider-result" id="minimalistaResult">
       Equilíbrio
     </div>
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="slider-card">
+</section>
 
-    <div class="slider-names">
+
+<!-- 09 -->
+
+<section class="screen">
+
+  <div class="step">04 — A linguagem</div>
+
+  <h1 class="step-title">
+    Agora, pense na intensidade.
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Terceiro eixo</div>
+
+    <h2>
+      Você imagina uma presença mais suave ou contrastante?
+    </h2>
+
+    <div class="slider-title">
       <span>Suave</span>
       <span>Contrastante</span>
     </div>
 
-    <input
-      class="range"
-      type="range"
-      id="suave"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="suave" type="range" min="0" max="100" value="50">
 
-    <div class="range-value" id="suaveValue">
+    <div class="slider-result" id="suaveResult">
       Equilíbrio
     </div>
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="slider-card">
+</section>
 
-    <div class="slider-names">
+
+<!-- 10 -->
+
+<section class="screen">
+
+  <div class="step">04 — A linguagem</div>
+
+  <h1 class="step-title">
+    Que atmosfera você imagina?
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Quarto eixo</div>
+
+    <h2>
+      Mais próxima da natureza ou de uma sofisticação marcada?
+    </h2>
+
+    <div class="slider-title">
       <span>Natural</span>
       <span>Sofisticado</span>
     </div>
 
-    <input
-      class="range"
-      type="range"
-      id="natural"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="natural" type="range" min="0" max="100" value="50">
 
-    <div class="range-value" id="naturalValue">
+    <div class="slider-result" id="naturalResult">
       Equilíbrio
     </div>
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="slider-card">
+</section>
 
-    <div class="slider-names">
+
+<!-- 11 -->
+
+<section class="screen">
+
+  <div class="step">04 — A linguagem</div>
+
+  <h1 class="step-title">
+    E qual sensação você gostaria de provocar?
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Quinto eixo</div>
+
+    <h2>
+      Algo mais contemplativo ou vibrante?
+    </h2>
+
+    <div class="slider-title">
       <span>Contemplativo</span>
       <span>Vibrante</span>
     </div>
 
-    <input
-      class="range"
-      type="range"
-      id="contemplativo"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="contemplativo" type="range" min="0" max="100" value="50">
 
-    <div class="range-value" id="contemplativoValue">
+    <div class="slider-result" id="contemplativoResult">
       Equilíbrio
     </div>
 
   </div>
 
+  <div class="actions">
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
+  </div>
 
-  <div class="slider-card">
+</section>
 
-    <div class="slider-names">
+
+<!-- 12 -->
+
+<section class="screen">
+
+  <div class="step">04 — A linguagem</div>
+
+  <h1 class="step-title">
+    Por fim, pense na presença física da obra.
+  </h1>
+
+  <div class="question">
+
+    <div class="question-label">Sexto eixo</div>
+
+    <h2>
+      Você gostaria que ela fosse mais discreta ou marcante?
+    </h2>
+
+    <div class="slider-title">
       <span>Discreto</span>
       <span>Marcante</span>
     </div>
 
-    <input
-      class="range"
-      type="range"
-      id="discreto"
-      min="0"
-      max="100"
-      value="50"
-    >
+    <input class="slider" id="discreto" type="range" min="0" max="100" value="50">
 
-    <div class="range-value" id="discretoValue">
+    <div class="slider-result" id="discretoResult">
       Equilíbrio
     </div>
 
   </div>
 
-
   <div class="actions">
-
-    <button class="button secondary" onclick="prev()">
-      Voltar
-    </button>
-
-    <button class="button primary" onclick="next()">
-      Continuar
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 05
-===================================================== -->
+<!-- 13 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    05 — A possibilidade
-  </div>
+  <div class="step">05 — A possibilidade</div>
 
-  <h2 class="page-title">
-    O que você imaginou até aqui?
-  </h2>
+  <h1 class="step-title">
+    O que você imaginou primeiro?
+  </h1>
 
-  <p class="page-description">
-    Quando conheceu meu trabalho, alguma possibilidade
-    veio primeiro à sua mente?
-  </p>
+  <div class="question">
 
+    <div class="question-label">Possibilidade</div>
 
-  <div class="question-card">
-
-    <div class="question-title">
-      Qual dessas possibilidades mais se aproxima do que você imaginou?
-    </div>
-
-    <div class="question-hint">
-      Escolha uma opção.
-    </div>
-
+    <h2>
+      Quando conheceu meu trabalho, qual possibilidade veio primeiro à sua mente?
+    </h2>
 
     <div class="options">
 
       <div class="option">
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Pintura mural autoral"
-          id="mural"
-        >
-        <label for="mural">
-          Pintura mural autoral
-        </label>
+        <input type="radio" name="possibilidade" value="Pintura mural autoral" id="mural">
+        <label for="mural">Pintura mural autoral</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Macramê sob medida"
-          id="macrame"
-        >
-        <label for="macrame">
-          Macramê sob medida
-        </label>
+        <input type="radio" name="possibilidade" value="Macramê sob medida" id="macrame">
+        <label for="macrame">Macramê sob medida</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Integração entre mural e macramê"
-          id="integracao"
-        >
-        <label for="integracao">
-          Integração entre mural e macramê
-        </label>
+        <input type="radio" name="possibilidade" value="Integração entre mural e macramê" id="integracao">
+        <label for="integracao">Integração entre mural e macramê</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="radio"
-          name="possibilidade"
-          value="Ainda estou aberto às possibilidades"
-          id="aberto"
-        >
-        <label for="aberto">
-          Ainda estou aberto às possibilidades
-        </label>
+        <input type="radio" name="possibilidade" value="Ainda estou aberto às possibilidades" id="aberto">
+        <label for="aberto">Ainda estou aberto às possibilidades</label>
       </div>
 
     </div>
 
   </div>
 
-
   <div class="actions">
-
-    <button class="button secondary" onclick="prev()">
-      Voltar
-    </button>
-
-    <button class="button primary" onclick="next()">
-      Continuar
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 06
-===================================================== -->
+<!-- 14 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    06 — O resultado
-  </div>
+  <div class="step">06 — O resultado</div>
 
-  <h2 class="page-title">
+  <h1 class="step-title">
     O que você gostaria que permanecesse?
-  </h2>
+  </h1>
 
-  <p class="page-description">
-    Aqui quero entender o efeito que você gostaria
-    que a intervenção tivesse sobre o lugar e sobre
-    quem o vive.
-  </p>
+  <div class="question">
 
+    <div class="question-label">Experiência</div>
 
-  <div class="question-card">
-
-    <div class="question-title">
+    <h2>
       Se essa intervenção fosse exatamente como você imagina, o que ela acrescentaria à experiência de quem vive ou visita esse lugar?
-    </div>
+    </h2>
 
     <textarea
       id="resultado"
@@ -1460,335 +1077,238 @@ textarea:focus-visible {
 
   </div>
 
-
   <div class="actions">
-
-    <button class="button secondary" onclick="prev()">
-      Voltar
-    </button>
-
-    <button class="button primary" onclick="next()">
-      Continuar
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="next()">Continuar</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     ETAPA 07
-===================================================== -->
+<!-- 15 -->
 
-<section class="page">
+<section class="screen">
 
-  <div class="step-label">
-    07 — O momento
-  </div>
+  <div class="step">07 — O momento</div>
 
-  <h2 class="page-title">
+  <h1 class="step-title">
     Quando essa ideia poderia acontecer?
-  </h2>
+  </h1>
 
-  <p class="page-description">
-    Essa informação me ajuda a compreender em que
-    momento o projeto está.
-  </p>
+  <div class="question">
 
+    <div class="question-label">Momento do projeto</div>
 
-  <div class="question-card">
-
-    <div class="question-title">
+    <h2>
       Em que momento essa ideia está?
-    </div>
-
-    <div class="question-hint">
-      Escolha a alternativa que melhor representa o momento atual.
-    </div>
-
+    </h2>
 
     <div class="options">
 
       <div class="option">
-        <input
-          type="radio"
-          name="momento"
-          value="Gostaria de realizar agora."
-          id="agora"
-        >
-        <label for="agora">
-          Gostaria de realizar agora.
-        </label>
+        <input type="radio" name="momento" value="Gostaria de realizar agora." id="agora">
+        <label for="agora">Gostaria de realizar agora.</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="radio"
-          name="momento"
-          value="Pretendo desenvolver nos próximos meses."
-          id="meses"
-        >
-        <label for="meses">
-          Pretendo desenvolver nos próximos meses.
-        </label>
+        <input type="radio" name="momento" value="Pretendo desenvolver nos próximos meses." id="meses">
+        <label for="meses">Pretendo desenvolver nos próximos meses.</label>
       </div>
 
-
       <div class="option">
-        <input
-          type="radio"
-          name="momento"
-          value="Estou conhecendo possibilidades para o futuro."
-          id="futuro"
-        >
-        <label for="futuro">
-          Estou conhecendo possibilidades para o futuro.
-        </label>
+        <input type="radio" name="momento" value="Estou conhecendo possibilidades para o futuro." id="futuro">
+        <label for="futuro">Estou conhecendo possibilidades para o futuro.</label>
       </div>
 
     </div>
 
   </div>
 
-
   <div class="actions">
-
-    <button class="button secondary" onclick="prev()">
-      Voltar
-    </button>
-
-    <button class="button primary" onclick="finalizar()">
-      Concluir
-    </button>
-
+    <button class="secondary" onclick="prev()">Voltar</button>
+    <button class="primary" onclick="finalizar()">Concluir</button>
   </div>
 
 </section>
 
 
-<!-- =====================================================
-     FINAL
-===================================================== -->
+<!-- FINAL -->
 
-<section class="page">
+<section class="screen final">
 
-  <div class="step-label">
-    Direcionamento concluído
-  </div>
+  <div class="eyebrow">Direcionamento concluído</div>
 
-  <h2 class="page-title">
+  <h1>
     Obrigada por compartilhar.
-  </h2>
+  </h1>
 
+  <p>
+    Suas respostas serão utilizadas como ponto de partida
+    para nossa conversa. Elas me ajudam a compreender
+    melhor o lugar, suas intenções e a desenvolver uma
+    direção artística coerente com o projeto.
+  </p>
 
   <div class="final-box">
 
     <p>
-      Suas respostas me ajudam a compreender melhor
-      o lugar, suas intenções e o que despertou seu
-      interesse pelo meu trabalho.
+      Seu direcionamento está pronto. Ao tocar no botão
+      abaixo, o WhatsApp será aberto com suas respostas
+      organizadas em uma mensagem.
     </p>
 
-    <p>
-      Agora é só enviar seu direcionamento.
-      O WhatsApp será aberto com uma mensagem já
-      preparada para você conferir antes de enviar.
-    </p>
-
-
-    <button
-      class="whatsapp"
-      onclick="enviarWhatsApp()"
-    >
-      Enviar meu direcionamento pelo WhatsApp
+    <button class="whatsapp" onclick="enviarWhatsApp()">
+      Enviar meu direcionamento
     </button>
 
-
-    <div class="small-text">
-      Basta conferir as informações e tocar em enviar.
-    </div>
+    <p class="final-note">
+      Você poderá conferir a mensagem antes de enviá-la.
+    </p>
 
   </div>
 
-
   <div class="actions">
-
-    <button
-      class="button secondary"
-      onclick="prev()"
-    >
+    <button class="secondary" onclick="prev()">
       Voltar e editar
     </button>
-
   </div>
 
 </section>
 
-
 </main>
 
-
-<footer class="footer">
-
-  D’Arte Maris — Processo de Descoberta Artística
-
+<footer>
+  D’Arte Maris — Arte em parede & Macramê
 </footer>
 
 
 <script>
 
-/* =====================================================
+/* ================================
    NAVEGAÇÃO
-===================================================== */
+================================ */
 
-let paginaAtual = 0;
+const screens=document.querySelectorAll(".screen");
+let atual=0;
 
-const paginas =
-  document.querySelectorAll(".page");
+function atualizar(){
 
-const progress =
-  document.getElementById("progress");
-
-
-function atualizarProgresso() {
-
-  const total = paginas.length - 1;
-
-  const porcentagem =
-    (paginaAtual / total) * 100;
-
-  progress.style.width =
-    porcentagem + "%";
-
-}
-
-
-function mostrarPagina(numero) {
-
-  paginas.forEach(pagina => {
-    pagina.classList.remove("active");
+  screens.forEach((screen,index)=>{
+    screen.classList.toggle("active",index===atual);
   });
 
-  paginas[numero].classList.add("active");
+  const porcentagem=
+    (atual/(screens.length-1))*100;
 
-  paginaAtual = numero;
-
-  atualizarProgresso();
+  document.getElementById("progress").style.width=
+    porcentagem+"%";
 
   window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+    top:0,
+    behavior:"smooth"
   });
-
 }
 
-
-function next() {
+function next(){
 
   salvar();
 
-  if (paginaAtual < paginas.length - 1) {
-
-    mostrarPagina(
-      paginaAtual + 1
-    );
-
+  if(atual<screens.length-1){
+    atual++;
+    atualizar();
   }
+}
 
+function prev(){
+
+  if(atual>0){
+    atual--;
+    atualizar();
+  }
+}
+
+function finalizar(){
+
+  salvar();
+
+  atual=screens.length-1;
+
+  atualizar();
 }
 
 
-function prev() {
-
-  if (paginaAtual > 0) {
-
-    mostrarPagina(
-      paginaAtual - 1
-    );
-
-  }
-
-}
-
-
-/* =====================================================
+/* ================================
    SLIDERS
-===================================================== */
+================================ */
 
-function atualizarSlider(slider) {
+const sliders=[
+  ["organico","Orgânico","Geométrico"],
+  ["minimalista","Minimalista","Expressivo"],
+  ["suave","Suave","Contrastante"],
+  ["natural","Natural","Sofisticado"],
+  ["contemplativo","Contemplativo","Vibrante"],
+  ["discreto","Discreto","Marcante"]
+];
 
-  const valor =
-    Number(slider.value);
+function atualizarSlider(id,a,b){
 
-  const campo =
-    document.getElementById(
-      slider.id + "Value"
-    );
+  const slider=document.getElementById(id);
+  const resultado=document.getElementById(id+"Result");
 
-  if (!campo) return;
+  const valor=Number(slider.value);
 
-  if (valor < 35) {
-
-    campo.textContent =
-      "Mais próximo do primeiro lado";
-
-  } else if (valor > 65) {
-
-    campo.textContent =
-      "Mais próximo do segundo lado";
-
-  } else {
-
-    campo.textContent =
-      "Equilíbrio";
-
+  if(valor<35){
+    resultado.textContent=a;
   }
-
+  else if(valor>65){
+    resultado.textContent=b;
+  }
+  else{
+    resultado.textContent="Equilíbrio";
+  }
 }
 
+sliders.forEach(item=>{
 
-document
-  .querySelectorAll(".range")
-  .forEach(slider => {
+  const slider=document.getElementById(item[0]);
 
-    slider.addEventListener(
-      "input",
-      function() {
+  slider.addEventListener("input",()=>{
 
-        atualizarSlider(this);
-
-        salvar();
-
-      }
+    atualizarSlider(
+      item[0],
+      item[1],
+      item[2]
     );
 
-    atualizarSlider(slider);
+    salvar();
 
   });
 
+});
 
-/* =====================================================
-   SALVAR
-===================================================== */
 
-function salvar() {
+/* ================================
+   COLETAR DADOS
+================================ */
 
-  const dados = {
+function coletar(){
+
+  return {
 
     interesse:
       document.getElementById("interesse")?.value || "",
 
-    linguagemInteresse:
-      document.getElementById("linguagemInteresse")?.value || "",
+    linguagem:
+      document.getElementById("linguagem")?.value || "",
 
     ambiente:
       document.getElementById("ambiente")?.value || "",
 
-    areas:
-      [...document.querySelectorAll(
+    areas:[
+      ...document.querySelectorAll(
         'input[type="checkbox"]:checked'
-      )].map(item => item.value),
+      )
+    ].map(el=>el.value),
 
     necessidade:
       document.getElementById("necessidade")?.value || "",
@@ -1796,405 +1316,8 @@ function salvar() {
     inspiracao:
       document.getElementById("inspiracao")?.value || "",
 
-    possibilidade:
-      document.querySelector(
-        'input[name="possibilidade"]:checked'
-      )?.value || "",
-
-    resultado:
-      document.getElementById("resultado")?.value || "",
-
-    momento:
-      document.querySelector(
-        'input[name="momento"]:checked'
-      )?.value || "",
-
-    sliders: {
-
-      organico:
-        document.getElementById("organico")?.value || 50,
-
-      minimalista:
-        document.getElementById("minimalista")?.value || 50,
-
-      suave:
-        document.getElementById("suave")?.value || 50,
-
-      natural:
-        document.getElementById("natural")?.value || 50,
-
-      contemplativo:
-        document.getElementById("contemplativo")?.value || 50,
-
-      discreto:
-        document.getElementById("discreto")?.value || 50
-
-    }
-
-  };
-
-
-  localStorage.setItem(
-    "darteMarisDirecionamento",
-    JSON.stringify(dados)
-  );
-
-}
-
-
-/* =====================================================
-   CARREGAR RESPOSTAS
-===================================================== */
-
-function carregar() {
-
-  const salvo =
-    localStorage.getItem(
-      "darteMarisDirecionamento"
-    );
-
-  if (!salvo) return;
-
-  const dados =
-    JSON.parse(salvo);
-
-
-  [
-    "interesse",
-    "linguagemInteresse",
-    "ambiente",
-    "necessidade",
-    "inspiracao",
-    "resultado"
-  ].forEach(id => {
-
-    const campo =
-      document.getElementById(id);
-
-    if (campo && dados[id]) {
-      campo.value = dados[id];
-    }
-
-  });
-
-
-  if (dados.areas) {
-
-    document
-      .querySelectorAll(
-        'input[type="checkbox"]'
-      )
-      .forEach(item => {
-
-        item.checked =
-          dados.areas.includes(
-            item.value
-          );
-
-      });
-
-  }
-
-
-  if (dados.possibilidade) {
-
-    const radio =
-      document.querySelector(
-        `input[name="possibilidade"][value="${dados.possibilidade}"]`
-      );
-
-    if (radio) {
-      radio.checked = true;
-    }
-
-  }
-
-
-  if (dados.momento) {
-
-    const radio =
-      document.querySelector(
-        `input[name="momento"][value="${dados.momento}"]`
-      );
-
-    if (radio) {
-      radio.checked = true;
-    }
-
-  }
-
-
-  if (dados.sliders) {
-
-    Object.keys(
-      dados.sliders
-    ).forEach(id => {
-
-      const slider =
-        document.getElementById(id);
-
-      if (slider) {
-
-        slider.value =
-          dados.sliders[id];
-
-        atualizarSlider(slider);
-
-      }
-
-    });
-
-  }
-
-}
-
-
-/* =====================================================
-   SALVAMENTO AUTOMÁTICO
-===================================================== */
-
-document
-  .querySelectorAll(
-    "textarea, input"
-  )
-  .forEach(campo => {
-
-    campo.addEventListener(
-      "input",
-      salvar
-    );
-
-    campo.addEventListener(
-      "change",
-      salvar
-    );
-
-  });
-
-
-/* =====================================================
-   FINALIZAR
-===================================================== */
-
-function finalizar() {
-
-  salvar();
-
-  mostrarPagina(
-    paginas.length - 1
-  );
-
-}
-
-
-/* =====================================================
-   INTERPRETAR SLIDERS
-===================================================== */
-
-function interpretar(
-  valor,
-  primeiro,
-  segundo
-) {
-
-  valor = Number(valor);
-
-  if (valor < 35) {
-    return primeiro;
-  }
-
-  if (valor > 65) {
-    return segundo;
-  }
-
-  return "Equilíbrio entre " +
-    primeiro.toLowerCase() +
-    " e " +
-    segundo.toLowerCase();
-
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-function enviarWhatsApp() {
-
-  salvar();
-
-
-  const salvo =
-    localStorage.getItem(
-      "darteMarisDirecionamento"
-    );
-
-
-  if (!salvo) {
-
-    alert(
-      "Não foi possível encontrar suas respostas."
-    );
-
-    return;
-
-  }
-
-
-  const dados =
-    JSON.parse(salvo);
-
-
-  const numero =
-    "5535997003906";
-
-
-  const mensagem = `Olá, Giovanna!
-
-Acabei de preencher o Direcionamento Artístico da D’Arte Maris.
-
-━━━━━━━━━━━━━━━━━━
-
-O OLHAR
-
-O que fez você se interessar pelo meu trabalho?
-
-${dados.interesse || "Não informado."}
-
-
-Ao conhecer meu trabalho, o que mais chamou sua atenção na minha linguagem artística?
-
-${dados.linguagemInteresse || "Não informado."}
-
-
-━━━━━━━━━━━━━━━━━━
-
-O LUGAR
-
-Ambiente que imaginei para a intervenção:
-
-${dados.ambiente || "Não informado."}
-
-
-Áreas abertas para intervenção:
-
-${
-  dados.areas?.length
-    ? dados.areas.join(", ")
-    : "Não informado."
-}
-
-
-━━━━━━━━━━━━━━━━━━
-
-O PROPÓSITO
-
-Existe alguma necessidade que gostaria que a arte ajudasse a resolver, valorizar ou potencializar?
-
-${dados.necessidade || "Não informado."}
-
-
-Existe alguma história, elemento, memória ou característica do lugar que gostaria que inspirasse a obra?
-
-${dados.inspiracao || "Não informado."}
-
-
-━━━━━━━━━━━━━━━━━━
-
-A LINGUAGEM
-
-Orgânico / Geométrico:
-${interpretar(
-  dados.sliders.organico,
-  "Orgânico",
-  "Geométrico"
-)}
-
-Minimalista / Expressivo:
-${interpretar(
-  dados.sliders.minimalista,
-  "Minimalista",
-  "Expressivo"
-)}
-
-Suave / Contrastante:
-${interpretar(
-  dados.sliders.suave,
-  "Suave",
-  "Contrastante"
-)}
-
-Natural / Sofisticado:
-${interpretar(
-  dados.sliders.natural,
-  "Natural",
-  "Sofisticado"
-)}
-
-Contemplativo / Vibrante:
-${interpretar(
-  dados.sliders.contemplativo,
-  "Contemplativo",
-  "Vibrante"
-)}
-
-Discreto / Marcante:
-${interpretar(
-  dados.sliders.discreto,
-  "Discreto",
-  "Marcante"
-)}
-
-
-━━━━━━━━━━━━━━━━━━
-
-A POSSIBILIDADE
-
-${dados.possibilidade || "Não informado."}
-
-
-━━━━━━━━━━━━━━━━━━
-
-O RESULTADO
-
-Se essa intervenção fosse exatamente como imagino, gostaria que ela acrescentasse:
-
-${dados.resultado || "Não informado."}
-
-
-━━━━━━━━━━━━━━━━━━
-
-O MOMENTO
-
-${dados.momento || "Não informado."}
-
-
-━━━━━━━━━━━━━━━━━━
-
-Envio essas informações como ponto de partida para nossa conversa.`;
-
-
-  const url =
-    "https://wa.me/" +
-    numero +
-    "?text=" +
-    encodeURIComponent(mensagem);
-
-
-  window.location.href = url;
-
-}
-
-
-/* =====================================================
-   INICIALIZAÇÃO
-===================================================== */
-
-carregar();
-
-atualizarProgresso();
-
-</script>
-
-</body>
-</html>
+    organico:
+      document.getElementById("organico")?.value || 50,
+
+    minimalista:
+      document.getElementById("minimalista
