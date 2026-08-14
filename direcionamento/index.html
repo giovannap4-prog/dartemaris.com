@@ -1,1 +1,1684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#18352b">
 
+<title>D’Arte Maris — Direcionamento Artístico</title>
+
+<style>
+:root {
+  --verde: #1d352d;
+  --verde-claro: #365248;
+  --creme: #f5f1e8;
+  --papel: #fbfaf6;
+  --texto: #28342f;
+  --suave: #707872;
+  --linha: rgba(40, 52, 47, 0.16);
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--texto);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CABEÇALHO */
+
+.header {
+  padding: 24px 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--linha);
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 21px;
+  color: var(--verde);
+}
+
+.header-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+
+/* PROGRESSO */
+
+.progress-container {
+  width: min(900px, 88vw);
+  margin: 25px auto 0;
+}
+
+.progress-line {
+  height: 1px;
+  background: var(--linha);
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 0%;
+  background: var(--verde);
+  transition: width 0.5s ease;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-label {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+.progress-label.active {
+  color: var(--verde);
+}
+
+/* CONTEÚDO */
+
+main {
+  width: min(900px, 88vw);
+  margin: auto;
+  flex: 1;
+}
+
+.page {
+  display: none;
+  min-height: calc(100vh - 170px);
+  padding: 8vh 0 7vh;
+  animation: aparecer 0.45s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--suave);
+  margin-bottom: 20px;
+}
+
+h1,
+h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--verde);
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(45px, 8vw, 78px);
+  margin: 0 0 25px;
+}
+
+h2 {
+  font-size: clamp(34px, 5vw, 52px);
+  margin: 0 0 22px;
+}
+
+.intro {
+  max-width: 650px;
+  font-size: 17px;
+  color: #59635e;
+}
+
+.note {
+  max-width: 620px;
+  margin-top: 42px;
+  padding-top: 18px;
+  border-top: 1px solid var(--linha);
+  font-size: 13px;
+  color: var(--suave);
+}
+
+/* PERGUNTAS */
+
+.question {
+  margin-top: 45px;
+}
+
+.question-title {
+  font-family: var(--serif);
+  font-size: 25px;
+  color: var(--verde);
+  margin-bottom: 8px;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--suave);
+  margin-bottom: 15px;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--linha);
+  border-radius: 0;
+  padding: 13px 0;
+  outline: none;
+  color: var(--texto);
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+textarea:focus,
+input[type="text"]:focus {
+  border-color: var(--verde);
+}
+
+/* OPÇÕES */
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.option {
+  position: relative;
+}
+
+.option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.option label {
+  display: block;
+  border: 1px solid var(--linha);
+  padding: 15px;
+  font-size: 13px;
+  color: #59635e;
+  transition: 0.25s ease;
+}
+
+.option label:hover {
+  border-color: var(--verde);
+}
+
+.option input:checked + label {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: var(--papel);
+}
+
+/* SLIDERS */
+
+.slider {
+  margin: 32px 0 40px;
+}
+
+.slider-names {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--verde);
+}
+
+.range {
+  width: 100%;
+  margin-top: 18px;
+  appearance: none;
+  height: 2px;
+  background: var(--linha);
+  outline: none;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--verde);
+  border: 3px solid var(--creme);
+  box-shadow: 0 0 0 1px var(--verde);
+}
+
+.range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--verde);
+  border: 3px solid var(--creme);
+}
+
+.range-value {
+  text-align: center;
+  margin-top: 9px;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+
+/* BOTÕES */
+
+.actions {
+  margin-top: 55px;
+  padding-top: 22px;
+  border-top: 1px solid var(--linha);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  border: 0;
+  padding: 14px 22px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.primary {
+  background: var(--verde);
+  color: var(--papel);
+}
+
+.primary:hover {
+  background: var(--verde-claro);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--verde);
+  padding-left: 0;
+}
+
+/* RESUMO */
+
+.summary {
+  margin-top: 42px;
+  background: var(--papel);
+  padding: clamp(28px, 5vw, 60px);
+}
+
+.summary-block {
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.summary-block:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.summary-title {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--suave);
+  margin-bottom: 12px;
+}
+
+.summary-question {
+  font-size: 12px;
+  color: var(--suave);
+  margin-top: 15px;
+}
+
+.summary-answer {
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag {
+  padding: 7px 10px;
+  background: var(--creme);
+  font-size: 11px;
+}
+
+/* RODAPÉ */
+
+.footer {
+  padding: 30px 6vw;
+  border-top: 1px solid var(--linha);
+  text-align: center;
+  color: var(--suave);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .header {
+    padding: 20px 6vw;
+  }
+
+  .header-label {
+    display: none;
+  }
+
+  .progress-label:nth-child(even) {
+    display: none;
+  }
+
+  .page {
+    padding-top: 7vh;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .slider-names {
+    font-size: 17px;
+  }
+
+  .actions {
+    margin-top: 42px;
+  }
+}
+
+/* IMPRESSÃO */
+
+@media print {
+
+  body {
+    background: white;
+  }
+
+  .header,
+  .progress-container,
+  .actions,
+  .footer {
+    display: none !important;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .page {
+    display: none !important;
+  }
+
+  #summary-page {
+    display: block !important;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .summary {
+    padding: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+<header class="header">
+  <div class="logo">D’Arte Maris</div>
+  <div class="header-label">Direcionamento Artístico</div>
+</header>
+
+<div class="progress-container">
+  <div class="progress-line">
+    <div class="progress-fill" id="progress"></div>
+  </div>
+
+  <div class="progress-labels">
+    <span class="progress-label">Início</span>
+    <span class="progress-label">Olhar</span>
+    <span class="progress-label">Lugar</span>
+    <span class="progress-label">Propósito</span>
+    <span class="progress-label">Linguagem</span>
+    <span class="progress-label">Possibilidade</span>
+    <span class="progress-label">Resultado</span>
+    <span class="progress-label">Momento</span>
+  </div>
+</div>
+
+<main>
+
+<!-- INÍCIO -->
+
+<section class="page active">
+
+  <div class="eyebrow">Antes da nossa conversa</div>
+
+  <h1>
+    Direcionamento<br>
+    Artístico
+  </h1>
+
+  <p class="intro">
+    Gostaria de conhecer um pouco melhor a sua necessidade,
+    entender o que despertou seu interesse pelo meu trabalho
+    e explorar as possibilidades para uma futura intervenção artística.
+  </p>
+
+  <p class="note">
+    Este breve direcionamento não é um orçamento.
+    Ele é o primeiro passo para que nossa conversa seja mais precisa
+    e para que eu possa compreender o lugar antes de pensar em uma proposta.
+  </p>
+
+  <div class="actions">
+    <span>Início</span>
+    <button class="button primary" onclick="next()">Começar</button>
+  </div>
+
+</section>
+
+
+<!-- OLHAR -->
+
+<section class="page">
+
+  <div class="eyebrow">01 — O olhar</div>
+
+  <h2>
+    Primeiro, quero conhecer o seu olhar.
+  </h2>
+
+  <div class="question">
+
+    <div class="question-title">
+      O que fez você se interessar pelo meu trabalho?
+    </div>
+
+    <textarea
+      id="interesse"
+      placeholder="Conte um pouco..."
+    ></textarea>
+
+  </div>
+
+  <div class="question">
+
+    <div class="question-title">
+      Ao conhecer meu trabalho, o que mais chamou sua atenção na minha linguagem artística?
+    </div>
+
+    <textarea
+      id="linguagemInteresse"
+      placeholder="Pode ser uma técnica, uma sensação, uma forma de trabalhar..."
+    ></textarea>
+
+  </div>
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="next()">
+      Continuar
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- LUGAR -->
+
+<section class="page">
+
+  <div class="eyebrow">02 — O lugar</div>
+
+  <h2>
+    Agora, vamos falar sobre o lugar.
+  </h2>
+
+  <div class="question">
+
+    <div class="question-title">
+      Existe algum ambiente ou área que você já imaginou para uma intervenção artística?
+    </div>
+
+    <input
+      type="text"
+      id="ambiente"
+      placeholder="Ex.: recepção, suíte, jardim..."
+    >
+
+  </div>
+
+
+  <div class="question">
+
+    <div class="question-title">
+      Quais áreas você considera abertas para uma intervenção artística?
+    </div>
+
+    <div class="hint">
+      Você pode selecionar mais de uma.
+    </div>
+
+    <div class="options">
+
+      <div class="option">
+        <input type="checkbox" id="recepcao" value="Recepção">
+        <label for="recepcao">Recepção</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="externa" value="Área externa">
+        <label for="externa">Área externa</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="jardim" value="Jardim">
+        <label for="jardim">Jardim</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="cafe" value="Café / Restaurante">
+        <label for="cafe">Café / Restaurante</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="quartos" value="Quartos ou suítes">
+        <label for="quartos">Quartos ou suítes</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="convivencia" value="Área de convivência">
+        <label for="convivencia">Área de convivência</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="outro" value="Outro">
+        <label for="outro">Outro</label>
+      </div>
+
+      <div class="option">
+        <input type="checkbox" id="naoDefini" value="Ainda não defini">
+        <label for="naoDefini">Ainda não defini</label>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="next()">
+      Continuar
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- PROPÓSITO -->
+
+<section class="page">
+
+  <div class="eyebrow">03 — O propósito</div>
+
+  <h2>
+    O que a arte precisa encontrar aqui?
+  </h2>
+
+  <div class="question">
+
+    <div class="question-title">
+      Existe alguma necessidade que você gostaria que a arte ajudasse a resolver, valorizar ou potencializar?
+    </div>
+
+    <textarea
+      id="necessidade"
+      placeholder="Pode ser algo funcional, estético ou relacionado à experiência..."
+    ></textarea>
+
+  </div>
+
+
+  <div class="question">
+
+    <div class="question-title">
+      Existe alguma história, elemento, memória ou característica do lugar que você gostaria que inspirasse a criação da obra?
+    </div>
+
+    <textarea
+      id="inspiracao"
+      placeholder="Conte o que fizer sentido para você..."
+    ></textarea>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="next()">
+      Continuar
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- LINGUAGEM -->
+
+<section class="page">
+
+  <div class="eyebrow">04 — A linguagem</div>
+
+  <h2>
+    Encontrando a linguagem.
+  </h2>
+
+  <p class="intro">
+    Não existem respostas certas.
+    Posicione cada eixo onde você sente que a obra poderia se aproximar.
+  </p>
+
+
+  <div class="slider">
+
+    <div class="slider-names">
+      <span>Orgânico</span>
+      <span>Geométrico</span>
+    </div>
+
+    <input
+      class="range"
+      type="range"
+      id="organico"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <div class="range-value" id="organicoValue">
+      Equilíbrio
+    </div>
+
+  </div>
+
+
+  <div class="slider">
+
+    <div class="slider-names">
+      <span>Minimalista</span>
+      <span>Expressivo</span>
+    </div>
+
+    <input
+      class="range"
+      type="range"
+      id="minimalista"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <div class="range-value" id="minimalistaValue">
+      Equilíbrio
+    </div>
+
+  </div>
+
+
+  <div class="slider">
+
+    <div class="slider-names">
+      <span>Suave</span>
+      <span>Contrastante</span>
+    </div>
+
+    <input
+      class="range"
+      type="range"
+      id="suave"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <div class="range-value" id="suaveValue">
+      Equilíbrio
+    </div>
+
+  </div>
+
+
+  <div class="slider">
+
+    <div class="slider-names">
+      <span>Natural</span>
+      <span>Sofisticado</span>
+    </div>
+
+    <input
+      class="range"
+      type="range"
+      id="natural"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <div class="range-value" id="naturalValue">
+      Equilíbrio
+    </div>
+
+  </div>
+
+
+  <div class="slider">
+
+    <div class="slider-names">
+      <span>Contemplativo</span>
+      <span>Vibrante</span>
+    </div>
+
+    <input
+      class="range"
+      type="range"
+      id="contemplativo"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <div class="range-value" id="contemplativoValue">
+      Equilíbrio
+    </div>
+
+  </div>
+
+
+  <div class="slider">
+
+    <div class="slider-names">
+      <span>Discreto</span>
+      <span>Marcante</span>
+    </div>
+
+    <input
+      class="range"
+      type="range"
+      id="discreto"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <div class="range-value" id="discretoValue">
+      Equilíbrio
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="next()">
+      Continuar
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- POSSIBILIDADE -->
+
+<section class="page">
+
+  <div class="eyebrow">05 — A possibilidade</div>
+
+  <h2>
+    O que você imaginou até aqui?
+  </h2>
+
+  <div class="question">
+
+    <div class="question-title">
+      Quando conheceu meu trabalho, qual possibilidade veio primeiro à sua mente?
+    </div>
+
+    <div class="hint">
+      Escolha uma opção.
+    </div>
+
+    <div class="options">
+
+      <div class="option">
+        <input
+          type="radio"
+          name="possibilidade"
+          id="mural"
+          value="Pintura mural autoral"
+        >
+        <label for="mural">
+          Pintura mural autoral
+        </label>
+      </div>
+
+      <div class="option">
+        <input
+          type="radio"
+          name="possibilidade"
+          id="macrame"
+          value="Macramê sob medida"
+        >
+        <label for="macrame">
+          Macramê sob medida
+        </label>
+      </div>
+
+      <div class="option">
+        <input
+          type="radio"
+          name="possibilidade"
+          id="integracao"
+          value="Integração entre mural e macramê"
+        >
+        <label for="integracao">
+          Integração entre mural e macramê
+        </label>
+      </div>
+
+      <div class="option">
+        <input
+          type="radio"
+          name="possibilidade"
+          id="aberto"
+          value="Ainda estou aberto às possibilidades"
+        >
+        <label for="aberto">
+          Ainda estou aberto às possibilidades
+        </label>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="next()">
+      Continuar
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- RESULTADO -->
+
+<section class="page">
+
+  <div class="eyebrow">06 — O resultado</div>
+
+  <h2>
+    O que você gostaria que permanecesse?
+  </h2>
+
+  <div class="question">
+
+    <div class="question-title">
+      Se essa intervenção fosse exatamente como você imagina, o que ela acrescentaria à experiência de quem vive ou visita esse lugar?
+    </div>
+
+    <textarea
+      id="resultado"
+      placeholder="O que você gostaria que as pessoas sentissem, percebessem ou levassem consigo?"
+    ></textarea>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="next()">
+      Continuar
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- MOMENTO -->
+
+<section class="page">
+
+  <div class="eyebrow">07 — O momento</div>
+
+  <h2>
+    Quando essa ideia poderia acontecer?
+  </h2>
+
+  <div class="question">
+
+    <div class="question-title">
+      Em que momento essa ideia está?
+    </div>
+
+    <div class="hint">
+      Escolha a alternativa que melhor representa o momento atual.
+    </div>
+
+    <div class="options">
+
+      <div class="option">
+        <input
+          type="radio"
+          name="momento"
+          id="agora"
+          value="Gostaria de realizar agora."
+        >
+        <label for="agora">
+          Gostaria de realizar agora.
+        </label>
+      </div>
+
+      <div class="option">
+        <input
+          type="radio"
+          name="momento"
+          id="meses"
+          value="Pretendo desenvolver nos próximos meses."
+        >
+        <label for="meses">
+          Pretendo desenvolver nos próximos meses.
+        </label>
+      </div>
+
+      <div class="option">
+        <input
+          type="radio"
+          name="momento"
+          id="futuro"
+          value="Estou conhecendo possibilidades para o futuro."
+        >
+        <label for="futuro">
+          Estou conhecendo possibilidades para o futuro.
+        </label>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="button secondary" onclick="prev()">
+      Voltar
+    </button>
+
+    <button class="button primary" onclick="gerarResumo()">
+      Concluir
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- RESUMO -->
+
+<section class="page" id="summary-page">
+
+  <div class="eyebrow">Encerramento</div>
+
+  <h2>
+    Obrigada por compartilhar.
+  </h2>
+
+  <p class="intro">
+    Essas respostas serão utilizadas como ponto de partida para nossa conversa.
+    Elas me ajudam a compreender melhor o lugar, suas intenções e as possibilidades
+    de uma direção artística coerente com o projeto.
+  </p>
+
+  <div class="summary" id="resumo"></div>
+
+  <div class="actions">
+
+    <button
+      class="button secondary"
+      onclick="irPara(1)"
+    >
+      Voltar e editar
+    </button>
+
+    <button
+      class="button primary"
+      onclick="window.print()"
+    >
+      Imprimir / Salvar em PDF
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+  D’Arte Maris — Processo de Descoberta Artística
+</footer>
+
+</div>
+
+
+<script>
+
+let paginaAtual = 0;
+
+const paginas = document.querySelectorAll(".page");
+
+const progress = document.getElementById("progress");
+
+const labels = document.querySelectorAll(".progress-label");
+
+
+function salvar() {
+
+  const dados = {
+
+    interesse: document.getElementById("interesse")?.value || "",
+
+    linguagemInteresse:
+      document.getElementById("linguagemInteresse")?.value || "",
+
+    ambiente:
+      document.getElementById("ambiente")?.value || "",
+
+    necessidade:
+      document.getElementById("necessidade")?.value || "",
+
+    inspiracao:
+      document.getElementById("inspiracao")?.value || "",
+
+    resultado:
+      document.getElementById("resultado")?.value || "",
+
+    possibilidade:
+      document.querySelector(
+        'input[name="possibilidade"]:checked'
+      )?.value || "",
+
+    momento:
+      document.querySelector(
+        'input[name="momento"]:checked'
+      )?.value || "",
+
+    areas:
+      [...document.querySelectorAll(
+        '.options input[type="checkbox"]:checked'
+      )].map(item => item.value),
+
+    sliders: {
+
+      organico:
+        document.getElementById("organico")?.value || 50,
+
+      minimalista:
+        document.getElementById("minimalista")?.value || 50,
+
+      suave:
+        document.getElementById("suave")?.value || 50,
+
+      natural:
+        document.getElementById("natural")?.value || 50,
+
+      contemplativo:
+        document.getElementById("contemplativo")?.value || 50,
+
+      discreto:
+        document.getElementById("discreto")?.value || 50
+
+    }
+
+  };
+
+  localStorage.setItem(
+    "darteMarisDirecionamento",
+    JSON.stringify(dados)
+  );
+
+}
+
+
+function carregar() {
+
+  const salvo =
+    localStorage.getItem("darteMarisDirecionamento");
+
+  if (!salvo) return;
+
+  const dados = JSON.parse(salvo);
+
+  const campos = [
+    "interesse",
+    "linguagemInteresse",
+    "ambiente",
+    "necessidade",
+    "inspiracao",
+    "resultado"
+  ];
+
+  campos.forEach(id => {
+
+    const campo = document.getElementById(id);
+
+    if (campo && dados[id]) {
+      campo.value = dados[id];
+    }
+
+  });
+
+
+  if (dados.areas) {
+
+    document
+      .querySelectorAll('.options input[type="checkbox"]')
+      .forEach(item => {
+
+        item.checked =
+          dados.areas.includes(item.value);
+
+      });
+
+  }
+
+
+  if (dados.possibilidade) {
+
+    const item =
+      document.querySelector(
+        `input[name="possibilidade"][value="${dados.possibilidade}"]`
+      );
+
+    if (item) item.checked = true;
+
+  }
+
+
+  if (dados.momento) {
+
+    const item =
+      document.querySelector(
+        `input[name="momento"][value="${dados.momento}"]`
+      );
+
+    if (item) item.checked = true;
+
+  }
+
+
+  if (dados.sliders) {
+
+    Object.keys(dados.sliders).forEach(id => {
+
+      const slider =
+        document.getElementById(id);
+
+      if (slider) {
+
+        slider.value =
+          dados.sliders[id];
+
+        atualizarSlider(slider);
+
+      }
+
+    });
+
+  }
+
+}
+
+
+function atualizarSlider(slider) {
+
+  const valor = Number(slider.value);
+
+  const id = slider.id;
+
+  const campo =
+    document.getElementById(id + "Value");
+
+  if (!campo) return;
+
+  if (valor < 35) {
+
+    campo.textContent =
+      "Predominância do primeiro lado";
+
+  } else if (valor > 65) {
+
+    campo.textContent =
+      "Predominância do segundo lado";
+
+  } else {
+
+    campo.textContent =
+      "Equilíbrio";
+
+  }
+
+}
+
+
+document
+  .querySelectorAll("textarea, input")
+  .forEach(campo => {
+
+    campo.addEventListener("input", salvar);
+
+    campo.addEventListener("change", salvar);
+
+  });
+
+
+document
+  .querySelectorAll(".range")
+  .forEach(slider => {
+
+    slider.addEventListener(
+      "input",
+      function() {
+
+        atualizarSlider(this);
+
+        salvar();
+
+      }
+    );
+
+    atualizarSlider(slider);
+
+  });
+
+
+function atualizarProgresso() {
+
+  const total = paginas.length - 1;
+
+  const porcentagem =
+    (paginaAtual / total) * 100;
+
+  progress.style.width =
+    porcentagem + "%";
+
+
+  labels.forEach((label, index) => {
+
+    label.classList.toggle(
+      "active",
+      index <= paginaAtual
+    );
+
+  });
+
+}
+
+
+function mostrarPagina(numero) {
+
+  paginas.forEach(pagina => {
+
+    pagina.classList.remove("active");
+
+  });
+
+  paginas[numero].classList.add("active");
+
+  paginaAtual = numero;
+
+  atualizarProgresso();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function next() {
+
+  salvar();
+
+  if (paginaAtual < paginas.length - 1) {
+
+    mostrarPagina(
+      paginaAtual + 1
+    );
+
+  }
+
+}
+
+
+function prev() {
+
+  if (paginaAtual > 0) {
+
+    mostrarPagina(
+      paginaAtual - 1
+    );
+
+  }
+
+}
+
+
+function irPara(numero) {
+
+  mostrarPagina(numero);
+
+}
+
+
+function escapeHTML(texto) {
+
+  return String(texto)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+function bloco(titulo, pergunta, resposta) {
+
+  if (!resposta) {
+    resposta = "Não informado.";
+  }
+
+  return `
+
+    <div class="summary-block">
+
+      <div class="summary-title">
+        ${titulo}
+      </div>
+
+      <div class="summary-question">
+        ${pergunta}
+      </div>
+
+      <div class="summary-answer">
+        ${escapeHTML(resposta)}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function gerarResumo() {
+
+  salvar();
+
+  const dados =
+    JSON.parse(
+      localStorage.getItem(
+        "darteMarisDirecionamento"
+      )
+    );
+
+
+  let html = "";
+
+
+  html += bloco(
+    "O olhar",
+    "O que fez você se interessar pelo meu trabalho?",
+    dados.interesse
+  );
+
+
+  html += bloco(
+    "O olhar",
+    "O que mais chamou atenção na minha linguagem artística?",
+    dados.linguagemInteresse
+  );
+
+
+  html += bloco(
+    "O lugar",
+    "Ambiente imaginado",
+    dados.ambiente
+  );
+
+
+  html += bloco(
+    "O lugar",
+    "Áreas abertas à intervenção",
+    dados.areas?.length
+      ? dados.areas.join(", ")
+      : "Não informado."
+  );
+
+
+  html += bloco(
+    "O propósito",
+    "Necessidade ou oportunidade",
+    dados.necessidade
+  );
+
+
+  html += bloco(
+    "O propósito",
+    "História, elemento ou memória inspiradora",
+    dados.inspiracao
+  );
+
+
+  const linguagem = `
+
+    <div class="summary-block">
+
+      <div class="summary-title">
+        Linguagem
+      </div>
+
+      <div class="tags">
+
+        <span class="tag">
+          ${interpretar("Organico", dados.sliders.organico, "Orgânico", "Geométrico")}
+        </span>
+
+        <span class="tag">
+          ${interpretar("Minimalista", dados.sliders.minimalista, "Minimalista", "Expressivo")}
+        </span>
+
+        <span class="tag">
+          ${interpretar("Suave", dados.sliders.suave, "Suave", "Contrastante")}
+        </span>
+
+        <span class="tag">
+          ${interpretar("Natural", dados.sliders.natural, "Natural", "Sofisticado")}
+        </span>
+
+        <span class="tag">
+          ${interpretar("Contemplativo", dados.sliders.contemplativo, "Contemplativo", "Vibrante")}
+        </span>
+
+        <span class="tag">
+          ${interpretar("Discreto", dados.sliders.discreto, "Discreto", "Marcante")}
+        </span>
+
+      </div>
+
+    </div>
+
+  `;
+
+  html += linguagem;
+
+
+  html += bloco(
+    "Possibilidade",
+    "Primeira possibilidade imaginada",
+    dados.possibilidade
+  );
+
+
+  html += bloco(
+    "Resultado esperado",
+    "O que a intervenção deve acrescentar",
+    dados.resultado
+  );
+
+
+  html += bloco(
+    "Momento do projeto",
+    "Momento atual",
+    dados.momento
+  );
+
+
+  document.getElementById("resumo").innerHTML =
+    html;
+
+
+  mostrarPagina(
+    paginas.length - 1
+  );
+
+}
+
+
+function interpretar(nome, valor, primeiro, segundo) {
+
+  valor = Number(valor);
+
+  if (valor < 35) {
+    return primeiro;
+  }
+
+  if (valor > 65) {
+    return segundo;
+  }
+
+  return "Equilíbrio entre " +
+    primeiro.toLowerCase() +
+    " e " +
+    segundo.toLowerCase();
+
+}
+
+
+carregar();
+
+atualizarProgresso();
+
+</script>
+
+</body>
+</html>
