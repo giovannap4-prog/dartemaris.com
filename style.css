@@ -603,7 +603,7 @@ footer {
 
 .section-divider {
   width: 100%;
-  margin: 70px 0;
+  margin: 25px 0;
   overflow: hidden;
 }
 
@@ -629,4 +629,10 @@ footer {
 
 .maris-knots ellipse {
   fill: #b85e43;
+}
+
+.section-divider + .section {
+
+  padding-top: 45px;
+
 }
