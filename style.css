@@ -193,7 +193,7 @@ footer {
 @media (max-width: 600px) {
   .topbar { padding: 0.9rem 5vw; }
   .topbar .brand { font-size: 0.95rem; }
-  .topbar .btn { display: none; }
+
   .wrap { width: 90vw; }
   .section { padding: 4.2rem 0; }
   .hero { padding-top: 6.5rem; }
