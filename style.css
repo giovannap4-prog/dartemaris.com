@@ -188,8 +188,8 @@ footer {
   .hero-cta { align-items: flex-start; flex-direction: column; }
   .hero-image { aspect-ratio: 4 / 5; }
   .service { padding: 2.5rem 1.7rem; }
-  .mural-gallery, .macrame-gallery { grid-template-columns: 1fr; gap: 0.8rem; }
-  .portfolio-item { grid-column: span 1; aspect-ratio: 4 / 5; }
+  .mural-gallery, .macrame-gallery { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .portfolio-item { grid-column: span 1; aspect-ratio: 1 / 1; }
   .portfolio-category { margin-top: 4rem; }
   .macrame-category { margin-top: 6rem; }
   .category-title h3 { font-size: 1.8rem; }
