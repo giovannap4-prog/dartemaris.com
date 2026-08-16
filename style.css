@@ -161,15 +161,23 @@ footer {
 .testimonial cite { display: block; margin-top: 1.3rem; font-family: 'Space Mono', monospace; font-size: 0.72rem; font-style: normal; letter-spacing: 0.02em; color: var(--rope); }
 @media (min-width: 760px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
 .whatsapp-fab {
-  position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 60;
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.8rem 1.1rem; border-radius: 100px;
-  background: var(--clay); color: var(--paper);
-  font-family: 'Space Mono', monospace; font-size: 0.65rem;
-  letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--clay);
+  color: var(--paper);
+  text-decoration: none;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   transition: transform 0.25s ease, background 0.25s ease;
 }
+
 .whatsapp-fab:hover { transform: translateY(-2px); background: var(--clay-dark); }
 .reveal { opacity: 1; transform: none; }
 @media (max-width: 860px) {
